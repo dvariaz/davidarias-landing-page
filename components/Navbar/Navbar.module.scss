@@ -1,0 +1,74 @@
+@import "~@settings/include-media.scss";
+
+@value navbar_height: 4em;
+
+.bar {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: navbar_height;
+
+    position: fixed;
+    z-index: 100;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+
+    @include media(">widescreen") {
+        max-width: 1600px;
+    }
+}
+
+.brand {
+    composes: main_text from "~@settings/fonts.module.scss";
+    display: flex;
+    align-items: center;
+
+    width: auto;
+    height: navbar_height;
+
+    position: absolute;
+    left: 0px;
+
+    text-decoration: none;
+
+    span {
+        white-space: nowrap;
+    }
+}
+
+.logo_image {
+    height: 100%;
+    box-sizing: border-box;
+    object-fit: contain;
+    padding: 0.8em 0.6em;
+}
+
+.logo_text {
+    display: block;
+    font-size: 1rem;
+}
+
+.sections {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+
+    @include media("<=desktop") {
+        display: none;
+    }
+}
+
+.link {
+    composes: navigation_text from "~@settings/fonts.module.scss";
+    padding: 0 1em;
+    text-align: center;
+    width: 180px;
+    line-height: navbar_height;
+}

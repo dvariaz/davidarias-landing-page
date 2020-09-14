@@ -1,0 +1,30 @@
+@import "~@settings/include-media";
+
+html,
+body,
+main {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+html,
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+html {
+    font-size: 1em;
+}
+
+main {
+    margin: 0;
+    overflow: hidden;
+}
+
+ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

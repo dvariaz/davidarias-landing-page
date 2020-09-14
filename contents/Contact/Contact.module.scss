@@ -1,0 +1,11 @@
+@import "~@settings/include-media.scss";
+
+.body {
+    composes: section from "~@settings/layout.module.scss";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #03050c;
+    padding: 1.5em;
+}

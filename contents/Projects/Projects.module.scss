@@ -1,0 +1,36 @@
+@import "~@settings/include-media.scss";
+
+.body {
+    composes: section from "~@settings/layout.module.scss";
+
+    display: grid;
+    background: #03050c;
+    padding: 1.5em;
+}
+
+.title {
+    composes: main_text from "~@settings/fonts.module.scss";
+    font-size: 1.5em;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-gap: 1em;
+}
+
+.project {
+    width: 100%;
+    height: 200px;
+
+    overflow: hidden;
+
+    border-radius: 1em;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

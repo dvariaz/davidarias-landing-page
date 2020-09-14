@@ -1,0 +1,56 @@
+@import "~@settings/include-media";
+
+.body {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 15px auto;
+    font-size: 1em;
+}
+
+.square {
+    width: 12em;
+    height: auto;
+    z-index: 10;
+
+    @include media(">desktop") {
+        width: 15em;
+        height: auto;
+    }
+
+    @include media(">widescreen") {
+        width: 20em;
+    }
+}
+
+.picture {
+    position: absolute;
+    text-align: center;
+    bottom: 0.05em;
+    z-index: 20;
+
+    @include media(">desktop") {
+        bottom: 0.2em;
+    }
+
+    @include media(">widescreen") {
+        bottom: 0.35em;
+    }
+}
+
+.picture img {
+    width: 12em;
+
+    @include media(">desktop") {
+        width: 15em;
+    }
+
+    @include media(">widescreen") {
+        width: 20em;
+    }
+}
