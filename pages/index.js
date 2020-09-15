@@ -10,7 +10,7 @@ import Skills from "@contents/Skills";
 import Studies from "@contents/Studies";
 import Contact from "@contents/Contact";
 
-export default function Index({ projects }) {
+export default function Index({ projects, stories }) {
     return (
         <div>
             <Head>
@@ -30,7 +30,7 @@ export default function Index({ projects }) {
                     ]}
                 />
                 <Home />
-                <AboutMe />
+                <AboutMe stories={stories} />
                 <Projects projects={projects} />
                 <Skills />
                 <Studies />
@@ -41,10 +41,13 @@ export default function Index({ projects }) {
 }
 
 export async function getStaticProps(context) {
-    const res = await fetch("http://localhost:3000/api/projects");
-    const data = await res.json();
+    const projectsResponse = await fetch("http://localhost:3000/api/projects");
+    const projectsData = await projectsResponse.json();
+
+    const storiesResponse = await fetch("http://localhost:3000/api/stories");
+    const storiesData = await storiesResponse.json();
 
     return {
-        props: { projects: data.projects }, // will be passed to the page component as props
+        props: { projects: projectsData.projects, stories: storiesData.stories }, // will be passed to the page component as props
     };
 }

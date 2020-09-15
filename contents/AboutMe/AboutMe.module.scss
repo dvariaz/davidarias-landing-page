@@ -16,8 +16,9 @@
 
     text-align: center;
 
-    padding: 1.5em;
+    padding: 1.5em 0;
 
+    width: 100%;
     max-width: 800px;
 }
 
@@ -27,6 +28,10 @@
 
 .description {
     composes: description_text from "~@settings/fonts.module.scss";
+    font-size: 0.9em;
+
+    width: 100%;
+    overflow: hidden;
 }
 
 .background {

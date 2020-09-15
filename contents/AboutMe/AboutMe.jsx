@@ -1,43 +1,43 @@
-import React from "react";
+import { useState } from "react";
 
 import styles from "./AboutMe.module.scss";
+import DotCarousel from "./components/DotCarousel";
 
-const AboutMe = () => {
+const AboutMe = ({ stories }) => {
+    const [background, setBackground] = useState(0);
+
+    const handlePageChange = (value) => {
+        setBackground(value);
+    };
+
+    console.log(stories);
+
+    const renderBackground = (index) => (
+        <>
+            <picture>
+                <source media="(min-width: 1921px)" srcSet={stories[index].background.urls.large} />
+                <source
+                    media="(min-width: 1024px)"
+                    srcSet={stories[index].background.urls.medium}
+                />
+                <source srcSet={stories[index].background.urls.small} />
+                <img
+                    src={stories[index].background.urls.medium}
+                    alt={stories[index].background.name}
+                />
+            </picture>
+        </>
+    );
+
     return (
         <section className={styles.body}>
             <div className={styles.content}>
                 <h1 className={styles.title}>Sobre mi</h1>
                 <div className={styles.description}>
-                    <p>
-                        Me llamo Luis David Arias Manjarrez, nací en Cartago Valle, el sol más
-                        alegre de Colombia... en serio, el más alegre.
-                    </p>
-                    <p>
-                        Desde pequeño, siempre me apasionó crear cosas y hacer que se vieran bien, y
-                        desde entonces llevo 11 años estudiando de forma autodidacta todo lo
-                        relacionado con el arte digital, encontrando mis más grandes pasiones en la
-                        fotografía, la animación 3D, los efectos visuales y las interfaces de
-                        usuario.
-                    </p>
+                    <DotCarousel items={stories} onPageChange={handlePageChange} />
                 </div>
             </div>
-            <div className={styles.background}>
-                <picture>
-                    <source
-                        media="(min-width: 1921px)"
-                        srcSet="/assets/backgrounds/catedral_background_large.png"
-                    />
-                    <source
-                        media="(min-width: 1024px)"
-                        srcSet="/assets/backgrounds/catedral_background_medium.png"
-                    />
-                    <source srcSet="/assets/backgrounds/catedral_background_small.png" />
-                    <img
-                        src="/assets/backgrounds/catedral_background_medium.png"
-                        alt="Catedral de Cartago"
-                    />
-                </picture>
-            </div>
+            <div className={styles.background}>{renderBackground(background)}</div>
         </section>
     );
 };

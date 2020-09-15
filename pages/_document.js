@@ -86,7 +86,7 @@ class MyDocument extends Document {
                     />
 
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
                         rel="stylesheet"
                     />
                     <link rel="manifest" href="/manifest.json" />
