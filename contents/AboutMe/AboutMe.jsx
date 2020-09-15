@@ -10,8 +10,6 @@ const AboutMe = ({ stories }) => {
         setBackground(value);
     };
 
-    console.log(stories);
-
     const renderBackground = (index) => (
         <>
             <picture>
