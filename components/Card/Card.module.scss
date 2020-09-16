@@ -11,7 +11,9 @@
     color: white;
 
     padding: 1.2em;
-    margin: 0 auto 30px;
+    margin: 15px auto;
+
+    position: relative;
 
     font-size: 0.9em;
 
@@ -40,9 +42,12 @@
 }
 
 .subtitle {
+    position: relative;
     composes: light_text from "~@settings/fonts.module.scss";
     font-size: 1em;
     text-align: center;
+
+    padding: 0 3em;
 }
 
 .items {
@@ -86,4 +91,26 @@
 
 .profile {
     grid-area: profile;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.timeData {
+    font-size: 0.9em;
+    text-transform: initial;
+
+    span {
+        text-align: center;
+        display: block;
+        margin: 1em 0;
+    }
 }

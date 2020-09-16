@@ -12,7 +12,7 @@ import Contact from "@contents/Contact";
 
 //TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
 
-export default function Index({ projects, stories }) {
+export default function Index({ projects, stories, studies }) {
     return (
         <div>
             <Head>
@@ -35,7 +35,7 @@ export default function Index({ projects, stories }) {
                 <AboutMe stories={stories} />
                 <Projects projects={projects} />
                 <Skills />
-                <Studies />
+                <Studies studies={studies} />
                 <Contact />
             </main>
         </div>
@@ -49,7 +49,14 @@ export async function getStaticProps(context) {
     const storiesResponse = await fetch("http://localhost:3000/api/stories");
     const storiesData = await storiesResponse.json();
 
+    const studiesResponse = await fetch("http://localhost:3000/api/studies");
+    const studiesData = await studiesResponse.json();
+
     return {
-        props: { projects: projectsData.projects, stories: storiesData.stories }, // will be passed to the page component as props
+        props: {
+            projects: projectsData.projects,
+            stories: storiesData.stories,
+            studies: studiesData.studies,
+        }, // will be passed to the page component as props
     };
 }

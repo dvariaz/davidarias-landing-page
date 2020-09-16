@@ -10,7 +10,8 @@ const Skills = () => {
                 <div className={styles.grid}>
                     <div className={styles.column}>
                         <Card
-                            name="Luis David Arias Manjarrez"
+                            type="skill"
+                            subtitle="Luis David Arias Manjarrez"
                             profile={{
                                 large: "/assets/photos/square_photo_large.jpg",
                                 medium: "/assets/photos/square_photo_medium.jpg",
@@ -26,6 +27,7 @@ const Skills = () => {
                     </div>
                     <div className={styles.column}>
                         <Card
+                            type="skill"
                             title="Front-end Skills"
                             items={[
                                 { prefix: "/assets/icons/react_icon.svg", name: "React" },
@@ -37,6 +39,7 @@ const Skills = () => {
                             ]}
                         />
                         <Card
+                            type="skill"
                             title="Back-end Skills"
                             items={[
                                 { prefix: "/assets/icons/nodejs_icon.svg", name: "Node.js" },
@@ -46,6 +49,7 @@ const Skills = () => {
                     </div>
                     <div className={styles.column}>
                         <Card
+                            type="skill"
                             title="Design Skills"
                             items={[
                                 { prefix: "/assets/icons/photoshop_icon.svg", name: "Photoshop" },
@@ -62,6 +66,7 @@ const Skills = () => {
                             ]}
                         />
                         <Card
+                            type="skill"
                             title="3D Skills"
                             items={[
                                 { prefix: "/assets/icons/nodejs_icon.svg", name: "Autodesk Maya" },
