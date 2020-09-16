@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
 
-    background-color: rgba(255, 255, 255, 0.01);
+    background-color: rgba(255, 255, 255, 0.02);
     border-radius: 1.5em;
     color: white;
 
@@ -42,6 +42,7 @@
 .subtitle {
     composes: light_text from "~@settings/fonts.module.scss";
     font-size: 1em;
+    text-align: center;
 }
 
 .items {

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import styles from "./Card.module.scss";
 
+import ProgressBar from "@components/ProgressBar";
+
 const Card = ({ name, title, profile, items }) => {
     return (
         <div className={styles.body}>
@@ -27,7 +29,11 @@ const Card = ({ name, title, profile, items }) => {
                             <span>{item.name}</span>
                         </div>
 
-                        {item.value && <div>{item.value}</div>}
+                        {item.value && item.value.includes("%") ? (
+                            <ProgressBar value={item.value} />
+                        ) : (
+                            <span>{item.value}</span>
+                        )}
                     </li>
                 ))}
             </ul>

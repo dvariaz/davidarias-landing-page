@@ -17,10 +17,10 @@ const Skills = () => {
                             }}
                             items={[
                                 { name: "Inglés", value: "B1" },
-                                { name: "Observación", value: "---" },
-                                { name: "Comunicación", value: "---" },
-                                { name: "Creatividad", value: "---" },
-                                { name: "Liderazgo", value: "---" },
+                                { name: "Observación", value: "85%" },
+                                { name: "Comunicación", value: "60%" },
+                                { name: "Creatividad", value: "85%" },
+                                { name: "Liderazgo", value: "60%" },
                             ]}
                         />
                     </div>
@@ -38,7 +38,10 @@ const Skills = () => {
                         />
                         <Card
                             title="Back-end Skills"
-                            items={[{ prefix: "/assets/icons/nodejs_icon.svg", name: "Node.js" }]}
+                            items={[
+                                { prefix: "/assets/icons/nodejs_icon.svg", name: "Node.js" },
+                                { prefix: "/assets/icons/laravel_icon.svg", name: "Laravel" },
+                            ]}
                         />
                     </div>
                     <div className={styles.column}>
