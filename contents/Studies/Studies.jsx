@@ -4,8 +4,6 @@ import styles from "./Studies.module.scss";
 
 import Card from "@components/Card";
 
-//TODO: Hacer que se muestren los cursos de la plataforma activa
-
 const Studies = ({ studies }) => {
     const listRef = useRef();
     const [selectedInstitute, setSelectedInstitute] = useState(null);

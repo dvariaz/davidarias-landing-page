@@ -6,6 +6,8 @@
     margin-bottom: 1em;
 
     overflow: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 15vw;
 
     scroll-behavior: smooth;
 
@@ -22,6 +24,8 @@
 
     width: 100%;
     padding: 0 1.5em;
+
+    scroll-snap-align: center;
 }
 
 .navigationDots {
