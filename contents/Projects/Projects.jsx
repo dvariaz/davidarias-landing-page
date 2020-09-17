@@ -2,7 +2,7 @@ import styles from "./Projects.module.scss";
 
 const Projects = ({ projects }) => {
     return (
-        <div className={styles.body}>
+        <section className={styles.body}>
             <h1 className={styles.title}>Proyectos</h1>
             <div className={styles.grid}>
                 {projects.map((project) => (
@@ -11,7 +11,7 @@ const Projects = ({ projects }) => {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

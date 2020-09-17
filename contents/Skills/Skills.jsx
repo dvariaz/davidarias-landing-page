@@ -1,6 +1,3 @@
-import { useRef } from "react";
-import { useSwipeable, Swipeable } from "react-swipeable";
-
 import styles from "./Skills.module.scss";
 
 import Card from "@components/Card/Card";

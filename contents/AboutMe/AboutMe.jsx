@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import styles from "./AboutMe.module.scss";
 import DotCarousel from "./components/DotCarousel";
