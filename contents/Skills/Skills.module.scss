@@ -19,9 +19,9 @@
     width: 100%;
     height: 100%;
 
-    overflow: scroll;
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    scroll-padding: 15vw;
+    scroll-padding: 5vw;
 }
 
 .grid {
@@ -37,6 +37,7 @@
 
 .column {
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     padding: 0 15px;
