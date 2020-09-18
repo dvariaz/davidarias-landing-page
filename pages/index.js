@@ -13,6 +13,7 @@ import Contact from "@contents/Contact";
 //TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
 
 export default function Index({ projects, stories, studies }) {
+    //TODO: Añadir un overflow-hidden cuando un proyecto esté abierto para bloquear el scroll
     return (
         <div>
             <Head>

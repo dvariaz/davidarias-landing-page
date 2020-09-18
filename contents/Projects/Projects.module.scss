@@ -5,31 +5,36 @@
 
     display: grid;
     background: #03050c;
+
+    padding: 1.5em;
 }
 
 .title {
     composes: main_text from "~@settings/fonts.module.scss";
     font-size: 1.5em;
+    text-align: center;
 }
 
 .grid {
-    display: grid;
     width: 100%;
-    grid-template-columns: 100%;
-    grid-gap: 1em;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-.project {
-    width: 100%;
-    height: 200px;
+.modal {
+    background: rgba(0, 0, 0, 0.6);
 
-    overflow: hidden;
-
-    border-radius: 1em;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }

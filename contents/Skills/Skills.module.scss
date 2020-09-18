@@ -22,6 +22,11 @@
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-padding: 5vw;
+
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .grid {
