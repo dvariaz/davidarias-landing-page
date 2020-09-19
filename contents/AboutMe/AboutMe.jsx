@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import styles from "./AboutMe.module.scss";
 import DotCarousel from "./components/DotCarousel";
@@ -10,23 +11,45 @@ const AboutMe = ({ stories }) => {
         setBackground(value);
     };
 
+    const backgroundVariants = {
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 },
+    };
+
+    const backgroundTransition = {
+        type: "tween",
+        duration: 0.5,
+    };
+
     const renderBackground = (index) => (
-        <>
-            <picture>
+        <AnimatePresence exitBeforeEnter>
+            <motion.picture
+                key={background}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={backgroundVariants}
+                transition={backgroundTransition}
+            >
                 <source media="(min-width: 1921px)" srcSet={stories[index].background.urls.large} />
                 <source
                     media="(min-width: 1024px)"
                     srcSet={stories[index].background.urls.medium}
                 />
                 <source srcSet={stories[index].background.urls.small} />
-                <img
+                <motion.img
+                    key={background}
+                    initial="hidden"
+                    exit="hidden"
+                    variants={backgroundVariants}
+                    transition={backgroundTransition}
                     src={stories[index].background.urls.medium}
                     alt={stories[index].background.name}
                 />
-            </picture>
-        </>
+            </motion.picture>
+        </AnimatePresence>
     );
-
+    //TODO: Animar el fondo bajandole la opacidad a cero cambiando la imagen y luego volviendo la opacidad a 1
     return (
         <section className={styles.body}>
             <div className={styles.content}>
