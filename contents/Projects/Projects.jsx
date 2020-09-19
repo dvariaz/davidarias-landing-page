@@ -9,14 +9,24 @@ const Projects = ({ projects }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
 
-    const openProject = (id, cover) => {
-        setProjectOpen({ id, cover });
+    const openProject = (project) => {
+        setProjectOpen(project);
         setIsOpen(true);
+        lockScroll();
     };
 
     const closeProject = (id) => {
         setProjectOpen(null);
         setIsOpen(false);
+        unlockScroll();
+    };
+
+    const lockScroll = () => {
+        document.documentElement.style.overflow = "hidden";
+    };
+
+    const unlockScroll = () => {
+        document.documentElement.style.overflow = "";
     };
 
     return (
@@ -30,7 +40,7 @@ const Projects = ({ projects }) => {
                             id={project.id}
                             name={project.name}
                             background={project.cover}
-                            onClick={() => openProject(project.id, project.cover)}
+                            onClick={() => openProject(project)}
                         />
                     ))}
                 </div>
@@ -38,7 +48,11 @@ const Projects = ({ projects }) => {
                     {isOpen && projectOpen && (
                         <ProjectCardDetails
                             id={projectOpen.id}
+                            name={projectOpen.name}
+                            date={projectOpen.date}
+                            description={projectOpen.description}
                             background={projectOpen.cover}
+                            url={projectOpen.url}
                             onClick={() => closeProject()}
                         />
                     )}

@@ -11,6 +11,7 @@ const ProjectCard = ({ id, name, background, onClick }) => {
                 layoutId={`project-card-${id}-body`}
             >
                 <motion.div className={styles.hero} layoutId={`project-card-${id}-hero`}>
+                    {/* <span className={styles.label}>{name}</span> */}
                     <img src={background} />
                 </motion.div>
             </motion.div>

@@ -19,13 +19,26 @@
         left: 0;
 
         .body {
-            position: absolute;
+            position: relative;
             z-index: 50;
             margin: 0;
             border-radius: 0;
             height: 40vh;
         }
     }
+}
+
+.description {
+    composes: description_text from "~@settings/fonts.module.scss";
+    position: relative;
+    z-index: 40;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 60vh;
+    padding: 0 1.5em;
 }
 
 .body {
@@ -40,7 +53,20 @@
 
     cursor: pointer;
 
+    // :before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+
+    //     height: 100%;
+    //     width: 100%;
+
+    //     background: rgba(0, 0, 0, 0.5);
+    // }
+
     .hero {
+        position: relative;
         width: 100%;
         height: 100%;
 
@@ -51,4 +77,41 @@
             object-position: center;
         }
     }
+}
+
+.descriptionContainer {
+    padding-bottom: 1em;
+
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.label {
+    font-size: 0.9em;
+    color: white;
+
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+
+    padding: 0.5em 1em;
+    border-radius: 1.5em;
+
+    background: #03050c;
+}
+
+.link {
+    display: inline-block;
+    text-align: center;
+    border-radius: 2.5em;
+
+    color: white;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.025);
+    padding: 0.8em 1.4em;
+    margin: 1em 0;
+
+    width: 100%;
 }

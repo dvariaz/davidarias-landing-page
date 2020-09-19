@@ -9,6 +9,7 @@ span,
 img,
 ul,
 li,
+p,
 button,
 input,
 a {
@@ -34,8 +35,12 @@ html {
 
 main {
     margin: 0;
+    // height: 100vh;
 
-    overflow: hidden;
+    // scroll-snap-type: y mandatory;
+    // &::-webkit-scrollbar {
+    //     display: none;
+    // }
 }
 
 ul {

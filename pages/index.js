@@ -13,9 +13,8 @@ import Contact from "@contents/Contact";
 //TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
 
 export default function Index({ projects, stories, studies }) {
-    //TODO: Añadir un overflow-hidden cuando un proyecto esté abierto para bloquear el scroll
     return (
-        <div>
+        <>
             <Head>
                 <title>David Arias | Creative coder</title>
                 <meta
@@ -39,7 +38,7 @@ export default function Index({ projects, stories, studies }) {
                 <Studies studies={studies} />
                 <Contact />
             </main>
-        </div>
+        </>
     );
 }
 
