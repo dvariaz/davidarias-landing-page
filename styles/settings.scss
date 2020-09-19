@@ -38,9 +38,9 @@ main {
     // height: 100vh;
 
     // scroll-snap-type: y mandatory;
-    // &::-webkit-scrollbar {
-    //     display: none;
-    // }
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 ul {

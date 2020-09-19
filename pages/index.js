@@ -1,7 +1,5 @@
 import Head from "next/head";
 
-//Components
-import Navbar from "../components/Navbar";
 //Views
 import Home from "@contents/Home";
 import AboutMe from "@contents/AboutMe";
@@ -23,14 +21,6 @@ export default function Index({ projects, stories, studies }) {
                 />
             </Head>
             <main>
-                <Navbar
-                    sections={[
-                        { id: "index", name: "Inicio" },
-                        { id: "about-me", name: "Quien soy" },
-                        { id: "projects", name: "Mis proyectos" },
-                        { id: "education", name: "Educación" },
-                    ]}
-                />
                 <Home />
                 <AboutMe stories={stories} />
                 <Projects projects={projects} />
