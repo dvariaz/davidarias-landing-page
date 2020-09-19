@@ -7,7 +7,7 @@ const Contact = () => {
                 <h1 className={styles.title}>
                     ¿Qué esperas para darle un look fantástico a tus ideas?
                 </h1>
-                <a href="#" className={styles.button}>
+                <a href="https://wa.me/573164463763" target="_blank" className={styles.button}>
                     Contáctame
                 </a>
             </div>

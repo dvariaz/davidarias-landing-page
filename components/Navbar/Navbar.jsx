@@ -24,6 +24,14 @@ const Navbar = ({ sections }) => {
                         </a>
                     ))}
                 </ul>
+                <a href="https://github.com/dvariaz" target="_blank" className={styles.social}>
+                    <img
+                        src={"/assets/icons/github_icon.svg"}
+                        className={styles.logo_image}
+                        alt="Github"
+                    />
+                    <span>dvariaz</span>
+                </a>
             </div>
         </nav>
     );
