@@ -33,13 +33,15 @@ export default function Index({ projects, stories, studies }) {
 }
 
 export async function getStaticProps(context) {
-    const projectsResponse = await fetch("http://localhost:3000/api/projects");
+    const url = PROCESS.env.APP_URL || "http://localhost:3000";
+
+    const projectsResponse = await fetch(`${url}/api/projects`);
     const projectsData = await projectsResponse.json();
 
-    const storiesResponse = await fetch("http://localhost:3000/api/stories");
+    const storiesResponse = await fetch(`${url}/api/stories`);
     const storiesData = await storiesResponse.json();
 
-    const studiesResponse = await fetch("http://localhost:3000/api/studies");
+    const studiesResponse = await fetch(`${url}/api/studies`);
     const studiesData = await studiesResponse.json();
 
     return {
