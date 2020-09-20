@@ -49,6 +49,6 @@ export async function getServerSideProps(context) {
             projects: projectsData.projects,
             stories: storiesData.stories,
             studies: studiesData.studies,
-        }, // will be passed to the page component as props
+        },
     };
 }
