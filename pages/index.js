@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Head from "next/head";
 
 //Views
@@ -8,9 +9,19 @@ import Skills from "../contents/Skills";
 import Studies from "../contents/Studies";
 import Contact from "../contents/Contact";
 
+//Hooks
+import useWindowSize from "../hooks/useWindowSize";
+
 //TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
 
 export default function Index({ projects, stories, studies }) {
+    const size = useWindowSize();
+
+    useEffect(() => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, [size]);
+
     return (
         <>
             <Head>

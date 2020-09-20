@@ -35,9 +35,13 @@ html {
 
 main {
     margin: 0;
-    // height: 100vh;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 
     // scroll-snap-type: y mandatory;
+    // scroll-padding-top: 20%;
+    // scroll-padding-bottom: 20%;
+
     &::-webkit-scrollbar {
         display: none;
     }
