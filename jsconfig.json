@@ -1,11 +1,11 @@
 {
-    // "compilerOptions": {
-    //     "baseUrl": "./",
-    //     "paths": {
-    //         "@components/*": ["components/*"],
-    //         "@hooks/*": ["hooks/*"],
-    //         "@contents/*": ["contents/*"],
-    //         "@settings/*": ["styles/*"]
-    //     }
-    // }
+    "compilerOptions": {
+        "baseUrl": "./"
+        // "paths": {
+        //     "@components/*": ["components/*"],
+        //     "@hooks/*": ["hooks/*"],
+        //     "@contents/*": ["contents/*"],
+        //     "@settings/*": ["styles/*"]
+        // }
+    }
 }

@@ -1,5 +1,5 @@
 .body {
-    composes: section from "~@settings/layout.module.scss";
+    composes: section from "../../styles/layout.module.scss";
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 .title {
-    composes: main_text from "~@settings/fonts.module.scss";
+    composes: main_text from "../../styles/fonts.module.scss";
     font-size: 1.5em;
     margin: 0;
 

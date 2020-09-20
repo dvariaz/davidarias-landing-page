@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import styles from "./DotCarousel.module.scss";
 
 import Page from "./Page";

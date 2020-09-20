@@ -1,4 +1,4 @@
-@import "~@settings/include-media.scss";
+@import "../../styles/include-media.scss";
 
 @value navbar_height: 4em;
 
@@ -26,7 +26,7 @@
 }
 
 .brand {
-    composes: main_text from "~@settings/fonts.module.scss";
+    composes: main_text from "../../styles/fonts.module.scss";
     display: flex;
     align-items: center;
 
@@ -88,7 +88,7 @@
 }
 
 .link {
-    composes: navigation_text from "~@settings/fonts.module.scss";
+    composes: navigation_text from "../../styles/fonts.module.scss";
     padding: 0 1em;
     text-align: center;
     width: 180px;

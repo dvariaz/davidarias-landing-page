@@ -17,7 +17,7 @@
 
     font-size: 0.9em;
 
-    composes: light_text from "~@settings/fonts.module.scss";
+    composes: light_text from "../../styles/fonts.module.scss";
 
     picture {
         display: flex;
@@ -33,7 +33,7 @@
 }
 
 .title {
-    composes: main_text from "~@settings/fonts.module.scss";
+    composes: main_text from "../../styles/fonts.module.scss";
     font-size: 1.2em;
     letter-spacing: 1px;
     align-self: flex-start;
@@ -43,7 +43,7 @@
 
 .subtitle {
     position: relative;
-    composes: light_text from "~@settings/fonts.module.scss";
+    composes: light_text from "../../styles/fonts.module.scss";
     font-size: 1em;
     text-align: center;
 

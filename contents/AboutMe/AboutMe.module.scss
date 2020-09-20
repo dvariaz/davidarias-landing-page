@@ -1,7 +1,7 @@
-@import "~@settings/include-media.scss";
+@import "../../styles/include-media.scss";
 
 .body {
-    composes: section from "~@settings/layout.module.scss";
+    composes: section from "../../styles/layout.module.scss";
 
     display: flex;
     flex-direction: column;
@@ -25,11 +25,11 @@
 }
 
 .title {
-    composes: main_text from "~@settings/fonts.module.scss";
+    composes: main_text from "../../styles/fonts.module.scss";
 }
 
 .description {
-    composes: description_text from "~@settings/fonts.module.scss";
+    composes: description_text from "../../styles/fonts.module.scss";
 
     width: 100%;
     overflow: hidden;

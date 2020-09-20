@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 
 import styles from "./Studies.module.scss";
 
-import Card from "@components/Card";
+import Card from "../../components/Card";
 
 const Studies = ({ studies }) => {
     const listRef = useRef();

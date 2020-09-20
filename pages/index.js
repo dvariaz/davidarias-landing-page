@@ -1,12 +1,12 @@
 import Head from "next/head";
 
 //Views
-import Home from "@contents/Home";
-import AboutMe from "@contents/AboutMe";
-import Projects from "@contents/Projects";
-import Skills from "@contents/Skills";
-import Studies from "@contents/Studies";
-import Contact from "@contents/Contact";
+import Home from "../contents/Home";
+import AboutMe from "../contents/AboutMe";
+import Projects from "../contents/Projects";
+import Skills from "../contents/Skills";
+import Studies from "../contents/Studies";
+import Contact from "../contents/Contact";
 
 //TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
 

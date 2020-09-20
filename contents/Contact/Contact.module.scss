@@ -1,8 +1,7 @@
-@import "~@settings/include-media.scss";
+@import "../../styles/include-media.scss";
 
 .body {
-    composes: section from "~@settings/layout.module.scss";
-
+    composes: section from "../../styles/layout.module.scss";
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +10,7 @@
 }
 
 .title {
-    composes: main_text from "~@settings/fonts.module.scss";
+    composes: main_text from "../../styles/fonts.module.scss";
     font-size: 1.5em;
     text-align: center;
     margin-bottom: 2em;
@@ -25,7 +24,7 @@
 }
 
 .button {
-    composes: main_text from "~@settings/fonts.module.scss";
+    composes: main_text from "../../styles/fonts.module.scss";
     display: block;
     font-size: 1em;
     text-align: center;
@@ -54,7 +53,7 @@
 }
 
 .backgroundText {
-    composes: outline_text from "~@settings/fonts.module.scss";
+    composes: outline_text from "../../styles/fonts.module.scss";
     color: rgba(255, 255, 255, 0.03);
     margin: 0;
 }

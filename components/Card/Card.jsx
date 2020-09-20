@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Card.module.scss";
 
-import ProgressBar from "@components/ProgressBar";
+import ProgressBar from "../ProgressBar";
 
 const Card = ({ type, title, subtitle, profile, items, icon, date, duration }) => {
     const renderContent = () => {

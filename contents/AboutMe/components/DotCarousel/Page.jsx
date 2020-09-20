@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 
 import styles from "./DotCarousel.module.scss";
 
-import useOnScreen from "@hooks/useOnScreen.js";
+import useOnScreen from "../../../../hooks/useOnScreen.js";
 
 const Page = ({ isSkipping, onVisible, children }) => {
     const ref = useRef();

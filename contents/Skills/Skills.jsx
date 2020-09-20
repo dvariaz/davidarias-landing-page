@@ -1,6 +1,6 @@
 import styles from "./Skills.module.scss";
 
-import Card from "@components/Card/Card";
+import Card from "../../components/Card";
 
 const Skills = () => {
     return (
