@@ -9,6 +9,12 @@
     align-items: center;
 
     background: #03050c;
+
+    font-size: 0.9em;
+
+    @include media(">=phone") {
+        font-size: 1em;
+    }
 }
 
 .content {

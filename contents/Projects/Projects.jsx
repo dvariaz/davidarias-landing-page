@@ -7,7 +7,7 @@ import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
 
 import useOnScreen from "../../hooks/useOnScreen";
 
-const Projects = ({ projects }) => {
+const Projects = ({ projects, centerViewport }) => {
     const ref = useRef();
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
@@ -33,6 +33,14 @@ const Projects = ({ projects }) => {
         document.documentElement.style.overflow = "";
     };
 
+    const handleProjectClick = (project) => {
+        if (isVisible) {
+            openProject(project);
+        } else {
+            centerViewport(ref.current.offsetTop);
+        }
+    };
+
     return (
         <AnimateSharedLayout type="crossfade">
             <section className={styles.body} ref={ref}>
@@ -51,7 +59,7 @@ const Projects = ({ projects }) => {
                             id={project.id}
                             name={project.name}
                             background={project.cover}
-                            onClick={() => openProject(project)}
+                            onClick={() => handleProjectClick(project)}
                         />
                     ))}
                 </motion.div>

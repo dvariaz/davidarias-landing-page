@@ -1,3 +1,5 @@
+@import "../../styles/include-media.scss";
+
 .body {
     flex: 1;
     width: 100%;
@@ -10,12 +12,33 @@
     border-radius: 1.5em;
     color: white;
 
-    padding: 1.2em;
-    margin: 15px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &:first-child {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    &:last-child {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    &:only-child {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    padding: 1.1em;
 
     position: relative;
 
-    font-size: 0.9em;
+    font-size: 0.8em;
+
+    @include media(">=phone") {
+        margin: 15px auto;
+        padding: 1.2em;
+        font-size: 0.9em;
+    }
 
     composes: light_text from "../../styles/fonts.module.scss";
 
@@ -25,7 +48,10 @@
         padding: 1em;
 
         > img {
-            width: 80%;
+            width: 70%;
+            @include media(">=phone") {
+                width: 80%;
+            }
             padding: 0;
             border-radius: 50%;
         }
@@ -72,8 +98,13 @@
             .itemIcon {
                 display: block;
 
-                width: 25px;
-                height: 25px;
+                width: 20px;
+                height: 20px;
+
+                @include media(">=phone") {
+                    width: 25px;
+                    height: 25px;
+                }
 
                 margin-right: 1em;
 

@@ -5,7 +5,7 @@ import styles from "./ProjectCard.module.scss";
 const ProjectDetails = ({ id, name, date, description, background, url, onClick }) => {
     const descriptionVariants = {
         visible: {
-            background: "#04091B",
+            background: "#03050c",
             opacity: 1,
         },
         hidden: {

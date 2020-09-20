@@ -14,11 +14,11 @@
 }
 
 .square {
-    width: 12em;
+    width: 11em;
     height: auto;
     z-index: 10;
 
-    @include media(">desktop") {
+    @include media(">=desktop") {
         width: 15em;
         height: auto;
     }
@@ -32,10 +32,10 @@
     overflow: hidden;
     position: absolute;
     text-align: center;
-    bottom: 0.05em;
     z-index: 20;
+    bottom: 0.05em;
 
-    @include media(">desktop") {
+    @include media(">=desktop") {
         bottom: 0.2em;
     }
 
@@ -45,9 +45,9 @@
 }
 
 .picture img {
-    width: 12em;
+    width: 11em;
 
-    @include media(">desktop") {
+    @include media(">=desktop") {
         width: 15em;
     }
 

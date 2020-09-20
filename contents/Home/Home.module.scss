@@ -1,3 +1,5 @@
+@import "../../styles/include-media.scss";
+
 .body {
     composes: section from "../../styles/layout.module.scss";
     display: flex;
@@ -7,7 +9,11 @@
 
     background: linear-gradient(0.2turn, #050a1d, #03050c);
 
-    font-size: 1.5em;
+    font-size: 1.25em;
+
+    @include media(">=phone") {
+        font-size: 1.5em;
+    }
 }
 
 .title {

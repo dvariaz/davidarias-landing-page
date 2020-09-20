@@ -15,12 +15,17 @@ import useWindowSize from "../hooks/useWindowSize";
 //TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
 
 export default function Index({ projects, stories, studies }) {
+    const ref = useRef();
     const size = useWindowSize();
 
     useEffect(() => {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty("--vh", `${vh}px`);
     }, [size]);
+
+    const centerViewport = (position) => {
+        ref.current.scrollTop = position;
+    };
 
     return (
         <>
@@ -31,10 +36,10 @@ export default function Index({ projects, stories, studies }) {
                     content="width=device-width, initial-scale=1.0, user-scalable=no"
                 />
             </Head>
-            <main>
+            <main ref={ref}>
                 <Home />
                 <AboutMe stories={stories} />
-                <Projects projects={projects} />
+                <Projects projects={projects} centerViewport={centerViewport} />
                 <Skills />
                 <Studies studies={studies} />
                 <Contact />

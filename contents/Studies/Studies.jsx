@@ -24,15 +24,14 @@ const Studies = ({ studies }) => {
         }
 
         return courses.map((course) => (
-            <li key={course.id}>
-                <Card
-                    type="course"
-                    subtitle={course.name}
-                    icon={course.icon}
-                    date={course.date}
-                    duration={course.duration}
-                />
-            </li>
+            <Card
+                key={course.id}
+                type="course"
+                subtitle={course.name}
+                icon={course.icon}
+                date={course.date}
+                duration={course.duration}
+            />
         ));
     };
 
@@ -73,9 +72,9 @@ const Studies = ({ studies }) => {
                     ))}
                 </form>
             </div>
-            <ul ref={listRef} className={styles.courses}>
+            <div ref={listRef} className={styles.courses}>
                 {renderCourses()}
-            </ul>
+            </div>
         </section>
     );
 };
