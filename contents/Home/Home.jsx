@@ -1,8 +1,8 @@
 import styles from "./Home.module.scss";
 
 import Navbar from "../../components/Navbar";
-import Portrait from "../../contents/home/components/Portrait";
-import Shape from "../../contents/home/components/Shape";
+import Portrait from "./components/Portrait";
+import Shape from "./components/Shape";
 
 const Home = () => {
     return (
