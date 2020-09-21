@@ -37,7 +37,7 @@
     @include media(">=phone") {
         margin: 15px auto;
         padding: 1.2em;
-        font-size: 0.9em;
+        font-size: 0.85em;
     }
 
     composes: light_text from "../../styles/fonts.module.scss";

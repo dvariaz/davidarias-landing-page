@@ -33,6 +33,12 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    justify-self: center;
+
+    @include media(">=tablet") {
+        max-width: 600px;
+    }
 }
 
 .modal {
