@@ -32,7 +32,7 @@ const ProjectDetails = ({ id, name, date, description, background, url, onClick 
 
     return (
         <div className={`${styles.container} ${styles.open}`}>
-            <div>
+            <div className={styles.headerContainer}>
                 <motion.div
                     className={styles.body}
                     layoutId={`project-card-${id}-body`}

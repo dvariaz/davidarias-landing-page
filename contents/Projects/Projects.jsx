@@ -48,8 +48,8 @@ const Projects = ({ projects, centerViewport }) => {
                 <motion.div
                     animate={
                         isVisible
-                            ? { opacity: 1, overflowY: "scroll" }
-                            : { opacity: 0.4, overflowY: "hidden" }
+                            ? { opacity: 1, overflow: "scroll" }
+                            : { opacity: 0.4, overflow: "hidden" }
                     }
                     className={styles.grid}
                 >

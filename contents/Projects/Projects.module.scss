@@ -17,6 +17,10 @@
     @include media(">=tablet", "portrait") {
         padding: 3em 3em 0;
     }
+
+    @include media(">=tablet", "landscape") {
+        padding: 3em 0;
+    }
 }
 
 .title {
@@ -31,7 +35,7 @@
     display: flex;
     flex-direction: column;
 
-    overflow-y: scroll;
+    overflow: scroll;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
@@ -42,6 +46,16 @@
 
     @include media(">=tablet", "portrait") {
         max-width: 600px;
+    }
+
+    @include media(">=tablet", "landscape") {
+        height: 100%;
+        //TODO: Toca mirar como meter un track para dejar margenes laterales
+
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        overflow-x: scroll;
     }
 }
 
