@@ -12,11 +12,11 @@
 
     font-size: 0.9em;
 
-    @include media(">=phone") {
+    @include media(">=phone", "portrait") {
         font-size: 1em;
     }
 
-    @include media(">=tablet") {
+    @include media(">=tablet", "portrait") {
         font-size: 1.2em;
     }
 }

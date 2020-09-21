@@ -4,7 +4,8 @@
     composes: section from "../../styles/layout.module.scss";
 
     display: grid;
-    grid-template-rows: repeat(3, auto) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header" "list";
 
     background: #03050c;
 
@@ -12,8 +13,17 @@
 
     font-size: 0.9em;
 
-    @include media(">=phone") {
+    @include media(">=phone", "portrait") {
         font-size: 1em;
+    }
+}
+
+.header {
+    grid-area: header;
+
+    @include media(">=tablet", "portrait") {
+        justify-self: center;
+        width: 600px;
     }
 }
 
@@ -45,7 +55,7 @@
             width: 35px;
             height: 35px;
 
-            @include media(">=phone") {
+            @include media(">=phone", "portrait") {
                 width: 45px;
                 height: 45px;
             }
@@ -80,6 +90,7 @@
 }
 
 .courses {
+    grid-area: list;
     display: flex;
     flex-direction: column;
 
@@ -88,6 +99,11 @@
 
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    @include media(">=tablet", "portrait") {
+        justify-self: center;
+        width: 600px;
     }
 
     > div {

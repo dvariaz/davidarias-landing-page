@@ -10,8 +10,12 @@
 
     font-size: 0.9em;
 
-    @include media(">=phone") {
+    @include media(">=phone", "portrait") {
         font-size: 1em;
+    }
+
+    @include media(">=tablet", "portrait") {
+        padding: 3em 3em 0;
     }
 }
 
@@ -36,7 +40,7 @@
 
     justify-self: center;
 
-    @include media(">=tablet") {
+    @include media(">=tablet", "portrait") {
         max-width: 600px;
     }
 }

@@ -20,7 +20,7 @@
     width: 100%;
     position: relative;
 
-    @include media(">widescreen") {
+    @include media(">widescreen", "landscape") {
         max-width: 1600px;
     }
 }

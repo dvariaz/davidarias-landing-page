@@ -48,29 +48,31 @@ const Studies = ({ studies }) => {
 
     return (
         <section className={styles.body}>
-            <h1 className={styles.title}>Estudios</h1>
-            <p className={styles.description}>
-                Estoy constantemente aprendiendo cosas nuevas por medio de libros y plataformas de
-                aprendizaje online, creo que es una forma muy flexible de complementar las bases que
-                adquirí en mi vida universitaria.
-            </p>
-            <div className={styles.platformSelector}>
-                <form>
-                    {studies.map((study, index) => (
-                        <label key={index}>
-                            <input
-                                type="radio"
-                                name="platformSelected"
-                                value={study.id}
-                                checked={selectedInstitute == study.id}
-                                onClick={selectInstitute}
-                                className={styles.platform}
-                                style={{ backgroundImage: `url('${study.logo}')` }}
-                                readOnly
-                            />
-                        </label>
-                    ))}
-                </form>
+            <div className={styles.header}>
+                <h1 className={styles.title}>Estudios</h1>
+                <p className={styles.description}>
+                    Estoy constantemente aprendiendo cosas nuevas por medio de libros y plataformas
+                    de aprendizaje online, creo que es una forma muy flexible de complementar las
+                    bases que adquirí en mi vida universitaria.
+                </p>
+                <div className={styles.platformSelector}>
+                    <form>
+                        {studies.map((study, index) => (
+                            <label key={index}>
+                                <input
+                                    type="radio"
+                                    name="platformSelected"
+                                    value={study.id}
+                                    checked={selectedInstitute == study.id}
+                                    onClick={selectInstitute}
+                                    className={styles.platform}
+                                    style={{ backgroundImage: `url('${study.logo}')` }}
+                                    readOnly
+                                />
+                            </label>
+                        ))}
+                    </form>
+                </div>
             </div>
             <div ref={listRef} className={styles.courses}>
                 {renderCourses()}

@@ -11,7 +11,7 @@
 
     font-size: 1.25em;
 
-    @include media(">=phone") {
+    @include media(">=phone", "portrait") {
         font-size: 1.5em;
     }
 }
