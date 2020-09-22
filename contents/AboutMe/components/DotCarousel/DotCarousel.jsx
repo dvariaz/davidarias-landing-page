@@ -38,6 +38,7 @@ const DotCarousel = ({ items, onPageChange }) => {
     const handlePageVisibility = (id) => {
         if (!isSkipping) {
             setActivePage(id);
+            onPageChange(id);
         }
     };
 
