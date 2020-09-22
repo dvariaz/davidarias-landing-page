@@ -1,12 +1,17 @@
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 import styles from "./Studies.module.scss";
 
 import Card from "../../components/Card";
 
+import useOnScreen from "../../hooks/useOnScreen";
+
 const Studies = ({ studies }) => {
+    const ref = useRef();
     const listRef = useRef();
     const [selectedInstitute, setSelectedInstitute] = useState(null);
+    const isVisible = useOnScreen(ref, "0px", 0.95);
 
     const renderCourses = () => {
         let courses = [];
@@ -47,7 +52,7 @@ const Studies = ({ studies }) => {
     };
 
     return (
-        <section className={styles.body}>
+        <section className={styles.body} ref={ref}>
             <div className={styles.header}>
                 <h1 className={styles.title}>Estudios</h1>
                 <p className={styles.description}>
@@ -74,9 +79,17 @@ const Studies = ({ studies }) => {
                     </form>
                 </div>
             </div>
-            <div ref={listRef} className={styles.courses}>
+            <motion.div
+                animate={
+                    isVisible
+                        ? { opacity: 1, overflow: "scroll" }
+                        : { opacity: 0.4, overflow: "hidden" }
+                }
+                className={styles.courses}
+                ref={listRef}
+            >
                 {renderCourses()}
-            </div>
+            </motion.div>
         </section>
     );
 };

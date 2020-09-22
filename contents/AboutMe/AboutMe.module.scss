@@ -10,7 +10,11 @@
 
     background: #03050c;
 
-    font-size: 1em;
+    font-size: 0.9em;
+
+    @include media(">=phone", "portrait") {
+        font-size: 1em;
+    }
 
     @include media(">=tablet") {
         font-size: 1.2em;
