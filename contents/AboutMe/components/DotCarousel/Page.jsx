@@ -4,13 +4,13 @@ import styles from "./DotCarousel.module.scss";
 
 import useOnScreen from "../../../../hooks/useOnScreen.js";
 
-const Page = ({ isSkipping, onVisible, children }) => {
+const Page = ({ onVisible, children }) => {
     const ref = useRef();
     const isVisible = useOnScreen(ref, "10px", 0.9);
 
     useEffect(() => {
         //Si la página pasó a ser visible, y no es por un salto de página...
-        if (isVisible && !isSkipping) {
+        if (isVisible) {
             onVisible();
         }
     }, [isVisible]);

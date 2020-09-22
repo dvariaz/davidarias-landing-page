@@ -43,7 +43,7 @@
                 height: 100vh;
             }
         }
-
+        //TODO: Se está cortando el final de la descripción
         .description {
             @include media(">=tablet", "landscape") {
                 height: 100vh;

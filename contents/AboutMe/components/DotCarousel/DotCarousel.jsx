@@ -19,11 +19,13 @@ const DotCarousel = ({ items, onPageChange }) => {
             if (page === activePage + 1 || page === activePage - 1) {
                 //Si está incrementando/decrementando en 1
                 setActivePage(page);
-                carouselRef.current.scrollLeft = page * window.innerWidth;
+                carouselRef.current.scrollLeft = page * carouselRef.current.offsetWidth;
+                onPageChange(page);
             } else {
                 //Si está haciendo un salto
                 setIsSkipping(true);
-                carouselRef.current.scrollLeft = page * window.innerWidth;
+                carouselRef.current.scrollLeft = page * carouselRef.current.offsetWidth;
+                onPageChange(page);
                 //TODO: Convertirlo en una promesa que verifique cuando se llegó al destino
                 setTimeout(() => {
                     setIsSkipping(false);
@@ -34,22 +36,16 @@ const DotCarousel = ({ items, onPageChange }) => {
     };
 
     const handlePageVisibility = (id) => {
-        setActivePage(id);
+        if (!isSkipping) {
+            setActivePage(id);
+        }
     };
-
-    useEffect(() => {
-        onPageChange(activePage);
-    }, [activePage]);
 
     return (
         <>
             <div className={styles.track} ref={carouselRef}>
                 {items?.map((item) => (
-                    <Page
-                        key={item.id}
-                        isSkipping={isSkipping}
-                        onVisible={() => handlePageVisibility(item.id)}
-                    >
+                    <Page key={item.id} onVisible={() => handlePageVisibility(item.id)}>
                         {item.description.map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
                         ))}

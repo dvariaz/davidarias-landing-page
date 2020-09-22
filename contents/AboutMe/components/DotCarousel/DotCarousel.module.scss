@@ -44,6 +44,8 @@
     align-items: center;
 
     label {
+        cursor: pointer;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -51,13 +53,13 @@
         width: 30px;
         height: 100%;
 
-        margin: 0.25em;
+        margin: 0.3em;
 
         input[type="radio"] {
             appearance: none;
+            pointer-events: none;
 
             display: block;
-            cursor: pointer;
 
             background: white;
             opacity: 0.5;
@@ -66,8 +68,9 @@
             border-radius: 50%;
             outline: none;
 
-            width: 0.8em;
-            height: 0.8em;
+            width: 1em;
+            height: 1em;
+            margin: 0;
 
             &:checked {
                 opacity: 1;
