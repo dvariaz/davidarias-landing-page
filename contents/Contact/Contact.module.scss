@@ -58,6 +58,11 @@
     font-size: 10em;
 
     pointer-events: none;
+
+    @include media(">=tablet") {
+        font-size: 14em;
+        text-align: center;
+    }
 }
 
 .backgroundText {

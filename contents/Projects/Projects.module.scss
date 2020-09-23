@@ -19,7 +19,7 @@
         padding: 3em 3em 0;
     }
 
-    @include media(">=tablet") {
+    @include media(">=desktop") {
         padding: 3em 0;
     }
 }
