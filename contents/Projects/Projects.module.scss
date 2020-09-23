@@ -14,19 +14,25 @@
         font-size: 1em;
     }
 
-    @include media(">=tablet") {
+    @include media(">=tablet", "portrait") {
         font-size: 1.2em;
         padding: 3em 3em 0;
     }
 
+    @include media(">=tablet", "landscape") {
+        font-size: 1em;
+        padding: 2em 0;
+    }
+
     @include media(">=desktop") {
+        font-size: 1.2em;
         padding: 3em 0;
     }
 }
 
 .title {
     composes: main_text from "../../styles/fonts.module.scss";
-    font-size: 1.5em;
+    // font-size: 1.5em;
     text-align: center;
 }
 

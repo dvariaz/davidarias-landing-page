@@ -28,6 +28,10 @@
         font-size: 2em;
     }
 
+    @include media(">=tablet", "landscape") {
+        font-size: 2.2em;
+    }
+
     @include media(">=desktop") {
         font-size: 2.5em;
     }
