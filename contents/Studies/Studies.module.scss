@@ -25,6 +25,10 @@
 
         font-size: 1em;
     }
+
+    @include media(">=desktop") {
+        font-size: 1.1em;
+    }
 }
 
 .header {
@@ -63,6 +67,11 @@
 
         padding: 1em 0;
 
+        @include media(">=desktop", "landscape") {
+            margin: 0 auto;
+            max-width: 350px;
+        }
+
         label {
             display: block;
 
@@ -80,6 +89,7 @@
                 appearance: none;
                 outline: none;
                 display: block;
+                cursor: pointer;
 
                 background-size: contain;
                 width: 100%;
