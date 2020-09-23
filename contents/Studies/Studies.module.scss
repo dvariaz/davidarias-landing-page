@@ -16,6 +16,15 @@
     @include media(">=phone", "portrait") {
         font-size: 1em;
     }
+
+    @include media(">=tablet", "landscape") {
+        grid-template-rows: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "header list";
+        grid-gap: 2em;
+
+        font-size: 1em;
+    }
 }
 
 .header {
@@ -24,6 +33,11 @@
     @include media(">=tablet", "portrait") {
         justify-self: center;
         width: 600px;
+    }
+
+    @include media(">=tablet", "landscape") {
+        align-self: center;
+        padding: 1em;
     }
 }
 
@@ -104,6 +118,11 @@
     @include media(">=tablet", "portrait") {
         justify-self: center;
         width: 600px;
+    }
+
+    @include media(">=tablet", "landscape") {
+        width: 100%;
+        padding: 0 1em;
     }
 
     > div {
