@@ -1,5 +1,6 @@
 @import "../../styles/include-media.scss";
 
+//TODO: Mirar si toca hacer un div intermedio para conservar margenes
 .body {
     composes: section from "../../styles/layout.module.scss";
 
@@ -22,6 +23,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "header list";
         grid-gap: 2em;
+        justify-items: center;
 
         font-size: 1em;
     }
@@ -42,6 +44,10 @@
     @include media(">=tablet", "landscape") {
         align-self: center;
         padding: 1em;
+    }
+
+    @include media(">=desktop", "landscape") {
+        max-width: 600px;
     }
 }
 
@@ -133,6 +139,10 @@
     @include media(">=tablet", "landscape") {
         width: 100%;
         padding: 0 1em;
+    }
+
+    @include media(">=desktop", "landscape") {
+        max-width: 600px;
     }
 
     > div {

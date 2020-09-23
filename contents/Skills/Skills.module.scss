@@ -24,6 +24,9 @@
 
     @include media(">=desktop") {
         font-size: 1.1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -51,6 +54,10 @@
         scroll-snap-type: none;
         scroll-padding: none;
         display: flex;
+    }
+
+    @include media(">=desktop", "landscape") {
+        max-height: 600px;
     }
 }
 

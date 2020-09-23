@@ -4,6 +4,8 @@
     composes: section from "../../styles/layout.module.scss";
 
     display: grid;
+    grid-template-rows: auto 1fr;
+    align-self: center;
     background: #03050c;
 
     padding: 1.5em 1.5em 0;
@@ -27,6 +29,10 @@
     @include media(">=desktop") {
         font-size: 1.1em;
         padding: 3em 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -62,6 +68,10 @@
         flex-wrap: wrap;
 
         overflow-x: scroll;
+    }
+
+    @include media(">=desktop") {
+        max-height: 650px;
     }
 }
 
