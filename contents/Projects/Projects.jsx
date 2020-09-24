@@ -5,15 +5,18 @@ import styles from "./Projects.module.scss";
 import ProjectCard from "./components/ProjectCard";
 import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
 
+import { useMediaQuery } from "@react-hook/media-query";
 import useOnScreen from "../../hooks/useOnScreen";
 import useHorizontalScroll from "../../hooks/useHorizontalScroll";
 
 const Projects = ({ projects, centerViewport }) => {
     const ref = useRef();
-    const scrollRef = useHorizontalScroll();
+    const isMobile = useMediaQuery("only screen and (max-width: 969px)");
+
+    const isVisible = useOnScreen(ref, "0px", 0.95);
+    const scrollRef = useHorizontalScroll(isVisible && !isMobile);
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
-    const isVisible = useOnScreen(ref, "0px", 0.95);
 
     const openProject = (project) => {
         setProjectOpen(project);
