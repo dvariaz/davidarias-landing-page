@@ -22,6 +22,10 @@
     @include media(">=tablet") {
         font-size: 1em;
     }
+
+    @include media(">=widescreen") {
+        font-size: 0.85em;
+    }
 }
 
 .content {

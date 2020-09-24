@@ -28,6 +28,10 @@
         flex-direction: column;
         justify-content: center;
     }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
 }
 
 .title {
@@ -59,6 +63,10 @@
     @include media(">=desktop", "landscape") {
         max-height: 600px;
     }
+
+    @include media(">=widescreen", "landscape") {
+        max-height: 750px;
+    }
 }
 
 .grid {
@@ -79,6 +87,10 @@
     @include media(">=tablet", "landscape") {
         grid-template-columns: repeat(3, minmax(auto, 300px));
         margin: 0 auto;
+    }
+
+    @include media(">=widescreen", "landscape") {
+        grid-template-columns: repeat(3, minmax(auto, 400px));
     }
 }
 

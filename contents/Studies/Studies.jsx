@@ -7,7 +7,7 @@ import Card from "../../components/Card";
 
 import useOnScreen from "../../hooks/useOnScreen";
 
-const Studies = ({ studies }) => {
+const Studies = ({ id, studies }) => {
     const ref = useRef();
     const listRef = useRef();
     const [selectedInstitute, setSelectedInstitute] = useState(null);
@@ -52,44 +52,46 @@ const Studies = ({ studies }) => {
     };
 
     return (
-        <section className={styles.body} ref={ref}>
-            <div className={styles.header}>
-                <h1 className={styles.title}>Estudios</h1>
-                <p className={styles.description}>
-                    Estoy constantemente aprendiendo cosas nuevas por medio de libros y plataformas
-                    de aprendizaje online, creo que es una forma muy flexible de complementar las
-                    bases que adquirí en mi vida universitaria.
-                </p>
-                <div className={styles.platformSelector}>
-                    <form>
-                        {studies.map((study, index) => (
-                            <label key={index}>
-                                <input
-                                    type="radio"
-                                    name="platformSelected"
-                                    value={study.id}
-                                    checked={selectedInstitute == study.id}
-                                    onClick={selectInstitute}
-                                    className={styles.platform}
-                                    style={{ backgroundImage: `url('${study.logo}')` }}
-                                    readOnly
-                                />
-                            </label>
-                        ))}
-                    </form>
+        <section id={id} className={styles.body} ref={ref}>
+            <div className={styles.container}>
+                <div className={styles.header}>
+                    <h1 className={styles.title}>Estudios</h1>
+                    <p className={styles.description}>
+                        Estoy constantemente aprendiendo cosas nuevas por medio de libros y
+                        plataformas de aprendizaje online, creo que es una forma muy flexible de
+                        complementar las bases que adquirí en mi vida universitaria.
+                    </p>
+                    <div className={styles.platformSelector}>
+                        <form>
+                            {studies.map((study, index) => (
+                                <label key={index}>
+                                    <input
+                                        type="radio"
+                                        name="platformSelected"
+                                        value={study.id}
+                                        checked={selectedInstitute == study.id}
+                                        onClick={selectInstitute}
+                                        className={styles.platform}
+                                        style={{ backgroundImage: `url('${study.logo}')` }}
+                                        readOnly
+                                    />
+                                </label>
+                            ))}
+                        </form>
+                    </div>
                 </div>
+                <motion.div
+                    animate={
+                        isVisible
+                            ? { opacity: 1, overflow: "scroll" }
+                            : { opacity: 0.4, overflow: "hidden" }
+                    }
+                    className={styles.courses}
+                    ref={listRef}
+                >
+                    {renderCourses()}
+                </motion.div>
             </div>
-            <motion.div
-                animate={
-                    isVisible
-                        ? { opacity: 1, overflow: "scroll" }
-                        : { opacity: 0.4, overflow: "hidden" }
-                }
-                className={styles.courses}
-                ref={listRef}
-            >
-                {renderCourses()}
-            </motion.div>
         </section>
     );
 };

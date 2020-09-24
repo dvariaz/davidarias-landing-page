@@ -1,5 +1,7 @@
 import { useRef, useEffect } from "react";
 
+const stepPercent = 0.01;
+
 export default function useHorizontalScroll(condition) {
     const elRef = useRef();
     useEffect(() => {
@@ -8,17 +10,18 @@ export default function useHorizontalScroll(condition) {
             const onWheel = (e) => {
                 if (condition) {
                     e.preventDefault();
+                    console.log(`Vamos a movernos ${el.scrollWidth * stepPercent}`);
                     if (e.deltaY > 0) {
                         if (el.scrollLeft + el.offsetWidth < el.scrollWidth) {
                             el.scrollTo({
-                                left: el.scrollLeft + e.deltaY * el.scrollWidth * 0.3,
+                                left: el.scrollLeft + e.deltaY * el.scrollWidth * stepPercent,
                                 behavior: "smooth",
                             });
                         }
                     } else {
                         if (el.scrollLeft > 0) {
                             el.scrollTo({
-                                left: el.scrollLeft + e.deltaY * el.scrollWidth * 0.3,
+                                left: el.scrollLeft + e.deltaY * el.scrollWidth * stepPercent,
                                 behavior: "smooth",
                             });
                         }

@@ -9,7 +9,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 import useOnScreen from "../../hooks/useOnScreen";
 import useHorizontalScroll from "../../hooks/useHorizontalScroll";
 
-const Projects = ({ projects, centerViewport }) => {
+const Projects = ({ id, projects, centerViewport }) => {
     const ref = useRef();
     const isMobile = useMediaQuery("only screen and (max-width: 969px)");
 
@@ -48,7 +48,7 @@ const Projects = ({ projects, centerViewport }) => {
 
     return (
         <AnimateSharedLayout type="crossfade">
-            <section className={styles.body} ref={ref}>
+            <section id={id} className={styles.body} ref={ref}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>Proyectos</h1>
                     <motion.div

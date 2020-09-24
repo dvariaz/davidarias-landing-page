@@ -37,12 +37,12 @@ export default function Index({ projects, stories, studies }) {
                 />
             </Head>
             <main ref={ref}>
-                <Home />
-                <AboutMe stories={stories} />
-                <Projects projects={projects} centerViewport={centerViewport} />
+                <Home id="index" />
+                <AboutMe id="about-me" stories={stories} />
+                <Projects id="projects" projects={projects} centerViewport={centerViewport} />
                 <Skills />
-                <Studies studies={studies} />
-                <Contact />
+                <Studies id="education" studies={studies} />
+                <Contact id="contact" />
             </main>
         </>
     );

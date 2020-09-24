@@ -20,6 +20,10 @@
         padding: 1em;
     }
 
+    @include media(">=widescreen") {
+        max-width: 35%;
+    }
+
     &.open {
         position: fixed;
         z-index: 100;

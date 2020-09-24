@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styles from "./AboutMe.module.scss";
 import DotCarousel from "./components/DotCarousel";
 
-const AboutMe = ({ stories }) => {
+const AboutMe = ({ id, stories }) => {
     const [background, setBackground] = useState(0);
 
     const handlePageChange = (value) => {
@@ -50,7 +50,7 @@ const AboutMe = ({ stories }) => {
         </AnimatePresence>
     );
     return (
-        <section className={styles.body}>
+        <section id={id} className={styles.body}>
             <div className={styles.content}>
                 <h1 className={styles.title}>Sobre mi</h1>
                 <div className={styles.description}>

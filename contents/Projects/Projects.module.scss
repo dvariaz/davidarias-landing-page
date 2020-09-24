@@ -33,6 +33,10 @@
         flex-direction: column;
         justify-content: center;
     }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
 }
 
 .container {
@@ -53,6 +57,10 @@
             rgba(0, 0, 0, 0.9) 88%,
             rgba(0, 0, 0, 0) 95%
         );
+    }
+
+    @include media(">=desktop") {
+        max-height: 800px;
     }
 }
 

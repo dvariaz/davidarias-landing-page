@@ -18,6 +18,10 @@
     @include media(">=tablet", "landscape") {
         padding-top: 3.5em;
     }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
 }
 
 .title {

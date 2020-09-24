@@ -13,6 +13,10 @@
     @include media(">=phone", "portrait") {
         font-size: 1em;
     }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
 }
 
 .title {

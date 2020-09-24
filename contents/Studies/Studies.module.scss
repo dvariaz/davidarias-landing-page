@@ -4,10 +4,6 @@
 .body {
     composes: section from "../../styles/layout.module.scss";
 
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "header" "list";
-
     background: #03050c;
 
     padding: 1.5em 1.5em 0;
@@ -19,17 +15,34 @@
     }
 
     @include media(">=tablet", "landscape") {
-        grid-template-rows: 100%;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "header list";
-        grid-gap: 2em;
-        justify-items: center;
-
         font-size: 1em;
     }
 
     @include media(">=desktop") {
         font-size: 1.1em;
+    }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: 1600px;
+    margin: auto;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header" "list";
+
+    @include media(">=tablet", "landscape") {
+        grid-template-rows: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "header list";
+        grid-gap: 2em;
+        justify-items: center;
     }
 }
 

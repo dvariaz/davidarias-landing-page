@@ -27,6 +27,10 @@
     @include media(">=desktop", "landscape") {
         font-size: 1.1em;
     }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
 }
 
 .content {
