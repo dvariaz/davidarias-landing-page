@@ -12,9 +12,9 @@ import useHorizontalScroll from "../../hooks/useHorizontalScroll";
 const Projects = ({ id, projects, centerViewport }) => {
     const ref = useRef();
     const isMobile = useMediaQuery("only screen and (max-width: 969px)");
-
     const isVisible = useOnScreen(ref, "0px", 0.95);
-    const scrollRef = useHorizontalScroll(isVisible && !isMobile);
+    const scrollRef = useHorizontalScroll(isVisible, !isMobile);
+
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
 
@@ -46,6 +46,23 @@ const Projects = ({ id, projects, centerViewport }) => {
         }
     };
 
+    function keyHandler({ key }) {
+        if (!isOpen) {
+            if (key === "Escape" || key === "Backspace") {
+                closeProject();
+            }
+        }
+    }
+
+    //Para manejar acciones del usuario al cerrar modales
+    useEffect(() => {
+        window.addEventListener("keyup", keyHandler);
+
+        return () => {
+            window.removeEventListener("keyup", keyHandler);
+        };
+    }, []);
+
     return (
         <AnimateSharedLayout type="crossfade">
             <section id={id} className={styles.body} ref={ref}>
@@ -55,7 +72,7 @@ const Projects = ({ id, projects, centerViewport }) => {
                         animate={
                             isVisible
                                 ? { opacity: 1, overflow: "scroll" }
-                                : { opacity: 0.4, overflow: "hidden" }
+                                : { opacity: 0.2, overflow: "hidden" }
                         }
                         className={styles.grid}
                         ref={scrollRef}

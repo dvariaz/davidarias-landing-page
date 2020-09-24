@@ -46,6 +46,32 @@
             @include media(">=tablet", "landscape") {
                 height: calc(var(--vh, 1vh) * 100);
             }
+
+            .hero {
+                .closeButton {
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 50%;
+                    outline: none;
+
+                    background: #03050c;
+                    color: white;
+
+                    position: absolute;
+                    top: 2em;
+                    right: 2em;
+
+                    width: 3em;
+                    height: 3em;
+                    padding: 0.9em;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
         }
 
         .description {

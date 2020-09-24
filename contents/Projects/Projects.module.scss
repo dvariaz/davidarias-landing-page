@@ -44,6 +44,7 @@
     grid-template-rows: auto 1fr;
     align-self: center;
 
+    height: 100%;
     max-width: 1600px;
 
     @include media(">=desktop") {

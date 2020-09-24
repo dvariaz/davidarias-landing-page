@@ -2,15 +2,14 @@ import { useRef, useEffect } from "react";
 
 const stepPercent = 0.01;
 
-export default function useHorizontalScroll(condition) {
+export default function useHorizontalScroll(visible, available) {
     const elRef = useRef();
     useEffect(() => {
         const el = elRef.current;
-        if (el) {
+        if (el && available) {
             const onWheel = (e) => {
-                if (condition) {
+                if (visible) {
                     e.preventDefault();
-                    console.log(`Vamos a movernos ${el.scrollWidth * stepPercent}`);
                     if (e.deltaY > 0) {
                         if (el.scrollLeft + el.offsetWidth < el.scrollWidth) {
                             el.scrollTo({
@@ -32,6 +31,6 @@ export default function useHorizontalScroll(condition) {
             el.addEventListener("wheel", onWheel);
             return () => el.removeEventListener("wheel", onWheel);
         }
-    }, [condition]);
+    }, [visible, available]);
     return elRef;
 }

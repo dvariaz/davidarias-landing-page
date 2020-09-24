@@ -39,6 +39,15 @@ const ProjectDetails = ({ id, name, date, description, background, url, onClick 
                     onClick={onClick}
                 >
                     <motion.div className={styles.hero} layoutId={`project-card-${id}-hero`}>
+                        <motion.button
+                            initial={{ y: -150, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -150, opacity: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className={styles.closeButton}
+                        >
+                            <img src="/assets/icons/close_icon.svg" />
+                        </motion.button>
                         <img src={background} />
                     </motion.div>
                 </motion.div>
