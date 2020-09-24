@@ -61,8 +61,11 @@
                     }
                 }
 
-                @include media(">=tablet", "portrait") {
+                @include media(">=tablet", "landscape") {
                     max-width: 600px;
+                    span {
+                        text-align: center;
+                    }
                 }
             }
         }

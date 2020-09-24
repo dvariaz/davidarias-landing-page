@@ -49,26 +49,28 @@ const Projects = ({ projects, centerViewport }) => {
     return (
         <AnimateSharedLayout type="crossfade">
             <section className={styles.body} ref={ref}>
-                <h1 className={styles.title}>Proyectos</h1>
-                <motion.div
-                    animate={
-                        isVisible
-                            ? { opacity: 1, overflow: "scroll" }
-                            : { opacity: 0.4, overflow: "hidden" }
-                    }
-                    className={styles.grid}
-                    ref={scrollRef}
-                >
-                    {projects.map((project) => (
-                        <ProjectCard
-                            key={project.id}
-                            id={project.id}
-                            name={project.name}
-                            background={project.cover}
-                            onClick={() => handleProjectClick(project)}
-                        />
-                    ))}
-                </motion.div>
+                <div className={styles.container}>
+                    <h1 className={styles.title}>Proyectos</h1>
+                    <motion.div
+                        animate={
+                            isVisible
+                                ? { opacity: 1, overflow: "scroll" }
+                                : { opacity: 0.4, overflow: "hidden" }
+                        }
+                        className={styles.grid}
+                        ref={scrollRef}
+                    >
+                        {projects.map((project) => (
+                            <ProjectCard
+                                key={project.id}
+                                id={project.id}
+                                name={project.name}
+                                background={project.cover}
+                                onClick={() => handleProjectClick(project)}
+                            />
+                        ))}
+                    </motion.div>
+                </div>
                 <AnimatePresence>
                     {isOpen && projectOpen && (
                         <ProjectCardDetails
