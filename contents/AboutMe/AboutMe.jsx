@@ -49,7 +49,6 @@ const AboutMe = ({ stories }) => {
             </motion.picture>
         </AnimatePresence>
     );
-    //TODO: Animar el fondo bajandole la opacidad a cero cambiando la imagen y luego volviendo la opacidad a 1
     return (
         <section className={styles.body}>
             <div className={styles.content}>

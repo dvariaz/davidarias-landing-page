@@ -6,9 +6,11 @@ import ProjectCard from "./components/ProjectCard";
 import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
 
 import useOnScreen from "../../hooks/useOnScreen";
+import useHorizontalScroll from "../../hooks/useHorizontalScroll";
 
 const Projects = ({ projects, centerViewport }) => {
     const ref = useRef();
+    const scrollRef = useHorizontalScroll();
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
     const isVisible = useOnScreen(ref, "0px", 0.95);
@@ -52,6 +54,7 @@ const Projects = ({ projects, centerViewport }) => {
                             : { opacity: 0.4, overflow: "hidden" }
                     }
                     className={styles.grid}
+                    ref={scrollRef}
                 >
                     {projects.map((project) => (
                         <ProjectCard
