@@ -27,7 +27,6 @@
 }
 
 .container {
-    width: 100%;
     height: 100%;
     max-width: 1600px;
     margin: auto;
@@ -76,6 +75,7 @@
 
 .platformSelector {
     width: 100%;
+    margin: 1em 0;
 
     form {
         display: flex;
@@ -99,6 +99,11 @@
             @include media(">=phone", "portrait") {
                 width: 45px;
                 height: 45px;
+            }
+
+            @include media(">=desktop") {
+                width: 50px;
+                height: 50px;
             }
 
             cursor: pointer;
@@ -135,7 +140,11 @@
     grid-area: list;
     display: flex;
     flex-direction: column;
+    justify-self: center;
 
+    transition: opacity 0.2s ease;
+
+    width: 90%;
     height: 100%;
     overflow: scroll;
 

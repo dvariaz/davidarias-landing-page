@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import styles from "./Studies.module.scss";
 
@@ -28,15 +28,37 @@ const Studies = ({ id, studies }) => {
             courses = study.courses.map((course) => ({ ...course, icon: study.logo }));
         }
 
-        return courses.map((course) => (
-            <Card
+        return courses.map((course, index) => (
+            <motion.div
                 key={course.id}
-                type="course"
-                subtitle={course.name}
-                icon={course.icon}
-                date={course.date}
-                duration={course.duration}
-            />
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={{
+                    initial: {
+                        y: 100,
+                        opacity: 0,
+                    },
+                    animate: {
+                        y: 0,
+                        opacity: 1,
+                    },
+                    exit: {
+                        y: -100,
+                        opacity: 0,
+                    },
+                }}
+                transition={{ delay: index / 10 }}
+                style={{ margin: "1em 0" }}
+            >
+                <Card
+                    type="course"
+                    subtitle={course.name}
+                    icon={course.icon}
+                    date={course.date}
+                    duration={course.duration}
+                />
+            </motion.div>
         ));
     };
 
@@ -80,17 +102,17 @@ const Studies = ({ id, studies }) => {
                         </form>
                     </div>
                 </div>
-                <motion.div
-                    animate={
+                <div
+                    className={styles.courses}
+                    style={
                         isVisible
                             ? { opacity: 1, overflow: "scroll" }
                             : { opacity: 0.4, overflow: "hidden" }
                     }
-                    className={styles.courses}
                     ref={listRef}
                 >
-                    {renderCourses()}
-                </motion.div>
+                    <motion.div key={selectedInstitute}>{renderCourses()}</motion.div>
+                </div>
             </div>
         </section>
     );
