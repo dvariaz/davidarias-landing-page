@@ -1,7 +1,5 @@
 import styles from "./Contact.module.scss";
 
-//TODO: Insertar iconos de redes sociales y algunas marcas de copyright si es posible, año
-
 const Contact = ({ id }) => {
     return (
         <section id={id} className={styles.body}>

@@ -91,7 +91,6 @@
 
     @include media(">=tablet", "landscape") {
         height: 100%;
-        //TODO: Toca mirar como meter un track para dejar margenes laterales
 
         flex-direction: column;
         flex-wrap: wrap;

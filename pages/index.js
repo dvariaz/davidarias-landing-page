@@ -12,8 +12,6 @@ import Contact from "../contents/Contact";
 //Hooks
 import useWindowSize from "../hooks/useWindowSize";
 
-//TODO: Una vez dominado el scroll snapping, aplicarlo a las secciones del index
-
 export default function Index({ projects, stories, studies }) {
     const ref = useRef();
     const size = useWindowSize();
