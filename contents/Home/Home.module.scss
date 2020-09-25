@@ -46,11 +46,35 @@
 }
 
 .titleUp {
+    --start-position: -50%;
+    --final-position: -100%;
     composes: title;
     transform: translateX(-80px);
+    animation: displacement 5s infinite ease;
+    min-width: 150px;
 }
 
 .titleDown {
+    --start-position: 50%;
+    --final-position: 100%;
     composes: title;
     transform: translateX(80px);
+    animation: displacement 5s infinite ease;
+}
+
+@keyframes displacement {
+    0% {
+        opacity: 0;
+        transform: translateX(var(--start-position));
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(var(--final-position));
+        opacity: 0;
+    }
 }

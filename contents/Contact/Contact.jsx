@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styles from "./Contact.module.scss";
 
 const Contact = ({ id }) => {
@@ -39,8 +40,20 @@ const Contact = ({ id }) => {
             </div>
             <footer className={styles.footer}>2020</footer>
             <div className={styles.background}>
-                <h1 className={styles.backgroundText}>Contact</h1>
-                <h1 className={styles.backgroundText}>Me</h1>
+                <motion.h1
+                    animate={{ opacity: [0, 1, 0], x: "-30%" }}
+                    transition={{ type: "tween", loop: Infinity, duration: 10 }}
+                    className={styles.backgroundText}
+                >
+                    Contact
+                </motion.h1>
+                <motion.h1
+                    animate={{ opacity: [0, 1, 0], x: "30%" }}
+                    transition={{ type: "tween", loop: Infinity, duration: 10 }}
+                    className={styles.backgroundText}
+                >
+                    Me
+                </motion.h1>
             </div>
         </section>
     );

@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import styles from "./Home.module.scss";
 
 import Navbar from "../../components/Navbar";
@@ -5,6 +7,14 @@ import Portrait from "./components/Portrait";
 import Shape from "./components/Shape";
 
 const Home = ({ id }) => {
+    const [indexTitle, setIndexTitle] = useState(0);
+    const titles = [
+        ["Creative", "Coder"],
+        ["Front-end", "Developer"],
+        ["UI", "Designer"],
+        ["Motion", "Artist"],
+    ];
+
     return (
         <section id={id} className={styles.body}>
             <Navbar
@@ -16,9 +26,16 @@ const Home = ({ id }) => {
                     { id: "contact", name: "Contacto" },
                 ]}
             />
-            <h1 className={styles.titleUp}>Creative</h1>
+            <h1
+                onAnimationIteration={() =>
+                    setIndexTitle((indexTitle) => (indexTitle + 1) % titles.length)
+                }
+                className={styles.titleUp}
+            >
+                {titles[indexTitle][0]}
+            </h1>
             <Portrait />
-            <h1 className={styles.titleDown}>Coder</h1>
+            <h1 className={styles.titleDown}>{titles[indexTitle][1]}</h1>
             <Shape color="#b70128" />
         </section>
     );
