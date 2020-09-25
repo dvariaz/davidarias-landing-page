@@ -46,8 +46,12 @@
 }
 
 .titleUp {
-    --start-position: -50%;
-    --final-position: -100%;
+    --start-position: -30%;
+    --final-position: -60%;
+    @include media(">=desktop") {
+        --start-position: -50%;
+        --final-position: -100%;
+    }
     composes: title;
     transform: translateX(-80px);
     animation: displacement 5s infinite ease;
@@ -55,8 +59,12 @@
 }
 
 .titleDown {
-    --start-position: 50%;
-    --final-position: 100%;
+    --start-position: 30%;
+    --final-position: 60%;
+    @include media(">=desktop") {
+        --start-position: 50%;
+        --final-position: 100%;
+    }
     composes: title;
     transform: translateX(80px);
     animation: displacement 5s infinite ease;
