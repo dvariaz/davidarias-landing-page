@@ -79,7 +79,7 @@ export default function Index({ projects, stories, studies }) {
 }
 
 export async function getServerSideProps(context) {
-    const url = process.env.APP_URL || "http://localhost:3000";
+    const url = process.env.VERCEL_URL || "http://localhost:3000";
 
     const projectsResponse = await fetch(`${url}/api/projects`);
     const projectsData = await projectsResponse.json();
