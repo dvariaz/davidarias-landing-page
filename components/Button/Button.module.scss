@@ -1,0 +1,34 @@
+@import "../../styles/include-media.scss";
+
+.button {
+    color: white;
+
+    display: inline-block;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+
+    width: 100%;
+}
+
+.light {
+    display: inline-block;
+    border-radius: 2.5em;
+
+    background: var(--overlay-item-background);
+    padding: 0.8em 1.4em;
+    margin: 1em 0;
+
+    @include media(">=tablet") {
+        width: fit-content;
+    }
+}
+
+.solid {
+    composes: main_text from "../../styles/fonts.module.scss";
+
+    background-color: #b70128;
+    padding: 0.7em 1em;
+    margin: 0.5em;
+    max-width: 250px;
+}

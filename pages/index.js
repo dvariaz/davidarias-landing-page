@@ -1,17 +1,19 @@
 import { useEffect, useRef } from "react";
+import { mergeArrayOfObjects } from "../utils/index.js";
 import Head from "next/head";
 
 //Views
-import Home from "../contents/Home";
-import AboutMe from "../contents/AboutMe";
-import Projects from "../contents/Projects";
-import Skills from "../contents/Skills";
-import Studies from "../contents/Studies";
-import Contact from "../contents/Contact";
+import Home from "../contents/index/Home";
+import AboutMe from "../contents/index/AboutMe";
+import Projects from "../contents/index/Projects";
+import Skills from "../contents/index/Skills";
+import Studies from "../contents/index/Studies";
+import Contact from "../contents/index/Contact";
 
 //Hooks
 import useWindowSize from "../hooks/useWindowSize";
 
+//TODO: Poner los separadores triangulares para guiar la vista del usuario
 export default function Index({ projects, stories, studies }) {
     const ref = useRef();
     const size = useWindowSize();
@@ -79,22 +81,36 @@ export default function Index({ projects, stories, studies }) {
 }
 
 export async function getServerSideProps(context) {
-    const url = `https://${process.env.VERCEL_URL}` || "http://localhost:3000";
+    const url =
+        process.env.NODE_ENV === "production"
+            ? `https://${process.env.VERCEL_URL}`
+            : "http://localhost:3000";
 
-    const projectsResponse = await fetch(`${url}/api/projects`);
-    const projectsData = await projectsResponse.json();
+    const responses = await Promise.all([
+        fetch(`${url}/api/projects`),
+        fetch(`${url}/api/stories`),
+        fetch(`${url}/api/studies`),
+    ]);
 
-    const storiesResponse = await fetch(`${url}/api/stories`);
-    const storiesData = await storiesResponse.json();
+    try {
+        const jsonArray = await Promise.all(
+            responses.map((res) => {
+                return res.json();
+            })
+        );
 
-    const studiesResponse = await fetch(`${url}/api/studies`);
-    const studiesData = await studiesResponse.json();
+        return {
+            props: mergeArrayOfObjects(jsonArray),
+        };
+    } catch (err) {
+        console.log(err);
 
-    return {
-        props: {
-            projects: projectsData.projects,
-            stories: storiesData.stories,
-            studies: studiesData.studies,
-        },
-    };
+        return {
+            props: {
+                projects: [],
+                stories: [],
+                studies: [],
+            },
+        };
+    }
 }
