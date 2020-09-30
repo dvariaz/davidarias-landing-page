@@ -1,12 +1,20 @@
+import { useRef } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 import styles from "./Skills.module.scss";
 
 import Card from "../../../components/Card";
+import Divider from "../../../components/Divider";
 
-const Skills = () => {
+const Skills = ({ centerViewport }) => {
+    const ref = useRef();
     return (
-        <section className={styles.body}>
+        <section className={styles.body} ref={ref}>
+            <Divider top />
             <h1 className={styles.title}>Skills</h1>
-            <div className={styles.content}>
+            <ScrollContainer
+                onStartScroll={() => centerViewport(ref.current.offsetTop)}
+                className={styles.content}
+            >
                 <div className={styles.grid}>
                     <div className={styles.column}>
                         <Card
@@ -79,7 +87,8 @@ const Skills = () => {
                         />
                     </div>
                 </div>
-            </div>
+            </ScrollContainer>
+            <Divider />
         </section>
     );
 };

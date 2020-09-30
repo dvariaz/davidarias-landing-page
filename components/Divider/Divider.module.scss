@@ -1,0 +1,5 @@
+.body {
+    position: absolute;
+    z-index: 100;
+    height: calc(var(--vh) * 5);
+}

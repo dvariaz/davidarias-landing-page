@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 import styles from "./Studies.module.scss";
 
@@ -7,11 +8,11 @@ import Card from "../../../components/Card";
 
 import useOnScreen from "../../../hooks/useOnScreen";
 
-const Studies = ({ id, studies }) => {
+const Studies = ({ id, studies, centerViewport }) => {
     const ref = useRef();
     const listRef = useRef();
     const [selectedInstitute, setSelectedInstitute] = useState(null);
-    const isVisible = useOnScreen(ref, "0px", 0.95);
+    const isVisible = useOnScreen(ref, "0px", 0.7);
 
     const renderCourses = () => {
         let courses = [];
@@ -70,7 +71,7 @@ const Studies = ({ id, studies }) => {
             setSelectedInstitute(id);
         }
 
-        listRef.current.scrollTop = 0;
+        listRef.current.getElement().scrollTop = 0;
     };
 
     return (
@@ -102,7 +103,8 @@ const Studies = ({ id, studies }) => {
                         </form>
                     </div>
                 </div>
-                <div
+                <ScrollContainer
+                    onStartScroll={() => centerViewport(ref.current.offsetTop)}
                     className={styles.courses}
                     style={
                         isVisible
@@ -112,7 +114,7 @@ const Studies = ({ id, studies }) => {
                     ref={listRef}
                 >
                     <motion.div key={selectedInstitute}>{renderCourses()}</motion.div>
-                </div>
+                </ScrollContainer>
             </div>
         </section>
     );

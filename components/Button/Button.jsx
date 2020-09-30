@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Button.module.scss";
 
-const Button = ({ type, href, target, children }) => {
+const Button = React.forwardRef(({ type, href, target, children }, ref) => {
     let styleType;
 
     switch (type) {
@@ -17,13 +17,12 @@ const Button = ({ type, href, target, children }) => {
         default:
             styleType = styles.solid;
     }
-
     return (
-        <a href={href} target={target} className={`${styles.button} ${styleType}`}>
+        <a href={href} target={target} className={`${styles.button} ${styleType}`} ref={ref}>
             {children}
         </a>
     );
-};
+});
 
 Button.propTypes = {};
 

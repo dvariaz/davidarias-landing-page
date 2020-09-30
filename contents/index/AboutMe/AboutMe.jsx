@@ -2,7 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import styles from "./AboutMe.module.scss";
+
 import DotCarousel from "./components/DotCarousel";
+import Divider from "../../../components/Divider";
 
 const AboutMe = ({ id, stories }) => {
     const [background, setBackground] = useState(0);
@@ -51,6 +53,7 @@ const AboutMe = ({ id, stories }) => {
     );
     return (
         <section id={id} className={styles.body}>
+            <Divider top />
             <div className={styles.content}>
                 <h1 className={styles.title}>Sobre mi</h1>
                 <div className={styles.description}>
@@ -58,6 +61,7 @@ const AboutMe = ({ id, stories }) => {
                 </div>
             </div>
             <div className={styles.background}>{renderBackground(background)}</div>
+            <Divider />
         </section>
     );
 };

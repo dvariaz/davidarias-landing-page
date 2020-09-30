@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import styles from "./Contact.module.scss";
 
 import Button from "../../../components/Button";
+import Divider from "../../../components/Divider";
 
 const Contact = ({ id }) => {
     return (
         <section id={id} className={styles.body}>
+            <Divider top />
             <div className={styles.form}>
                 <h1 className={styles.title}>
                     ¿Qué esperas para darle un look fantástico a tus ideas?
@@ -57,6 +59,7 @@ const Contact = ({ id }) => {
                     Me
                 </motion.h1>
             </div>
+            <Divider />
         </section>
     );
 };

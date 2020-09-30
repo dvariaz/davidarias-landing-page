@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import ScrollContainer from "react-indiana-drag-scroll";
 import styles from "./Projects.module.scss";
 
 import ProjectCard from "./components/ProjectCard";
@@ -12,8 +13,9 @@ import useOnScreen from "../../../hooks/useOnScreen";
 const Projects = ({ id, projects, centerViewport }) => {
     const ref = useRef();
     const isMobile = useMediaQuery("only screen and (max-width: 969px)");
-    const isVisible = useOnScreen(ref, "0px", 0.95);
+    const isVisible = useOnScreen(ref, "0px", 0.7);
 
+    const [isDragging, setIsDragging] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
 
@@ -62,6 +64,15 @@ const Projects = ({ id, projects, centerViewport }) => {
         };
     }, []);
 
+    const handleScrollStart = () => {
+        setIsDragging(true);
+        centerViewport(ref.current.offsetTop);
+    };
+
+    const handleScrollEnd = () => {
+        setIsDragging(false);
+    };
+
     return (
         <AnimateSharedLayout type="crossfade">
             <section id={id} className={styles.body} ref={ref}>
@@ -75,15 +86,23 @@ const Projects = ({ id, projects, centerViewport }) => {
                         }
                         className={styles.grid}
                     >
-                        {projects.map((project) => (
-                            <ProjectCard
-                                key={project.id}
-                                id={project.id}
-                                name={project.name}
-                                background={project.cover}
-                                onClick={() => handleProjectClick(project)}
-                            />
-                        ))}
+                        <ScrollContainer
+                            onStartScroll={handleScrollStart}
+                            onEndScroll={handleScrollEnd}
+                            className={styles.track}
+                            style={isVisible ? { pointerEvents: "all" } : { pointerEvents: "none" }}
+                        >
+                            {projects.map((project) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    id={project.id}
+                                    name={project.name}
+                                    background={project.cover}
+                                    onClick={() => handleProjectClick(project)}
+                                    disabled={isDragging}
+                                />
+                            ))}
+                        </ScrollContainer>
                     </motion.div>
                 </div>
                 <AnimatePresence>

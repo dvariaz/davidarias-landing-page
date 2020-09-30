@@ -13,7 +13,6 @@ import Contact from "../contents/index/Contact";
 //Hooks
 import useWindowSize from "../hooks/useWindowSize";
 
-//TODO: Poner los separadores triangulares para guiar la vista del usuario
 export default function Index({ projects, stories, studies }) {
     const ref = useRef();
     const size = useWindowSize();
@@ -72,14 +71,14 @@ export default function Index({ projects, stories, studies }) {
                 <Home id="index" />
                 <AboutMe id="about-me" stories={stories} />
                 <Projects id="projects" projects={projects} centerViewport={centerViewport} />
-                <Skills />
-                <Studies id="education" studies={studies} />
+                <Skills centerViewport={centerViewport} />
+                <Studies id="education" studies={studies} centerViewport={centerViewport} />
                 <Contact id="contact" />
             </main>
         </>
     );
 }
-
+//TODO: El deploy en desarrollo no reconoce la url,
 export async function getServerSideProps(context) {
     const url =
         process.env.NODE_ENV === "production"

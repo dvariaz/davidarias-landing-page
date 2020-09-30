@@ -165,8 +165,6 @@
 
     border-radius: 1em;
 
-    cursor: pointer;
-
     @include media(">=tablet", "landscape") {
         margin: 0;
         height: 100%;
