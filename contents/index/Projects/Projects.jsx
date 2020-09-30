@@ -89,6 +89,7 @@ const Projects = ({ id, projects, centerViewport }) => {
                         <ScrollContainer
                             onStartScroll={handleScrollStart}
                             onEndScroll={handleScrollEnd}
+                            hideScrollbars={false}
                             className={styles.track}
                             style={isVisible ? { pointerEvents: "all" } : { pointerEvents: "none" }}
                         >
