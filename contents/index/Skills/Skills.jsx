@@ -1,12 +1,18 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 import styles from "./Skills.module.scss";
 
+//Components
 import Card from "../../../components/Card";
 import Divider from "../../../components/Divider";
 
-const Skills = ({ centerViewport }) => {
+//Context
+import { ViewportContext } from "../../../context/ViewportContext";
+
+const Skills = () => {
     const ref = useRef();
+    const { centerViewport } = useContext(ViewportContext);
+
     return (
         <section className={styles.body} ref={ref}>
             <Divider top />

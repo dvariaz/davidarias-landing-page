@@ -10,22 +10,10 @@ import Skills from "../contents/index/Skills";
 import Studies from "../contents/index/Studies";
 import Contact from "../contents/index/Contact";
 
-//Hooks
-import useWindowSize from "../hooks/useWindowSize";
+//Context
+import { ViewportContextProvider } from "../context/ViewportContext";
 
 export default function Index({ projects, stories, studies }) {
-    const ref = useRef();
-    const size = useWindowSize();
-
-    useEffect(() => {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    }, [size]);
-
-    const centerViewport = (position) => {
-        ref.current.scrollTop = position;
-    };
-
     return (
         <>
             <Head>
@@ -67,14 +55,14 @@ export default function Index({ projects, stories, studies }) {
                 />
                 <meta name="robots" content="INDEX,FOLLOW,ARCHIVE" />
             </Head>
-            <main ref={ref}>
+            <ViewportContextProvider>
                 <Home id="index" />
                 <AboutMe id="about-me" stories={stories} />
-                <Projects id="projects" projects={projects} centerViewport={centerViewport} />
-                <Skills centerViewport={centerViewport} />
-                <Studies id="education" studies={studies} centerViewport={centerViewport} />
+                <Projects id="projects" projects={projects} />
+                <Skills />
+                <Studies id="education" studies={studies} />
                 <Contact id="contact" />
-            </main>
+            </ViewportContextProvider>
         </>
     );
 }

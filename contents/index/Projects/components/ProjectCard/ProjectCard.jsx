@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import styles from "./ProjectCard.module.scss";
 
-const ProjectCard = ({ id, name, background, onClick, disabled }) => {
+const ProjectCard = ({ id, background, onClick, disabled }) => {
     return (
         <div className={styles.container}>
             <motion.div

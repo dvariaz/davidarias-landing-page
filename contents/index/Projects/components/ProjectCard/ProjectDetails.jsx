@@ -2,9 +2,15 @@ import { motion } from "framer-motion";
 
 import styles from "./ProjectCard.module.scss";
 
+//Components
 import Button from "../../../../../components/Button";
+import Chip from "../../../../../components/Chip";
+import { StatusIndicator } from "../../../../../components/Indicators";
 
-const ProjectDetails = ({ id, name, date, description, background, url, onClick }) => {
+//Utils
+import { translateStatus } from "../../../../../utils";
+
+const ProjectDetails = ({ id, name, date, status, description, background, url, onClick }) => {
     const descriptionVariants = {
         visible: {
             background: "#03050c",
@@ -50,6 +56,14 @@ const ProjectDetails = ({ id, name, date, description, background, url, onClick 
                         >
                             <img src="/assets/icons/close_icon.svg" />
                         </motion.button>
+                        <div className={styles.bottomInfo}>
+                            <Chip indicatorColor="green">
+                                <div className={styles.status}>
+                                    <span>{translateStatus(status)}</span>
+                                    <StatusIndicator status={status} />
+                                </div>
+                            </Chip>
+                        </div>
                         <img src={background} />
                     </motion.div>
                 </motion.div>

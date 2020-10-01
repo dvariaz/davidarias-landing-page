@@ -6,6 +6,7 @@ export default (req, res) => {
                 id: "avengers-web",
                 name: "Avengers - La web infinita",
                 date: "2020",
+                status: "PRODUCTION",
                 description: [
                     "Realmente parecía infinita, fue un reto que me propuse hace mucho tiempo mientras buscaba proyectos que llevaran mis habilidades de programación y maquetación a un siguiente nivel. Un diseño muy llamativo realizado por Manuel Rovira, un diseñador que admiro mucho.",
                     "Durante su desarrollo, probé distintas tendencias de React.js para llegar a su resultado, hojas de estilo globales, sass, styled components, css modules, redux (lo quité más de una vez), context y hooks. Fue un desarrollo de mucha prueba y error, actualmente lo sigo puliendo.",
@@ -17,6 +18,7 @@ export default (req, res) => {
                 id: "landing-page-woldev",
                 name: "Landing Page Woldev",
                 date: "2020",
+                status: "DEVELOPMENT",
                 description: [
                     "La empresa necesitaba presencia en los buscadores y conseguir nuevos clientes, por lo que me encargué de hacer una carta de presentación muy atractiva: una landing page.",
                     "Mi trabajo consistió en diseñar toda la experiencia, los assets, las animaciones y programarla en su totalidad bajo las últimas tecnologías de React.",
@@ -28,6 +30,7 @@ export default (req, res) => {
                 id: "cambiabits",
                 name: "CambiaBits",
                 date: "2019 - Actualidad",
+                status: "DEVELOPMENT",
                 description: [
                     "Mientras el ecosistema de Tery-Bit seguía creciendo, surgió una nueva necesidad en nuestros usuarios: cambiar el Bitcoin por efectivo.",
                     "Así que decidimos sacar una app móvil nativa, donde los usuarios pudieran reservar la venta de sus Bitcoin, acercarse con toda seguridad los puntos físicos autorizados y recibir su dinero en efectivo.",
@@ -41,6 +44,7 @@ export default (req, res) => {
                 id: "fny-ecommerce",
                 name: "Fantasías New York – Ecommerce",
                 date: "2019 - Actualidad",
+                status: "DEVELOPMENT",
                 description: [
                     "Este fue uno de los principales motivos por los que nos contrataron para desarrollar la ERP del almacén, el comercio electrónico. Una vez se digitalizara todo el inventario, se empezarían a ofrecer los productos por la página web oficial.",
                     "Fue todo un reto respetar la esencia “colorida” de la marca para crear un e-commerce limpio, moderno y competitivo. Convencimos al cliente de que “menos es más” y que todo el color debía centrarse en los productos, no en lo que los rodeaba.",
@@ -53,6 +57,7 @@ export default (req, res) => {
                 id: "fny-erp",
                 name: "Fantasías New York – ERP",
                 date: "2019 - Actualidad",
+                status: "DEVELOPMENT",
                 description: [
                     "Uno de nuestros mejores clientes nos contactó para desarrollar un software bastante robusto, un ERP (Enterprise Resource Planning), para migrar todo su sistema obsoleto (de esas de consolas azules de los negocios) por uno más moderno y que respondiera a las nuevas necesidades del almacén.",
                     "Mi trabajo consistió desglosar el trabajo, tomar los requerimientos y diseñar interfaces amigables para trabajadores con poco conocimiento en tecnología y respetando los limites técnicos de desarrollo basándome en componentes de la librería de material design Vuetify.",
@@ -65,6 +70,7 @@ export default (req, res) => {
                 id: "space-drop-it",
                 name: "Space Drop It",
                 date: "2019",
+                status: "PRODUCTION",
                 description: [
                     "Un videojuego móvil que consistía en una mecánica básica pero divertida: combinar colores para evitar chocarse con las barreras. Fue un producto que desarrollamos para refrescarnos un poco del trabajo constante y agotador de Tery-Bit.",
                     "Mi trabajo consistió en tomar el GDD, diseñar la experiencia de juego, las interfaces y todos los assets que esté incluía, incluyendo un tema avanzado como los shaders.",
@@ -77,6 +83,7 @@ export default (req, res) => {
                 id: "izi-ads",
                 name: "IZI Anuncios",
                 date: "2018 - 2019",
+                status: "PRODUCTION",
                 description: [
                     "En pocas palabras, este proyecto consistía en una plataforma para subir anuncios y mostrarlos en los videojuegos desarrollados por Woldev, como Google Admob, pero más económico para ambas partes. Esta funcionalidad ya la habíamos desarrollado en la landing page de Tery-Bit, pero el equipo decidió separarla para incluir el servicio en nuestros futuros lanzamientos.",
                     "Mi trabajo consistió en darle un nuevo look & feel al servicio y migrar módulos al nuevo proyecto en compañía del equipo de desarrollo.",
@@ -88,6 +95,7 @@ export default (req, res) => {
                 id: "tery-bit-landing-page",
                 name: "Tery-Bit Landing Page",
                 date: "2018 - Actualidad",
+                status: "PRODUCTION",
                 description: [
                     "Cada vez que Tery-Bit iba ganando popularidad, era más necesario complementar la experiencia del videojuego con una plataforma para ver el progreso de los jugadores, su ranking y hacer transferencias de Bitcoin.",
                     "Mi trabajo consistió principalmente en convertir los requerimientos en interfaces muy llamativas. Una vez finalizado el proceso, me integré en el desarrollo de la aplicación, mentoreando y programando algunas funcionalidades.",

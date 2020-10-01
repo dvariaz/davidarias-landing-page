@@ -1,23 +1,34 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import ScrollContainer from "react-indiana-drag-scroll";
 import styles from "./Projects.module.scss";
 
+//Components
 import ProjectCard from "./components/ProjectCard";
 import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
 
-import { useMediaQuery } from "@react-hook/media-query";
-import useOnScreen from "../../../hooks/useOnScreen";
+//Context
+import { ViewportContext } from "../../../context/ViewportContext";
 
-//TODO: Intentar usar grab cursor para hacer drag and drop
-const Projects = ({ id, projects, centerViewport }) => {
+//Hooks
+import useOnScreen from "../../../hooks/useOnScreen";
+import useKeyTrigger from "../../../hooks/useKeyTrigger";
+
+const Projects = ({ id, projects }) => {
     const ref = useRef();
-    const isMobile = useMediaQuery("only screen and (max-width: 969px)");
     const isVisible = useOnScreen(ref, "0px", 0.7);
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
+
+    const { centerViewport } = useContext(ViewportContext);
+
+    useKeyTrigger(() => {
+        if (!isOpen) {
+            closeProject();
+        }
+    }, ["Escape", "Backspace"]);
 
     const openProject = (project) => {
         setProjectOpen(project);
@@ -46,23 +57,6 @@ const Projects = ({ id, projects, centerViewport }) => {
             centerViewport(ref.current.offsetTop);
         }
     };
-
-    function keyHandler({ key }) {
-        if (!isOpen) {
-            if (key === "Escape" || key === "Backspace") {
-                closeProject();
-            }
-        }
-    }
-
-    //Para manejar acciones del usuario al cerrar modales
-    useEffect(() => {
-        window.addEventListener("keyup", keyHandler);
-
-        return () => {
-            window.removeEventListener("keyup", keyHandler);
-        };
-    }, []);
 
     const handleScrollStart = () => {
         setIsDragging(true);
@@ -112,6 +106,7 @@ const Projects = ({ id, projects, centerViewport }) => {
                             id={projectOpen.id}
                             name={projectOpen.name}
                             date={projectOpen.date}
+                            status={projectOpen.status}
                             description={projectOpen.description}
                             background={projectOpen.cover}
                             url={projectOpen.url}

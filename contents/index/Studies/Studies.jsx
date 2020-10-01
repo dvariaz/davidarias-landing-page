@@ -1,18 +1,25 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ScrollContainer from "react-indiana-drag-scroll";
 
+//Styles
 import styles from "./Studies.module.scss";
 
+//Components
 import Card from "../../../components/Card";
 
+//Context
+import { ViewportContext } from "../../../context/ViewportContext";
+
+//Hooks
 import useOnScreen from "../../../hooks/useOnScreen";
 
-const Studies = ({ id, studies, centerViewport }) => {
+const Studies = ({ id, studies }) => {
     const ref = useRef();
     const listRef = useRef();
     const [selectedInstitute, setSelectedInstitute] = useState(null);
     const isVisible = useOnScreen(ref, "0px", 0.7);
+    const { centerViewport } = useContext(ViewportContext);
 
     const renderCourses = () => {
         let courses = [];

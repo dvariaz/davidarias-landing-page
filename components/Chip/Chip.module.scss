@@ -1,0 +1,14 @@
+.body {
+    composes: light_text from "../../styles/fonts.module.scss";
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+    background: #03050c;
+    padding: 0.5em 1.5em;
+
+    height: 3em;
+
+    border-radius: 2em;
+}
