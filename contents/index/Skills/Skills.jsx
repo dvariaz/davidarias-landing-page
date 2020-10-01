@@ -9,6 +9,7 @@ import Divider from "../../../components/Divider";
 //Context
 import { ViewportContext } from "../../../context/ViewportContext";
 
+//TODO: Deslizar en las skills en pantalla pequeña de PC no funciona
 const Skills = () => {
     const ref = useRef();
     const { centerViewport } = useContext(ViewportContext);
