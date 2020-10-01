@@ -25,7 +25,7 @@ export default function Index({ projects, stories, studies }) {
                 <meta name="language" content="es" />
                 <meta
                     name="description"
-                    content="Desarrollador Front-end y Diseñador UI. Construyo experiencias de alta calidad y atractivas para tus usuarios. ¿Quieres darle un look fantástico a tus ideas? Entra aquí"
+                    content="Desarrollador Front-end 👨‍💻 y UI Designer 👨‍🎨. Construyo experiencias de alta calidad y atractivas para tus usuarios. ¿Quieres darle un look fantástico a tus ideas? Entra aquí"
                 />
                 <meta
                     name="keywords"
@@ -35,7 +35,7 @@ export default function Index({ projects, stories, studies }) {
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:site_name"
-                    content="Desarrollador Front-end y UI Designer, apasionado por el arte y la forma en que se aplica al mundo de la tecnología."
+                    content="Desarrollador Front-end 👨‍💻 y UI Designer 👨‍🎨, apasionado por el arte y la forma en que se aplica al mundo de la tecnología."
                 />
                 <meta
                     property="og:image"
@@ -44,14 +44,14 @@ export default function Index({ projects, stories, studies }) {
                 <meta name="twitter:title" content="David Arias - Creative Coder" />
                 <meta
                     name="twitter:card"
-                    content="Desarrollador Front-end y Diseñador UI. Construyo experiencias de alta calidad y atractivas para tus usuarios."
+                    content="Desarrollador Front-end 👨‍💻 y UI Designer 👨‍🎨. Construyo experiencias de alta calidad y atractivas para tus usuarios."
                 />
                 <meta name="twitter:site" content="@dvariaz" />
                 <meta name="twitter:creator" content="@dvariaz" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
                     name="twitter:image:src"
-                    content={`${process.env.APP_URL}/assets/cards/davidarias_card_web.png`}
+                    content={`${process.env.APP_URL}/assets/cards/davidarias_card_web.jpg`}
                 />
                 <meta name="robots" content="INDEX,FOLLOW,ARCHIVE" />
             </Head>
