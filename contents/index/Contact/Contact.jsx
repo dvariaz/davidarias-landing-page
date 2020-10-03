@@ -12,7 +12,7 @@ const Contact = ({ id }) => {
                 <h1 className={styles.title}>
                     ¿Qué esperas para darle un look fantástico a tus ideas?
                 </h1>
-                <Button type="solid" href="https://wa.me/573164463763" target="_blank">
+                <Button type="solid" href="mailto:davidarias.contact@gmail.com">
                     Contáctame
                 </Button>
             </div>
