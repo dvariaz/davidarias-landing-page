@@ -13,7 +13,7 @@ import Contact from "../contents/index/Contact";
 //Context
 import { ViewportContextProvider } from "../context/ViewportContext";
 
-export default function Index({ projects, stories, studies }) {
+export default function Index() {
     return (
         <>
             <Head>
@@ -57,47 +57,12 @@ export default function Index({ projects, stories, studies }) {
             </Head>
             <ViewportContextProvider>
                 <Home id="index" />
-                <AboutMe id="about-me" stories={stories} />
-                <Projects id="projects" projects={projects} />
+                <AboutMe id="about-me" />
+                <Projects id="projects" />
                 <Skills />
-                <Studies id="education" studies={studies} />
+                <Studies id="education" />
                 <Contact id="contact" />
             </ViewportContextProvider>
         </>
     );
-}
-//TODO: El deploy en desarrollo no reconoce la url,
-export async function getServerSideProps(context) {
-    const url =
-        process.env.NODE_ENV === "production"
-            ? `https://${process.env.VERCEL_URL}`
-            : "http://localhost:3000";
-
-    const responses = await Promise.all([
-        fetch(`${url}/api/projects`),
-        fetch(`${url}/api/stories`),
-        fetch(`${url}/api/studies`),
-    ]);
-
-    try {
-        const jsonArray = await Promise.all(
-            responses.map((res) => {
-                return res.json();
-            })
-        );
-
-        return {
-            props: mergeArrayOfObjects(jsonArray),
-        };
-    } catch (err) {
-        console.log(err);
-
-        return {
-            props: {
-                projects: [],
-                stories: [],
-                studies: [],
-            },
-        };
-    }
 }

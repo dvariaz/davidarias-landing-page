@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useContext } from "react";
+import { useQuery } from "react-query";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import ScrollContainer from "react-indiana-drag-scroll";
 import styles from "./Projects.module.scss";
@@ -15,7 +16,7 @@ import useOnScreen from "../../../hooks/useOnScreen";
 import useKeyTrigger from "../../../hooks/useKeyTrigger";
 
 //TODO: Revisar los handle y utilizar useCallback
-const Projects = ({ id, projects }) => {
+const Projects = ({ id }) => {
     const ref = useRef();
     const isVisible = useOnScreen(ref, "0px", 0.7);
 
@@ -24,6 +25,10 @@ const Projects = ({ id, projects }) => {
     const [projectOpen, setProjectOpen] = useState(null);
 
     const { centerViewport } = useContext(ViewportContext);
+
+    const { isLoading, error, data } = useQuery("projectsData", () =>
+        fetch("/api/projects").then((res) => res.json())
+    );
 
     useKeyTrigger(() => {
         if (!isOpen) {
@@ -68,6 +73,10 @@ const Projects = ({ id, projects }) => {
         setIsDragging(false);
     };
 
+    if (isLoading) return "Cargando..";
+
+    if (error) return "Ha ocurrido un error" + error.message;
+
     return (
         <AnimateSharedLayout type="crossfade">
             <section id={id} className={styles.body} ref={ref}>
@@ -88,7 +97,7 @@ const Projects = ({ id, projects }) => {
                             className={styles.track}
                             style={isVisible ? { pointerEvents: "all" } : { pointerEvents: "none" }}
                         >
-                            {projects.map((project) => (
+                            {data.projects.map((project) => (
                                 <ProjectCard
                                     key={project.id}
                                     id={project.id}

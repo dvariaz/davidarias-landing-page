@@ -1,9 +1,10 @@
 import { useState, useRef, useContext } from "react";
+import { useQuery } from "react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 //Styles
-import styles from "./Studies.module.scss";
+import styles from "./studies.module.scss";
 
 //Components
 import Card from "../../../components/Card";
@@ -14,22 +15,27 @@ import { ViewportContext } from "../../../context/ViewportContext";
 //Hooks
 import useOnScreen from "../../../hooks/useOnScreen";
 
-const Studies = ({ id, studies }) => {
+const Studies = ({ id }) => {
     const ref = useRef();
-    const listRef = useRef();
+
     const [selectedInstitute, setSelectedInstitute] = useState(null);
     const isVisible = useOnScreen(ref, "0px", 0.7);
     const { centerViewport } = useContext(ViewportContext);
+    const listRef = useRef();
+
+    const { isLoading, error, data } = useQuery("studiesData", () =>
+        fetch("/api/studies").then((res) => res.json())
+    );
 
     const renderCourses = () => {
         let courses = [];
 
         if (!selectedInstitute) {
-            studies.forEach((study) => {
+            data.studies.forEach((study) => {
                 study.courses.forEach((course) => courses.push({ ...course, icon: study.logo }));
             });
         } else {
-            let [study] = studies.filter((study) => {
+            let [study] = data.studies.filter((study) => {
                 return study.id === selectedInstitute;
             });
 
@@ -81,6 +87,10 @@ const Studies = ({ id, studies }) => {
         listRef.current.getElement().scrollTop = 0;
     };
 
+    if (isLoading) return "Cargando..";
+
+    if (error) return "Ha ocurrido un error" + error.message;
+
     return (
         <section id={id} className={styles.body} ref={ref}>
             <div className={styles.container}>
@@ -93,7 +103,7 @@ const Studies = ({ id, studies }) => {
                     </p>
                     <div className={styles.platformSelector}>
                         <form>
-                            {studies.map((study, index) => (
+                            {data.studies.map((study, index) => (
                                 <label key={index}>
                                     <input
                                         type="radio"
