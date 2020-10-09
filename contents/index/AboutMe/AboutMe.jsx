@@ -6,6 +6,7 @@ import styles from "./AboutMe.module.scss";
 import DotCarousel from "./components/DotCarousel";
 import Divider from "../../../components/Divider";
 
+//TODO: Revisar los handle y utilizar useCallback
 const AboutMe = ({ id, stories }) => {
     const [background, setBackground] = useState(0);
 

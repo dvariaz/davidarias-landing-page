@@ -3,6 +3,7 @@ import styles from "./DotCarousel.module.scss";
 
 import Page from "./Page";
 
+//TODO: Revisar los handle y utilizar useCallback
 const DotCarousel = ({ items, onPageChange }) => {
     const carouselRef = useRef();
     const [activePage, setActivePage] = useState(0);

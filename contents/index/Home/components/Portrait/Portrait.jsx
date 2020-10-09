@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
 import styles from "./Portrait.module.scss";
-
+//TODO: Agregar particulas que reaccionen al acelerometro o al mouse
 const Portrait = () => {
     return (
         <div className={styles.body}>

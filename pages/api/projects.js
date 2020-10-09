@@ -38,7 +38,7 @@ export default (req, res) => {
                     "Su lanzamiento se retrasó por el #covid-19, pero espero con ansias verla en producción muy pronto.",
                 ],
                 cover: "/assets/projects/cambiabits_cover.jpg",
-                url: "https://www.behance.net/gallery/102931097/CambiaBits-BTC-Mobile-App",
+                behance: "https://www.behance.net/gallery/102931097/CambiaBits-BTC-Mobile-App",
             },
             {
                 id: "fny-ecommerce",
@@ -46,25 +46,13 @@ export default (req, res) => {
                 date: "2019 - Actualidad",
                 status: "DEVELOPMENT",
                 description: [
-                    "Este fue uno de los principales motivos por los que nos contrataron para desarrollar la ERP del almacén, el comercio electrónico. Una vez se digitalizara todo el inventario, se empezarían a ofrecer los productos por la página web oficial.",
+                    "Uno de nuestros mejores clientes nos contactó para desarrollar un software bastante robusto, un ERP (Enterprise Resource Planning), para migrar todo su sistema obsoleto (de esas consolas azules de los negocios) por uno más moderno y que respondiera a las nuevas necesidades del almacén, entre ellas vender sus cientos de miles de productos en la web.",
                     "Fue todo un reto respetar la esencia “colorida” de la marca para crear un e-commerce limpio, moderno y competitivo. Convencimos al cliente de que “menos es más” y que todo el color debía centrarse en los productos, no en lo que los rodeaba.",
                     "Mi trabajo consistió en diseñar todas las experiencias e interfaces del e-commerce para su posterior desarrollo.",
                 ],
                 cover: "/assets/projects/ecommerce_fny_cover.jpg",
-                url: "",
-            },
-            {
-                id: "fny-erp",
-                name: "Fantasías New York – ERP",
-                date: "2019 - Actualidad",
-                status: "DEVELOPMENT",
-                description: [
-                    "Uno de nuestros mejores clientes nos contactó para desarrollar un software bastante robusto, un ERP (Enterprise Resource Planning), para migrar todo su sistema obsoleto (de esas de consolas azules de los negocios) por uno más moderno y que respondiera a las nuevas necesidades del almacén.",
-                    "Mi trabajo consistió desglosar el trabajo, tomar los requerimientos y diseñar interfaces amigables para trabajadores con poco conocimiento en tecnología y respetando los limites técnicos de desarrollo basándome en componentes de la librería de material design Vuetify.",
-                    "Actualmente sigue en desarrollo.",
-                ],
-                cover: "/assets/projects/erpfny_cover.jpg",
-                url: "",
+                behance:
+                    "https://www.behance.net/gallery/105556619/Fantasias-New-York-E-commerce-Website",
             },
             {
                 id: "space-drop-it",
@@ -78,6 +66,7 @@ export default (req, res) => {
                 cover: "/assets/projects/space_drop_it_cover.jpg",
                 url:
                     "https://play.google.com/store/apps/details?id=com.Woldev.SpaceDropIt&hl=es_CO",
+                behance: "https://www.behance.net/gallery/96421873/Space-Drop-It",
             },
             {
                 id: "izi-ads",
@@ -90,6 +79,8 @@ export default (req, res) => {
                 ],
                 cover: "/assets/projects/izi_cover.jpg",
                 url: "https://www.izianuncio.com",
+                behance:
+                    "https://www.behance.net/gallery/93814497/IZI-Anuncios-Advertisement-Service",
             },
             {
                 id: "tery-bit-landing-page",
@@ -102,6 +93,20 @@ export default (req, res) => {
                 ],
                 cover: "/assets/projects/terybit_cover.jpg",
                 url: "https://www.tery-bit.com",
+                behance: "https://www.behance.net/gallery/80762783/Tery-Bit-Landing-Page",
+            },
+            {
+                id: "tery-bit-game",
+                name: "Tery-Bit",
+                date: "2018 - Actualidad",
+                status: "PRODUCTION",
+                description: [
+                    "El producto con más reconocimiento en Woldev, un videojuego móvil para ganar Bitcoin jugando complementado con una estrategia de crecimiento basado en marketing multinivel. Ha sido un gran reto para nuestro equipo a nivel de producto, desarrollo e infraestructura.",
+                    "Participé en su creación desde el planteamiento de la idea inicial, diseñando la experiencia, las interfaces, y los assets del juego a lo largo de sus constantes actualizaciones, afrontando problemas como intentos de hackeo, fallas de accesibilidad y limitaciones del engine.",
+                ],
+                cover: "/assets/projects/terybit_app_cover.jpg",
+                url: "https://play.google.com/store/apps/details?id=com.TeryBit.TeryBit",
+                behance: "https://www.behance.net/gallery/105746911/Tery-Bit-BTC-Videogame",
             },
         ],
     });

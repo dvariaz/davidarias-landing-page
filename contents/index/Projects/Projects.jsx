@@ -14,6 +14,7 @@ import { ViewportContext } from "../../../context/ViewportContext";
 import useOnScreen from "../../../hooks/useOnScreen";
 import useKeyTrigger from "../../../hooks/useKeyTrigger";
 
+//TODO: Revisar los handle y utilizar useCallback
 const Projects = ({ id, projects }) => {
     const ref = useRef();
     const isVisible = useOnScreen(ref, "0px", 0.7);

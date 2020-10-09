@@ -1,3 +1,5 @@
+//TODO: Utilizar UUID para los elementos y evitar keys con el index
+
 export default (req, res) => {
     res.statusCode = 200;
     res.json({

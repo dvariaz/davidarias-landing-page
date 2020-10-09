@@ -64,7 +64,7 @@ const ProjectDetails = ({ id, name, date, status, description, background, url, 
                                 </div>
                             </Chip>
                         </div>
-                        <img src={background} />
+                        <img src={background} draggable="false" />
                     </motion.div>
                 </motion.div>
                 <motion.div
