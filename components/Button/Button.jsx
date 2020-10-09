@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Button.module.scss";
 
-const Button = React.forwardRef(({ type, href, target, children }, ref) => {
+const Button = React.forwardRef(({ type, href, target, children, prefix }, ref) => {
     let styleType;
 
     switch (type) {
@@ -19,6 +19,7 @@ const Button = React.forwardRef(({ type, href, target, children }, ref) => {
     }
     return (
         <a href={href} target={target} className={`${styles.button} ${styleType}`} ref={ref}>
+            {prefix && <img src={prefix} className={styles.prefix} />}
             {children}
         </a>
     );

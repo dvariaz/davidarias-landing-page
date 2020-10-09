@@ -10,7 +10,17 @@ import { StatusIndicator } from "../../../../../components/Indicators";
 //Utils
 import { translateStatus } from "../../../../../utils";
 
-const ProjectDetails = ({ id, name, date, status, description, background, url, onClick }) => {
+const ProjectDetails = ({
+    id,
+    name,
+    date,
+    status,
+    description,
+    background,
+    url,
+    behance,
+    onClick,
+}) => {
     const descriptionVariants = {
         visible: {
             background: "#03050c",
@@ -84,9 +94,23 @@ const ProjectDetails = ({ id, name, date, status, description, background, url, 
                                 {paragraph}
                             </motion.p>
                         ))}
-                        <Button type="light" href={url} target="_blank">
-                            Ver más acerca de este proyecto
-                        </Button>
+                        <div className={styles.actions}>
+                            {behance && (
+                                <Button
+                                    type="light"
+                                    href={behance}
+                                    target="_blank"
+                                    prefix="/assets/icons/behance_icon.svg"
+                                >
+                                    Ver en Behance
+                                </Button>
+                            )}
+                            {url && (
+                                <Button type="light" href={url} target="_blank">
+                                    Ir al proyecto
+                                </Button>
+                            )}
+                        </div>
                     </div>
                 </motion.div>
             </div>

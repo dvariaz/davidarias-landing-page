@@ -111,6 +111,7 @@ const Projects = ({ id, projects }) => {
                             description={projectOpen.description}
                             background={projectOpen.cover}
                             url={projectOpen.url}
+                            behance={projectOpen.behance}
                             onClick={() => closeProject()}
                         />
                     )}

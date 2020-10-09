@@ -3,25 +3,28 @@
 .button {
     color: white;
 
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1em;
-    text-align: center;
     text-decoration: none;
 
     width: 100%;
-}
+    min-width: 200px;
 
-.light {
-    display: inline-block;
-    border-radius: 2.5em;
-
-    background: var(--overlay-item-background);
+    margin: 1em;
     padding: 0.8em 1.4em;
-    margin: 1em 0;
 
     @include media(">=tablet") {
         width: fit-content;
+        min-width: 250px;
     }
+}
+
+.light {
+    border-radius: 3em;
+
+    background: var(--overlay-item-background);
 }
 
 .solid {
@@ -31,4 +34,9 @@
     padding: 0.7em 1em;
     margin: 0.5em;
     max-width: 250px;
+}
+
+.prefix {
+    height: 1.5em;
+    margin-right: 1em;
 }
