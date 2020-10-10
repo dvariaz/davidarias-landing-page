@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Gobold";
+    src: url("/assets/fonts/GoboldItalic-Italic.woff2") format("woff2"),
+        url("/assets/fonts/GoboldItalic-Italic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gobold Hollow";
+    src: url("/assets/fonts/GoboldHollowItalic-Italic.woff2") format("woff2"),
+        url("/assets/fonts/GoboldHollowItalic-Italic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}

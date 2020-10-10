@@ -84,7 +84,7 @@ class MyDocument extends Document {
                         rel="stylesheet"
                         src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
                     />
-
+                    <link rel="stylesheet" href="assets/fonts/fonts.css" />
                     <link
                         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
                         rel="stylesheet"

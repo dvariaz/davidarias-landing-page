@@ -42,9 +42,6 @@ main {
 
     scroll-behavior: smooth;
 
-    // scroll-snap-type: y mandatory;
-    // scroll-padding: 50%;
-
     &::-webkit-scrollbar {
         display: none;
     }
