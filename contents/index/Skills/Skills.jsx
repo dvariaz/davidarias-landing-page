@@ -20,6 +20,7 @@ const Skills = () => {
             <h1 className={styles.title}>Skills</h1>
             <ScrollContainer
                 onStartScroll={() => centerViewport(ref.current.offsetTop)}
+                hideScrollbars={false}
                 className={styles.content}
             >
                 <div className={styles.grid}>

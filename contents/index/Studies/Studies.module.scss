@@ -135,6 +135,7 @@
 }
 
 .courses {
+    cursor: grab;
     grid-area: list;
     display: flex;
     flex-direction: column;

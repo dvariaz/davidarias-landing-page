@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 //Styles
-import styles from "./studies.module.scss";
+import styles from "./Studies.module.scss";
 
 //Components
 import Card from "../../../components/Card";
@@ -118,6 +118,7 @@ const Studies = ({ id }) => {
                 </div>
                 <ScrollContainer
                     onStartScroll={() => centerViewport(ref.current.offsetTop)}
+                    hideScrollbars={false}
                     className={styles.courses}
                     ref={listRef}
                 >
