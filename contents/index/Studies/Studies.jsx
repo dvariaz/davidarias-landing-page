@@ -12,14 +12,10 @@ import Card from "../../../components/Card";
 //Context
 import { ViewportContext } from "../../../context/ViewportContext";
 
-//Hooks
-import useOnScreen from "../../../hooks/useOnScreen";
-
 const Studies = ({ id }) => {
     const ref = useRef();
 
     const [selectedInstitute, setSelectedInstitute] = useState(null);
-    const isVisible = useOnScreen(ref, "0px", 0.7);
     const { centerViewport } = useContext(ViewportContext);
     const listRef = useRef();
 
@@ -123,11 +119,6 @@ const Studies = ({ id }) => {
                 <ScrollContainer
                     onStartScroll={() => centerViewport(ref.current.offsetTop)}
                     className={styles.courses}
-                    style={
-                        isVisible
-                            ? { opacity: 1, overflow: "scroll" }
-                            : { opacity: 0.4, overflow: "hidden" }
-                    }
                     ref={listRef}
                 >
                     <motion.div key={selectedInstitute}>{renderCourses()}</motion.div>

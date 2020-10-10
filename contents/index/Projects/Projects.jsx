@@ -12,13 +12,11 @@ import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
 import { ViewportContext } from "../../../context/ViewportContext";
 
 //Hooks
-import useOnScreen from "../../../hooks/useOnScreen";
 import useKeyTrigger from "../../../hooks/useKeyTrigger";
 
 //TODO: Revisar los handle y utilizar useCallback
 const Projects = ({ id }) => {
     const ref = useRef();
-    const isVisible = useOnScreen(ref, "0px", 0.7);
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -57,11 +55,7 @@ const Projects = ({ id }) => {
     };
 
     const handleProjectClick = (project) => {
-        if (isVisible) {
-            openProject(project);
-        } else {
-            centerViewport(ref.current.offsetTop);
-        }
+        openProject(project);
     };
 
     const handleScrollStart = () => {
@@ -82,20 +76,12 @@ const Projects = ({ id }) => {
             <section id={id} className={styles.body} ref={ref}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>Proyectos</h1>
-                    <motion.div
-                        animate={
-                            isVisible
-                                ? { opacity: 1, overflow: "scroll" }
-                                : { opacity: 0.2, overflow: "hidden" }
-                        }
-                        className={styles.grid}
-                    >
+                    <div className={styles.grid}>
                         <ScrollContainer
                             onStartScroll={handleScrollStart}
                             onEndScroll={handleScrollEnd}
                             hideScrollbars={false}
                             className={styles.track}
-                            style={isVisible ? { pointerEvents: "all" } : { pointerEvents: "none" }}
                         >
                             {data.projects.map((project) => (
                                 <ProjectCard
@@ -108,7 +94,7 @@ const Projects = ({ id }) => {
                                 />
                             ))}
                         </ScrollContainer>
-                    </motion.div>
+                    </div>
                 </div>
                 <AnimatePresence>
                     {isOpen && projectOpen && (
