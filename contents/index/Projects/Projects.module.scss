@@ -67,49 +67,6 @@
     text-align: center;
 }
 
-.grid {
-    width: 100%;
-    overflow: hidden;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    @include media(">=tablet", "portrait") {
-        max-width: 600px;
-    }
-
-    @include media(">=tablet", "landscape") {
-        align-self: stretch;
-    }
-
-    .track {
-        cursor: grab;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-
-        scrollbar-width: none;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        @include media(">=tablet", "landscape") {
-            flex-wrap: wrap;
-
-            &:before,
-            &:after {
-                content: "";
-                display: block;
-                height: 100%;
-                width: 6em;
-            }
-        }
-    }
-}
-
 .modal {
     background: rgba(0, 0, 0, 0.6);
 

@@ -14,8 +14,8 @@ const ProjectCard = ({ id, background, onClick, disabled }) => {
                 <motion.div className={styles.hero} layoutId={`project-card-${id}-hero`}>
                     {/* <span className={styles.label}>{name}</span> */}
                     <motion.img
-                        whileHover={{ scale: 1.3, rotate: -4 }}
-                        transition={{ duration: 0.3 }}
+                        whileHover={{ scale: 1.3 }}
+                        transition={{ duration: 1 }}
                         src={background}
                         draggable="false"
                     />

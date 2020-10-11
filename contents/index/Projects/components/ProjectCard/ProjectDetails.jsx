@@ -8,7 +8,7 @@ import Chip from "../../../../../components/Chip";
 import { StatusIndicator } from "../../../../../components/Indicators";
 
 //Utils
-import { translateStatus } from "../../../../../utils";
+import { translateStatus } from "../../../../../utils/enums";
 
 const ProjectDetails = ({
     id,

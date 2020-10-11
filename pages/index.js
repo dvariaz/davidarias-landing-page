@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { mergeArrayOfObjects } from "../utils/index.js";
+import { mergeArrayOfObjects } from "../utils/structures";
 import Head from "next/head";
 
 //Views

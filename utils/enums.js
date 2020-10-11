@@ -10,7 +10,3 @@ export const translateStatus = (string) => {
             return "Error de traducción";
     }
 };
-
-export const mergeArrayOfObjects = (array) => {
-    return array.reduce((accumulator, currentValue) => Object.assign(accumulator, currentValue));
-};
