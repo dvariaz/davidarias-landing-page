@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import styles from "./Home.module.scss";
 
 import Navbar from "../../../components/Navbar";
@@ -6,6 +6,7 @@ import Portrait from "./components/Portrait";
 import Shape from "./components/Shape";
 
 const Home = ({ id }) => {
+    const ref = useRef();
     const [indexTitle, setIndexTitle] = useState(0);
     const titles = [
         ["Creative", "Coder"],
@@ -15,7 +16,7 @@ const Home = ({ id }) => {
     ];
 
     return (
-        <section id={id} className={styles.body}>
+        <section id={id} className={styles.body} ref={ref}>
             <Navbar
                 sections={[
                     { id: "index", name: "Inicio" },
@@ -33,7 +34,7 @@ const Home = ({ id }) => {
             >
                 {titles[indexTitle][0]}
             </h1>
-            <Portrait />
+            <Portrait sectionRef={ref} />
             <h1 className={styles.titleDown}>{titles[indexTitle][1]}</h1>
             <Shape color="#b70128" />
         </section>

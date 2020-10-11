@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import PropTypes from "prop-types";
 
 import styles from "./Portrait.module.scss";
-//TODO: Agregar particulas que reaccionen al acelerometro o al mouse
-const Portrait = () => {
+import Particles from "../Particles";
+
+const Portrait = ({ sectionRef }) => {
     return (
         <div className={styles.body}>
             <svg viewBox="0 0 100 100" className={styles.square}>
@@ -17,6 +17,7 @@ const Portrait = () => {
                     fill="none"
                 />
             </svg>
+            <Particles sectionRef={sectionRef} />
             <div className={styles.picture}>
                 <motion.picture
                     initial={{ opacity: 0, y: 150 }}
@@ -40,7 +41,5 @@ const Portrait = () => {
         </div>
     );
 };
-
-Portrait.propTypes = {};
 
 export default Portrait;
