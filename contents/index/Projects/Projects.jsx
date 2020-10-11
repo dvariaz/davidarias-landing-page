@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { useQuery } from "react-query";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import GridLoader from "react-spinners/GridLoader";
+
 import styles from "./Projects.module.scss";
 
 import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
@@ -9,7 +11,7 @@ import ProjectCardDetails from "./components/ProjectCard/ProjectDetails";
 import useKeyTrigger from "../../../hooks/useKeyTrigger";
 
 //Projects
-import ProjectGrid from "./components/ProjectGrid";
+import { ProjectGrid, ProjectGridSkeleton } from "./components/ProjectGrid";
 
 //Utils
 import { lockScroll, unlockScroll } from "../../../utils/dom.js";
@@ -47,20 +49,37 @@ const Projects = ({ id }) => {
         unlockScroll();
     };
 
-    if (isLoading) return "Cargando..";
-
-    if (error) return "Ha ocurrido un error" + error.message;
+    if (error) {
+        return (
+            <section id={id} className={styles.body}>
+                <div className={styles.container}>
+                    <h1 className={styles.title}>Proyectos</h1>
+                    <ProjectGridSkeleton />
+                </div>
+            </section>
+        );
+    }
 
     return (
         <AnimateSharedLayout type="crossfade">
             <section id={id} className={styles.body} ref={ref}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>Proyectos</h1>
-                    <ProjectGrid
-                        rootRef={ref}
-                        projects={data.projects}
-                        handleProjectClick={handleProjectClick}
-                    />
+                    {isLoading ? (
+                        <div className={styles.loadingContent}>
+                            <GridLoader
+                                size={50}
+                                color={"rgba(255, 255, 255, 0.1)"}
+                                loading={isLoading}
+                            />
+                        </div>
+                    ) : (
+                        <ProjectGrid
+                            rootRef={ref}
+                            projects={data.projects}
+                            handleProjectClick={handleProjectClick}
+                        />
+                    )}
                 </div>
                 <AnimatePresence>
                     {isOpen && projectOpen && (

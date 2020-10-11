@@ -7,9 +7,9 @@ import styles from "./ProjectGrid.module.scss";
 import { ViewportContext } from "../../../../../context/ViewportContext";
 
 //Components
-import ProjectCard from "../../components/ProjectCard";
+import { ProjectCard, ProjectCardSkeleton } from "../../components/ProjectCard";
 
-const ProjectGrid = ({ rootRef, projects, handleProjectClick }) => {
+export const ProjectGrid = ({ rootRef, projects, handleProjectClick }) => {
     const [isDragging, setIsDragging] = useState(false);
     const { centerViewport } = useContext(ViewportContext);
 
@@ -45,4 +45,20 @@ const ProjectGrid = ({ rootRef, projects, handleProjectClick }) => {
     );
 };
 
-export default ProjectGrid;
+export const ProjectGridSkeleton = () => {
+    return (
+        <div className={styles.body}>
+            <div className={styles.info}>
+                <p>Hubo un problema al cargar los proyectos, vuelve más tarde</p>
+            </div>
+            <div className={styles.track}>
+                <ProjectCardSkeleton />
+                <ProjectCardSkeleton />
+                <ProjectCardSkeleton />
+                <ProjectCardSkeleton />
+                <ProjectCardSkeleton />
+                <ProjectCardSkeleton />
+            </div>
+        </div>
+    );
+};

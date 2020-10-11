@@ -1,3 +1,3 @@
-import ProjectGrid from "./ProjectGrid";
+import { ProjectGrid, ProjectGridSkeleton } from "./ProjectGrid";
 
-export default ProjectGrid;
+export { ProjectGrid, ProjectGridSkeleton };

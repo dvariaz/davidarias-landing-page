@@ -212,6 +212,10 @@
     }
 }
 
+.skeleton {
+    background: var(--overlay-item-background);
+}
+
 .descriptionContainer {
     display: flex;
     flex-direction: column;

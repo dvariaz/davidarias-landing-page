@@ -1,3 +1,3 @@
-import ProjectCard from "./ProjectCard";
+import { ProjectCard, ProjectCardSkeleton } from "./ProjectCard";
 
-export default ProjectCard;
+export { ProjectCard, ProjectCardSkeleton };
