@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.35",
     "@react-hook/media-query": "^1.1.1",
     "framer-motion": "^2.6.13",
     "next": "^9.5.5",

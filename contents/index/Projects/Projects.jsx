@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { useQuery } from "react-query";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import GridLoader from "react-spinners/GridLoader";
 
 import styles from "./Projects.module.scss";

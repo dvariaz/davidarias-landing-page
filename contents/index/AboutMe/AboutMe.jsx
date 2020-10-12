@@ -6,6 +6,7 @@ import styles from "./AboutMe.module.scss";
 
 import DotCarousel from "./components/DotCarousel";
 import Divider from "../../../components/Divider";
+import PulseLoader from "react-spinners/PulseLoader";
 
 //TODO: Revisar los handle y utilizar useCallback
 const AboutMe = ({ id }) => {
@@ -41,40 +42,61 @@ const AboutMe = ({ id }) => {
             >
                 <source
                     media="(min-width: 1921px)"
-                    srcSet={data.stories[index].background.urls.large}
+                    srcSet={data?.stories[index].background.urls.large}
                 />
                 <source
                     media="(min-width: 1024px)"
-                    srcSet={data.stories[index].background.urls.medium}
+                    srcSet={data?.stories[index].background.urls.medium}
                 />
-                <source srcSet={data.stories[index].background.urls.small} />
+                <source srcSet={data?.stories[index].background.urls.small} />
                 <motion.img
                     key={background}
                     initial="hidden"
                     exit="hidden"
                     variants={backgroundVariants}
                     transition={backgroundTransition}
-                    src={data.stories[index].background.urls.medium}
-                    alt={data.stories[index].background.name}
+                    src={data?.stories[index].background.urls.medium}
+                    alt={data?.stories[index].background.name}
                 />
             </motion.picture>
         </AnimatePresence>
     );
 
-    if (isLoading) return "Cargando..";
-
-    if (error) return "Ha ocurrido un error" + error.message;
+    if (error) {
+        return (
+            <section id={id} className={styles.body}>
+                <Divider top />
+                <div className={styles.content}>
+                    <h1 className={styles.title}>Sobre mi</h1>
+                    <div className={styles.description}>
+                        <p>{"Ha ocurrido un error cargando las historias, vuelve más tarde"}</p>
+                    </div>
+                </div>
+                <Divider />
+            </section>
+        );
+    }
 
     return (
         <section id={id} className={styles.body}>
             <Divider top />
             <div className={styles.content}>
                 <h1 className={styles.title}>Sobre mi</h1>
-                <div className={styles.description}>
-                    <DotCarousel items={data.stories} onPageChange={handlePageChange} />
-                </div>
+                {isLoading ? (
+                    <div className={styles.loadingContent}>
+                        <PulseLoader
+                            size={15}
+                            color={"rgba(255, 255, 255, 0.25)"}
+                            loading={isLoading}
+                        />
+                    </div>
+                ) : (
+                    <div className={styles.description}>
+                        <DotCarousel items={data?.stories} onPageChange={handlePageChange} />
+                    </div>
+                )}
             </div>
-            <div className={styles.background}>{renderBackground(background)}</div>
+            <div className={styles.background}>{!isLoading && renderBackground(background)}</div>
             <Divider />
         </section>
     );
