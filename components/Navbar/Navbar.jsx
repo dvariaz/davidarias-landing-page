@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { shallowEqualArrays } from "shallow-equal";
 
 import styles from "./Navbar.module.scss";
 
@@ -41,4 +42,6 @@ Navbar.propTypes = {
     sections: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, name: PropTypes.string })),
 };
 
-export default Navbar;
+export default React.memo(Navbar, (prevProps, nextProps) =>
+    shallowEqualArrays(prevProps, nextProps)
+);

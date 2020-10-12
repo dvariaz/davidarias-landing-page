@@ -146,4 +146,4 @@ Shape.propTypes = {
     color: PropTypes.string,
 };
 
-export default Shape;
+export default React.memo(Shape);

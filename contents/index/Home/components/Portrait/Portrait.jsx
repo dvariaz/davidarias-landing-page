@@ -42,4 +42,4 @@ const Portrait = ({ sectionRef }) => {
     );
 };
 
-export default Portrait;
+export default React.memo(Portrait);
