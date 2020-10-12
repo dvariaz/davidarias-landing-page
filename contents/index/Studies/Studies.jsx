@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useCallback } from "react";
 import { useQuery } from "react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import ScrollContainer from "react-indiana-drag-scroll";
@@ -8,6 +8,7 @@ import styles from "./Studies.module.scss";
 
 //Components
 import Card from "../../../components/Card";
+import PulseLoader from "react-spinners/PulseLoader";
 
 //Context
 import { ViewportContext } from "../../../context/ViewportContext";
@@ -19,15 +20,17 @@ const Studies = ({ id }) => {
     const { centerViewport } = useContext(ViewportContext);
     const listRef = useRef();
 
-    const { isLoading, error, data } = useQuery("studiesData", () =>
-        fetch("/api/studies").then((res) => res.json())
+    const { isLoading, error, data } = useQuery(
+        "studiesData",
+        () => fetch("/api/studies").then((res) => res.json()),
+        { retry: false }
     );
 
     const renderCourses = () => {
         let courses = [];
 
         if (!selectedInstitute) {
-            data.studies.forEach((study) => {
+            data?.studies.forEach((study) => {
                 study.courses.forEach((course) => courses.push({ ...course, icon: study.logo }));
             });
         } else {
@@ -72,6 +75,17 @@ const Studies = ({ id }) => {
         ));
     };
 
+    const renderSkeleton = useCallback(() => {
+        let skeletons = Array.from(Array(8).keys());
+        return (
+            <div>
+                {skeletons.map((skeleton) => (
+                    <Card key={skeleton} type="course" loading={isLoading} />
+                ))}
+            </div>
+        );
+    }, [error, isLoading]);
+
     const selectInstitute = (e) => {
         const id = e.target.value;
         if (selectedInstitute == id) {
@@ -82,10 +96,6 @@ const Studies = ({ id }) => {
 
         listRef.current.getElement().scrollTop = 0;
     };
-
-    if (isLoading) return "Cargando..";
-
-    if (error) return "Ha ocurrido un error" + error.message;
 
     return (
         <section id={id} className={styles.body} ref={ref}>
@@ -98,22 +108,35 @@ const Studies = ({ id }) => {
                         complementar las bases que adquirí en mi vida universitaria.
                     </p>
                     <div className={styles.platformSelector}>
-                        <form>
-                            {data.studies.map((study, index) => (
-                                <label key={index}>
-                                    <input
-                                        type="radio"
-                                        name="platformSelected"
-                                        value={study.id}
-                                        checked={selectedInstitute == study.id}
-                                        onClick={selectInstitute}
-                                        className={styles.platform}
-                                        style={{ backgroundImage: `url('${study.logo}')` }}
-                                        readOnly
-                                    />
-                                </label>
-                            ))}
-                        </form>
+                        {isLoading ? (
+                            <div className={styles.platformsLoading}>
+                                <PulseLoader
+                                    size={20}
+                                    color={"rgba(255, 255, 255, 0.25)"}
+                                    loading={isLoading}
+                                />
+                            </div>
+                        ) : (
+                            !error && (
+                                <form>
+                                    {data?.studies.map((study, index) => (
+                                        <label key={index}>
+                                            <input
+                                                type="radio"
+                                                name="platformSelected"
+                                                value={study.id}
+                                                checked={selectedInstitute == study.id}
+                                                onClick={selectInstitute}
+                                                className={styles.platform}
+                                                style={{ backgroundImage: `url('${study.logo}')` }}
+                                                readOnly
+                                            />
+                                        </label>
+                                    ))}
+                                </form>
+                            )
+                        )}
+                        )}
                     </div>
                 </div>
                 <ScrollContainer
@@ -121,8 +144,19 @@ const Studies = ({ id }) => {
                     hideScrollbars={false}
                     className={styles.courses}
                     ref={listRef}
+                    style={{ pointerEvents: data === undefined ? "none" : "all" }}
                 >
-                    <motion.div key={selectedInstitute}>{renderCourses()}</motion.div>
+                    {error && (
+                        <div className={styles.error}>
+                            <div className={styles.message}>
+                                <h2>Oops!</h2>
+                                <p>Hubo un problema al cargar mis estudios, pero confía en mi 😉</p>
+                            </div>
+                        </div>
+                    )}
+                    <motion.div key={selectedInstitute}>
+                        {data != undefined ? renderCourses() : renderSkeleton()}
+                    </motion.div>
                 </ScrollContainer>
             </div>
         </section>

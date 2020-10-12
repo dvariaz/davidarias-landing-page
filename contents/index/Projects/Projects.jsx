@@ -23,8 +23,10 @@ const Projects = ({ id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
 
-    const { isLoading, error, data } = useQuery("projectsData", () =>
-        fetch("/api/projects").then((res) => res.json())
+    const { isLoading, error, data } = useQuery(
+        "projectsData",
+        () => fetch("/api/projects").then((res) => res.json()),
+        { retry: false }
     );
 
     useKeyTrigger(() => {

@@ -12,8 +12,10 @@ import PulseLoader from "react-spinners/PulseLoader";
 const AboutMe = ({ id }) => {
     const [background, setBackground] = useState(0);
 
-    const { isLoading, error, data } = useQuery("storiesData", () =>
-        fetch("/api/stories").then((res) => res.json())
+    const { isLoading, error, data } = useQuery(
+        "storiesData",
+        () => fetch("/api/stories").then((res) => res.json()),
+        { retry: false }
     );
 
     const handlePageChange = (value) => {

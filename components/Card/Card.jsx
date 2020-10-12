@@ -4,7 +4,7 @@ import styles from "./Card.module.scss";
 
 import ProgressBar from "../ProgressBar";
 
-const Card = ({ type, title, subtitle, profile, items, icon, date, duration }) => {
+const Card = ({ type, title, subtitle, profile, items, icon, date, duration, loading }) => {
     const renderContent = () => {
         switch (type) {
             case "skill": {
@@ -59,6 +59,7 @@ const Card = ({ type, title, subtitle, profile, items, icon, date, duration }) =
 
     return (
         <div className={styles.body}>
+            {loading && <div className={styles.loader}></div>}
             {title && <h1 className={styles.title}>{title}</h1>}
             {subtitle && (
                 <h2 className={styles.subtitle}>
