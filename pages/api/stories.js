@@ -6,7 +6,7 @@ export default (req, res) => {
                 id: 0,
                 description: [
                     "Me llamo Luis David Arias Manjarrez, nací en Cartago Valle, el sol más alegre de Colombia... en serio, el más alegre.",
-                    "Desde pequeño, siempre me apasionó crear cosas y hacer que se vieran bien.",
+                    "Desde pequeño, siempre me gustaba crear cosas y hacer que se vieran bien.",
                     "Con más de 10 años de estudios y preparación autodidacta, encontré mis más grandes pasiones en la fotografía, la animación 3D, los efectos visuales y las interfaces de usuario.",
                 ],
                 background: {
@@ -50,7 +50,7 @@ export default (req, res) => {
             {
                 id: 3,
                 description: [
-                    "Hoy, busco nuevas oportunidades para seguir aprendiendo, para potenciar mis habilidades y cumplir mis metas. Busco que los demás puedan ver la importancia que tiene el arte y el diseño en el mundo del software, y busco que mi historia sea una motivación para que cada obstáculo se convierta en impulso para llegar cada vez más lejos.",
+                    "Hoy, busco nuevas oportunidades para seguir aprendiendo, para potenciar mis habilidades y cumplir mis metas. Busco que los demás puedan ver la importancia que tiene el arte y el diseño en el mundo del software, y busco que mi historia sea una motivación para que cada obstáculo se convierta en un impulso para llegar cada vez más lejos.",
                     "¿Estas listo para hacer parte de esta historia?",
                 ],
                 background: {

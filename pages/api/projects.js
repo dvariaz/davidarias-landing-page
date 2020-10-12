@@ -34,7 +34,7 @@ export default (req, res) => {
                 description: [
                     "Mientras el ecosistema de Tery-Bit seguía creciendo, surgió una nueva necesidad en nuestros usuarios: cambiar el Bitcoin por efectivo.",
                     "Así que decidimos sacar una app móvil nativa, donde los usuarios pudieran reservar la venta de sus Bitcoin, acercarse con toda seguridad los puntos físicos autorizados y recibir su dinero en efectivo.",
-                    "Mi trabajo consistió únicamente en llevar el proceso desde el UX hasta el UI, ya que se desarrolló en una tecnología aún estoy aprendiendo: Flutter.",
+                    "Mi trabajo consistió únicamente en llevar el proceso desde el UX hasta el UI, ya que se desarrolló en una tecnología que aún estoy aprendiendo: Flutter.",
                     "Su lanzamiento se retrasó por el #covid-19, pero espero con ansias verla en producción muy pronto.",
                 ],
                 cover: "/assets/projects/cambiabits_cover.jpg",
@@ -61,7 +61,7 @@ export default (req, res) => {
                 status: "PRODUCTION",
                 description: [
                     "Un videojuego móvil que consistía en una mecánica básica pero divertida: combinar colores para evitar chocarse con las barreras. Fue un producto que desarrollamos para refrescarnos un poco del trabajo constante y agotador de Tery-Bit.",
-                    "Mi trabajo consistió en tomar el GDD, diseñar la experiencia de juego, las interfaces y todos los assets que esté incluía, incluyendo un tema avanzado como los shaders.",
+                    "Mi trabajo consistió en tomar el Game Design Document, diseñar la experiencia de juego, las interfaces y todos los assets que esté incluía, incluyendo un tema avanzado como los shaders.",
                 ],
                 cover: "/assets/projects/space_drop_it_cover.jpg",
                 url:
@@ -101,7 +101,7 @@ export default (req, res) => {
                 date: "2018 - Actualidad",
                 status: "PRODUCTION",
                 description: [
-                    "El producto con más reconocimiento en Woldev, un videojuego móvil para ganar Bitcoin jugando complementado con una estrategia de crecimiento basado en marketing multinivel. Ha sido un gran reto para nuestro equipo a nivel de producto, desarrollo e infraestructura.",
+                    "El producto con más reconocimiento en Woldev, un videojuego móvil para ganar Bitcoin jugando, complementado con una estrategia de crecimiento basado en marketing multinivel. Ha sido un gran reto para nuestro equipo a nivel de producto, desarrollo e infraestructura.",
                     "Participé en su creación desde el planteamiento de la idea inicial, diseñando la experiencia, las interfaces, y los assets del juego a lo largo de sus constantes actualizaciones, afrontando problemas como intentos de hackeo, fallas de accesibilidad y limitaciones del engine.",
                 ],
                 cover: "/assets/projects/terybit_app_cover.jpg",
