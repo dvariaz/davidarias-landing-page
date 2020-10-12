@@ -6,7 +6,8 @@ export default (req, res) => {
                 id: 0,
                 description: [
                     "Me llamo Luis David Arias Manjarrez, nací en Cartago Valle, el sol más alegre de Colombia... en serio, el más alegre.",
-                    "Desde pequeño, siempre me apasionó crear cosas y hacer que se vieran bien, y desde entonces llevo 11 años estudiando de forma autodidacta todo lo relacionado con el arte digital, encontrando mis más grandes pasiones en la fotografía, la animación 3D, los efectos visuales y las interfaces de usuario.",
+                    "Desde pequeño, siempre me apasionó crear cosas y hacer que se vieran bien.",
+                    "Con más de 10 años de estudios y preparación autodidacta, encontré mis más grandes pasiones en la fotografía, la animación 3D, los efectos visuales y las interfaces de usuario.",
                 ],
                 background: {
                     name: "Catedral de Cartago",
