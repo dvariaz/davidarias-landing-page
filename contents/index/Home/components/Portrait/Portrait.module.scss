@@ -51,11 +51,11 @@
     }
 
     @include media(">=desktop") {
-        bottom: 0.4em;
+        bottom: 0.35em;
     }
 
     @include media(">widescreen") {
-        bottom: 0.65em;
+        bottom: 0.6em;
     }
 }
 
