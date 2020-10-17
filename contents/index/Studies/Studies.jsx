@@ -23,7 +23,7 @@ const Studies = ({ id }) => {
     const { isLoading, error, data } = useQuery(
         "studiesData",
         () => fetch("/api/studies").then((res) => res.json()),
-        { retry: false }
+        { retry: false, refetchOnWindowFocus: false }
     );
 
     const renderCourses = () => {

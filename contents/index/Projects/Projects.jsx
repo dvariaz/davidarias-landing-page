@@ -19,6 +19,7 @@ import { lockScroll, unlockScroll } from "../../../utils/dom.js";
 //TODO: Revisar los handle y utilizar useCallback
 const Projects = ({ id }) => {
     const ref = useRef();
+    console.log("render");
 
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
@@ -26,7 +27,7 @@ const Projects = ({ id }) => {
     const { isLoading, error, data } = useQuery(
         "projectsData",
         () => fetch("/api/projects").then((res) => res.json()),
-        { retry: false }
+        { retry: false, refetchOnWindowFocus: false }
     );
 
     useKeyTrigger(() => {

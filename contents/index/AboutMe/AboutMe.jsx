@@ -15,7 +15,7 @@ const AboutMe = ({ id }) => {
     const { isLoading, error, data } = useQuery(
         "storiesData",
         () => fetch("/api/stories").then((res) => res.json()),
-        { retry: false }
+        { retry: false, refetchOnWindowFocus: false }
     );
 
     const handlePageChange = (pageIndex) => {
