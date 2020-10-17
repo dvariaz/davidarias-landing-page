@@ -26,6 +26,7 @@ const Skills = () => {
                     <div className={styles.column}>
                         <Card
                             type="skill"
+                            flex
                             subtitle="Luis David Arias Manjarrez"
                             profile={{
                                 large: "/assets/photos/square_photo_large.jpg",
@@ -43,6 +44,7 @@ const Skills = () => {
                     <div className={styles.column}>
                         <Card
                             type="skill"
+                            flex
                             title="Front-end Skills"
                             items={[
                                 { prefix: "/assets/icons/react_icon.svg", name: "React" },
@@ -65,6 +67,7 @@ const Skills = () => {
                     <div className={styles.column}>
                         <Card
                             type="skill"
+                            flex
                             title="Design Skills"
                             items={[
                                 { prefix: "/assets/icons/photoshop_icon.svg", name: "Photoshop" },
@@ -82,6 +85,7 @@ const Skills = () => {
                         />
                         <Card
                             type="skill"
+                            flex
                             title="3D Skills"
                             items={[
                                 { prefix: "/assets/icons/nodejs_icon.svg", name: "Autodesk Maya" },

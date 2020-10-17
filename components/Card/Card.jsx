@@ -4,7 +4,7 @@ import styles from "./Card.module.scss";
 
 import ProgressBar from "../ProgressBar";
 
-const Card = ({ type, title, subtitle, profile, items, icon, date, duration, loading }) => {
+const Card = ({ type, title, subtitle, profile, items, icon, date, duration, loading, flex }) => {
     const renderContent = () => {
         switch (type) {
             case "skill": {
@@ -58,7 +58,7 @@ const Card = ({ type, title, subtitle, profile, items, icon, date, duration, loa
     );
 
     return (
-        <div className={styles.body}>
+        <div className={styles.body} style={flex && { flex: 1 }}>
             {loading && <div className={styles.loader}></div>}
             {title && <h1 className={styles.title}>{title}</h1>}
             {subtitle && (
@@ -91,6 +91,7 @@ Card.propTypes = {
     platform: PropTypes.string,
     date: PropTypes.string,
     duration: PropTypes.string,
+    flex: PropTypes.bool,
 };
 
 export default Card;
