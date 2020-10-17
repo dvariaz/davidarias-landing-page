@@ -1,9 +1,11 @@
+import { v4 as uuidv4 } from "uuid";
+
 export default (req, res) => {
     res.statusCode = 200;
     res.json({
         stories: [
             {
-                id: 0,
+                id: uuidv4(),
                 description: [
                     "Me llamo Luis David Arias Manjarrez, nací en Cartago Valle, el sol más alegre de Colombia... en serio, el más alegre.",
                     "Desde pequeño, siempre me gustaba crear cosas y hacer que se vieran bien.",
@@ -19,7 +21,7 @@ export default (req, res) => {
                 },
             },
             {
-                id: 1,
+                id: uuidv4(),
                 description: [
                     "Tuve un profundo deseo de estudiar Cinematografía, carrera que no pude empezar por razones económicas.",
                     "En su lugar, ingresé a Ingeniería de Sistemas, un mundo que parecía todo lo opuesto y que me desafió por muchos semestres.",
@@ -34,7 +36,7 @@ export default (req, res) => {
                 },
             },
             {
-                id: 2,
+                id: uuidv4(),
                 description: [
                     "Entre cálculos y líneas de código, finalmente encontré aquella disciplina donde el arte y la tecnología se complementaban, donde descubrí que ya no era un estudiante en la carrera equivocada, sino un artista que buscaba darle color y vida a un campo de la ciencia predominado por los números.",
                 ],
@@ -48,7 +50,7 @@ export default (req, res) => {
                 },
             },
             {
-                id: 3,
+                id: uuidv4(),
                 description: [
                     "Hoy, busco nuevas oportunidades para seguir aprendiendo, para potenciar mis habilidades y cumplir mis metas. Busco que los demás puedan ver la importancia que tiene el arte y el diseño en el mundo del software, y busco que mi historia sea una motivación para que cada obstáculo se convierta en un impulso para llegar cada vez más lejos.",
                     "¿Estas listo para hacer parte de esta historia?",

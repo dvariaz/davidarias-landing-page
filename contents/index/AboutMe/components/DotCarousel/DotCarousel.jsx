@@ -36,18 +36,18 @@ const DotCarousel = ({ items, onPageChange }) => {
         }
     };
 
-    const handlePageVisibility = (id) => {
+    const handlePageVisibility = (pageIndex) => {
         if (!isSkipping) {
-            setActivePage(id);
-            onPageChange(id);
+            setActivePage(pageIndex);
+            onPageChange(pageIndex);
         }
     };
 
     return (
         <>
             <div className={styles.track} ref={carouselRef}>
-                {items?.map((item) => (
-                    <Page key={item.id} onVisible={() => handlePageVisibility(item.id)}>
+                {items?.map((item, index) => (
+                    <Page key={item.id} onVisible={() => handlePageVisibility(index)}>
                         {item.description.map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
                         ))}
@@ -55,14 +55,14 @@ const DotCarousel = ({ items, onPageChange }) => {
                 ))}
             </div>
             <form className={styles.navigationDots}>
-                {items?.map((item) => (
+                {items?.map((item, index) => (
                     <label key={item.id}>
                         <input
                             type="radio"
                             name="pageSelected"
-                            value={item.id}
+                            value={index}
                             onChange={handleCheck}
-                            checked={isCurrent(item.id)}
+                            checked={isCurrent(index)}
                         />
                     </label>
                 ))}
@@ -70,7 +70,5 @@ const DotCarousel = ({ items, onPageChange }) => {
         </>
     );
 };
-
-DotCarousel.propTypes = {};
 
 export default DotCarousel;
