@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./ProjectCard.module.scss";
@@ -6,6 +7,7 @@ import styles from "./ProjectCard.module.scss";
 import Button from "../../../../../components/Button";
 import Chip from "../../../../../components/Chip";
 import { StatusIndicator } from "../../../../../components/Indicators";
+import MoonLoader from "react-spinners/MoonLoader";
 
 //Utils
 import { translateStatus } from "../../../../../utils/enums";
@@ -16,11 +18,14 @@ const ProjectDetails = ({
     date,
     status,
     description,
+    thumbnail,
     background,
     url,
     behance,
     onClick,
 }) => {
+    const [isCoverLoaded, setIsCoverLoaded] = useState(false);
+
     const descriptionVariants = {
         visible: {
             background: "#03050c",
@@ -74,7 +79,15 @@ const ProjectDetails = ({
                                 </div>
                             </Chip>
                         </div>
-                        <img src={background} draggable="false" />
+                        {!isCoverLoaded && <MoonLoader size={100} color="white" />}
+                        <motion.img
+                            animate={isCoverLoaded && { opacity: 1 }}
+                            src={background}
+                            draggable="false"
+                            onLoad={() => setIsCoverLoaded(true)}
+                            className={styles.fullSizeImage}
+                        />
+                        <img src={thumbnail} draggable="false" />
                     </motion.div>
                 </motion.div>
                 <motion.div

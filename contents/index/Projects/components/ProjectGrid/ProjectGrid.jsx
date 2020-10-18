@@ -35,7 +35,7 @@ export const ProjectGrid = ({ rootRef, projects, handleProjectClick }) => {
                         key={project.id}
                         id={project.id}
                         name={project.name}
-                        background={project.cover}
+                        background={project.thumbnail}
                         onClick={() => handleProjectClick(project)}
                         disabled={isDragging}
                     />

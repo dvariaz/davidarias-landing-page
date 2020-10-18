@@ -56,12 +56,12 @@ export default function Index() {
                 <meta name="robots" content="INDEX,FOLLOW,ARCHIVE" />
             </Head>
             <ViewportContextProvider>
-                <Home id="index" />
-                <AboutMe id="about-me" />
+                {/* <Home id="index" />
+                <AboutMe id="about-me" /> */}
                 <Projects id="projects" />
-                <Skills />
+                {/* <Skills />
                 <Studies id="education" />
-                <Contact id="contact" />
+                <Contact id="contact" /> */}
             </ViewportContextProvider>
         </>
     );

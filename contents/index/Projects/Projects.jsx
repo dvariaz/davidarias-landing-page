@@ -17,9 +17,9 @@ import { ProjectGrid, ProjectGridSkeleton } from "./components/ProjectGrid";
 import { lockScroll, unlockScroll } from "../../../utils/dom.js";
 
 //TODO: Revisar los handle y utilizar useCallback
+//TODO: Hacer carga progresiva de imágenes, es decir, solo cargar las miniaturas y cuando se amplíe se cargue en alta definición
 const Projects = ({ id }) => {
     const ref = useRef();
-    console.log("render");
 
     const [isOpen, setIsOpen] = useState(false);
     const [projectOpen, setProjectOpen] = useState(null);
@@ -92,6 +92,7 @@ const Projects = ({ id }) => {
                             date={projectOpen.date}
                             status={projectOpen.status}
                             description={projectOpen.description}
+                            thumbnail={projectOpen.thumbnail}
                             background={projectOpen.cover}
                             url={projectOpen.url}
                             behance={projectOpen.behance}
