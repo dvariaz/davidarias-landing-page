@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import styles from "./ProjectCard.module.scss";
 
-export const ProjectCard = ({ id, background, onClick, disabled }) => {
+export const ProjectCard = ({ id, thumbnail, background, onClick, disabled }) => {
     return (
         <div className={styles.container}>
             <motion.div
@@ -10,15 +10,13 @@ export const ProjectCard = ({ id, background, onClick, disabled }) => {
                 onClick={onClick}
                 layoutId={`project-card-${id}-body`}
                 style={disabled ? { pointerEvents: "none" } : { pointerEvents: "all" }}
+                layout
             >
-                <motion.div className={styles.hero} layoutId={`project-card-${id}-hero`}>
+                <motion.div className={styles.hero}>
                     {/* <span className={styles.label}>{name}</span> */}
-                    <motion.img
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                        src={background}
-                        draggable="false"
-                    />
+                    <motion.picture layoutId={`project-card-${id}-thumbnail`}>
+                        <img src={thumbnail.src_2x} draggable="false" />
+                    </motion.picture>
                 </motion.div>
             </motion.div>
         </div>

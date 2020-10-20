@@ -10,7 +10,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@react-hook/media-query": "^1.1.1",
-    "framer-motion": "^2.6.13",
+    "framer-motion": "^2.9.1",
     "next": "^9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",

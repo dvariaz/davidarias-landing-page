@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./ProjectCard.module.scss";
@@ -7,7 +6,6 @@ import styles from "./ProjectCard.module.scss";
 import Button from "../../../../../components/Button";
 import Chip from "../../../../../components/Chip";
 import { StatusIndicator } from "../../../../../components/Indicators";
-import MoonLoader from "react-spinners/MoonLoader";
 
 //Utils
 import { translateStatus } from "../../../../../utils/enums";
@@ -24,16 +22,18 @@ const ProjectDetails = ({
     behance,
     onClick,
 }) => {
-    const [isCoverLoaded, setIsCoverLoaded] = useState(false);
-
     const descriptionVariants = {
         visible: {
-            background: "#03050c",
             opacity: 1,
+            transition: {
+                delay: 0.25,
+            },
         },
         hidden: {
-            background: "rgba(0,0,0,0)",
             opacity: 0,
+            transition: {
+                delay: 0,
+            },
         },
     };
 
@@ -55,13 +55,20 @@ const ProjectDetails = ({
 
     return (
         <div className={`${styles.container} ${styles.open}`}>
-            <div className={styles.headerContainer}>
+            <motion.div
+                initial={{ background: "rgba(0,0,0,0)" }}
+                animate={{ background: "rgba(3, 5, 12,1)" }}
+                exit={{ background: "rgba(0,0,0,0)" }}
+                transition={{ duration: 0.2 }}
+                className={styles.headerContainer}
+            >
                 <motion.div
                     className={styles.body}
                     layoutId={`project-card-${id}-body`}
                     onClick={onClick}
+                    layout
                 >
-                    <motion.div className={styles.hero} layoutId={`project-card-${id}-hero`}>
+                    <motion.div className={styles.hero}>
                         <motion.button
                             initial={{ y: -150, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
@@ -79,15 +86,10 @@ const ProjectDetails = ({
                                 </div>
                             </Chip>
                         </div>
-                        {!isCoverLoaded && <MoonLoader size={100} color="white" />}
-                        <motion.img
-                            animate={isCoverLoaded && { opacity: 1 }}
-                            src={background}
-                            draggable="false"
-                            onLoad={() => setIsCoverLoaded(true)}
-                            className={styles.fullSizeImage}
-                        />
-                        <img src={thumbnail} draggable="false" />
+                        <motion.picture layoutId={`project-card-${id}-thumbnail`}>
+                            <source srcSet={background} media="(min-width: 1600px)" />
+                            <img src={thumbnail.src_2x} draggable="false" />
+                        </motion.picture>
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -126,16 +128,7 @@ const ProjectDetails = ({
                         </div>
                     </div>
                 </motion.div>
-            </div>
-
-            <motion.div
-                initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
-                animate={{
-                    backgroundColor: "rgba(0, 0, 0, 0.9)",
-                }}
-                exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
-                className={styles.overlay}
-            ></motion.div>
+            </motion.div>
         </div>
     );
 };

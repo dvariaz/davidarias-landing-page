@@ -1,14 +1,5 @@
 @import "../../../../../styles/include-media.scss";
 
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
-
 .container {
     position: relative;
     width: 100%;
@@ -42,20 +33,12 @@
             margin: 0;
             border-radius: 0;
             height: calc(var(--vh, 1vh) * 40);
-            opacity: 1;
 
             @include media(">=tablet", "landscape") {
                 height: calc(var(--vh, 1vh) * 100);
             }
 
             .hero {
-                .fullSizeImage {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    opacity: 0;
-                }
-
                 .closeButton {
                     cursor: pointer;
                     border: none;
@@ -74,7 +57,8 @@
                     height: 3em;
                     padding: 0.9em;
 
-                    img {
+                    img,
+                    picture {
                         width: 100%;
                         height: 100%;
                         object-fit: contain;
@@ -161,6 +145,36 @@
     }
 }
 
+.body {
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 30);
+
+    margin: 15px 0;
+
+    overflow: hidden;
+
+    border-radius: 1em;
+
+    @include media(">=tablet", "landscape") {
+        margin: 0;
+        height: 100%;
+    }
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        img,
+        picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
 .description {
     composes: description_text from "../../../../../styles/fonts.module.scss";
     position: relative;
@@ -190,35 +204,6 @@
 
     @include media(">=desktop", "landscape") {
         padding: 2.5em;
-    }
-}
-
-.body {
-    width: 100%;
-    height: calc(var(--vh, 1vh) * 30);
-
-    margin: 15px 0;
-
-    overflow: hidden;
-
-    border-radius: 1em;
-
-    @include media(">=tablet", "landscape") {
-        margin: 0;
-        height: 100%;
-    }
-
-    .hero {
-        position: relative;
-        width: 100%;
-        height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
     }
 }
 
