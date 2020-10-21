@@ -3,11 +3,11 @@
 .body {
     width: 100%;
     overflow: hidden;
-    scrollbar-width: none;
     justify-self: center;
 
     position: relative;
 
+    scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -37,7 +37,6 @@
         flex-direction: column;
 
         scrollbar-width: none;
-
         &::-webkit-scrollbar {
             display: none;
         }

@@ -42,6 +42,7 @@ main {
 
     scroll-behavior: smooth;
 
+    scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -64,5 +65,3 @@ label {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
-
-//TODO: Reduce all scrollbars in firefox;

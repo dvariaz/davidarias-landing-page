@@ -1,10 +1,8 @@
-import { useEffect, useRef } from "react";
-import { mergeArrayOfObjects } from "../utils/structures";
 import Head from "next/head";
 
 //Views
 import Home from "../contents/index/Home";
-import AboutMe from "../contents/index/AboutMe";
+import MyStory from "../contents/index/MyStory";
 import Projects from "../contents/index/Projects";
 import Skills from "../contents/index/Skills";
 import Studies from "../contents/index/Studies";
@@ -57,7 +55,7 @@ export default function Index() {
             </Head>
             <ViewportContextProvider>
                 <Home id="index" />
-                <AboutMe id="about-me" />
+                <MyStory id="about-me" />
                 <Projects id="projects" />
                 <Skills />
                 <Studies id="education" />
