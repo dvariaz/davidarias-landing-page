@@ -22,7 +22,7 @@ export default (req, res) => {
                 id: "landing-page-woldev",
                 name: "Landing Page Woldev",
                 date: "2020",
-                status: "DEVELOPMENT",
+                status: "PRODUCTION",
                 description: [
                     "La empresa necesitaba presencia en los buscadores y conseguir nuevos clientes, por lo que me encargué de hacer una carta de presentación muy atractiva: una landing page.",
                     "Mi trabajo consistió en diseñar toda la experiencia, los assets, las animaciones y programarla en su totalidad bajo las últimas tecnologías de React.",
@@ -32,7 +32,7 @@ export default (req, res) => {
                     src_2x: "/assets/projects/woldev/woldev_cover_thumbnail_2x.jpg",
                 },
                 cover: "/assets/projects/woldev/woldev_cover.jpg",
-                url: "https://dev.woldev.co",
+                url: "https://www.woldev.co",
             },
             {
                 id: "cambiabits",
