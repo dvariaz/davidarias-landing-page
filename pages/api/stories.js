@@ -7,7 +7,7 @@ export default (req, res) => {
             {
                 id: uuidv4(),
                 description: [
-                    "Soy Luis David Arias Manjarrez, nací en Cartago Valle, el sol más alegre de Colombia... en serio, el más alegre.",
+                    "Nací en Cartago Valle, el sol más alegre de Colombia... en serio, el más alegre.",
                     "Desde pequeño, siempre me gustaba crear cosas y hacer que se vieran bien.",
                     "Con más de 10 años de estudios y preparación autodidacta, encontré mis más grandes pasiones en la fotografía, la animación 3D, los efectos visuales y las interfaces de usuario.",
                 ],

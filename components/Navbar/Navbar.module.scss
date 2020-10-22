@@ -14,18 +14,6 @@
     z-index: 100;
 
     font-size: 0.9em;
-
-    @include media(">=phone", "portrait") {
-        font-size: 0.75em;
-    }
-
-    @include media(">=tablet") {
-        font-size: 1em;
-    }
-
-    @include media(">=widescreen") {
-        font-size: 0.85em;
-    }
 }
 
 .content {
@@ -95,10 +83,15 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    margin: auto;
     height: 100%;
 
-    @include media("<=desktop") {
+    @include media("<laptop") {
         display: none;
+    }
+
+    @include media("<desktop") {
+        max-width: 800px;
     }
 }
 

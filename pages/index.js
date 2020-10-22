@@ -2,8 +2,9 @@ import Head from "next/head";
 
 //Views
 import Home from "../contents/index/Home";
-import MyStory from "../contents/index/MyStory";
+import AboutMe from "../contents/index/AboutMe";
 import Projects from "../contents/index/Projects";
+import MyStory from "../contents/index/MyStory";
 import Skills from "../contents/index/Skills";
 import Studies from "../contents/index/Studies";
 import Contact from "../contents/index/Contact";
@@ -55,8 +56,9 @@ export default function Index() {
             </Head>
             <ViewportContextProvider>
                 <Home id="index" />
-                <MyStory id="about-me" />
+                <AboutMe />
                 <Projects id="projects" />
+                <MyStory id="about-me" />
                 <Skills />
                 <Studies id="education" />
                 <Contact id="contact" />

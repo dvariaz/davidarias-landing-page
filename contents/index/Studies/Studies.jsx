@@ -7,6 +7,7 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import styles from "./Studies.module.scss";
 
 //Components
+import Divider from "../../../components/Divider";
 import Card from "../../../components/Card";
 import PulseLoader from "react-spinners/PulseLoader";
 
@@ -99,6 +100,7 @@ const Studies = ({ id }) => {
 
     return (
         <section id={id} className={styles.body} ref={ref}>
+            <Divider top />
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>Estudios</h1>
@@ -136,7 +138,6 @@ const Studies = ({ id }) => {
                                 </form>
                             )
                         )}
-                        )}
                     </div>
                 </div>
                 <ScrollContainer
@@ -159,6 +160,7 @@ const Studies = ({ id }) => {
                     </motion.div>
                 </ScrollContainer>
             </div>
+            <Divider />
         </section>
     );
 };

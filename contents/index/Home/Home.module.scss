@@ -9,18 +9,8 @@
 
     background: linear-gradient(0.2turn, #050a1d, #03050c);
 
-    font-size: 1em;
-
-    @include media(">=phone", "portrait") {
-        font-size: 1.25em;
-    }
-
     @include media(">=tablet", "landscape") {
         padding-top: 3.5em;
-    }
-
-    @include media(">=widescreen") {
-        font-size: 1.3em;
     }
 }
 

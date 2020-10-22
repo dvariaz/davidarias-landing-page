@@ -7,7 +7,6 @@ import Divider from "../../../components/Divider";
 const Contact = ({ id }) => {
     return (
         <section id={id} className={styles.body}>
-            <Divider top />
             <div className={styles.form}>
                 <h1 className={styles.title}>
                     ¿Qué esperas para darle un look fantástico a tus ideas?
@@ -42,7 +41,7 @@ const Contact = ({ id }) => {
                     </a>
                 </div>
             </div>
-            <footer className={styles.footer}>2020</footer>
+            <footer className={styles.footer}>Hecho en ⚛️ - 2020</footer>
             <div className={styles.background}>
                 <motion.h1
                     animate={{ opacity: [0, 1, 0], x: "-30%" }}
@@ -59,7 +58,6 @@ const Contact = ({ id }) => {
                     Me
                 </motion.h1>
             </div>
-            <Divider />
         </section>
     );
 };

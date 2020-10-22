@@ -1,3 +1,5 @@
+@import "../styles/include-media.scss";
+
 .section {
     background-color: var(--background-flat);
     height: 100%;
@@ -8,6 +10,25 @@
 
     position: relative;
 
-    // scroll-snap-align: center;
-    // scroll-snap-stop: always;
+    font-size: 1em;
+
+    @include media(">=tablet", "landscape") {
+        font-size: 1em;
+    }
+
+    @include media(">=tablet", "portrait") {
+        font-size: 1.15em;
+    }
+
+    @include media(">=laptop") {
+        font-size: 1em;
+    }
+
+    @include media(">=desktop", "landscape") {
+        font-size: 1.1em;
+    }
+
+    @include media(">=widescreen") {
+        font-size: 1.3em;
+    }
 }

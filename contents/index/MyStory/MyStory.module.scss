@@ -9,28 +9,6 @@
     align-items: center;
 
     background: var(--background-flat);
-
-    font-size: 0.9em;
-
-    @include media(">=phone", "portrait") {
-        font-size: 1em;
-    }
-
-    @include media(">=tablet", "portrait") {
-        font-size: 1.2em;
-    }
-
-    @include media(">=tablet", "landscape") {
-        font-size: 1em;
-    }
-
-    @include media(">=desktop", "landscape") {
-        font-size: 1.1em;
-    }
-
-    @include media(">=widescreen") {
-        font-size: 1.3em;
-    }
 }
 
 .content {

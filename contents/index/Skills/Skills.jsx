@@ -15,7 +15,6 @@ const Skills = () => {
 
     return (
         <section className={styles.body} ref={ref}>
-            <Divider top />
             <h1 className={styles.title}>Skills</h1>
             <ScrollContainer
                 onStartScroll={() => centerViewport(ref.current.offsetTop)}
@@ -99,7 +98,6 @@ const Skills = () => {
                     </div>
                 </div>
             </ScrollContainer>
-            <Divider />
         </section>
     );
 };
