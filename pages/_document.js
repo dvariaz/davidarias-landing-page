@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
+import { GA_TRACKING_ID } from "../lib/gtag";
+
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
         const initialProps = await Document.getInitialProps(ctx);
@@ -95,6 +97,30 @@ class MyDocument extends Document {
                     <meta name="theme-color" content="#03050c" />
                     <meta name="apple-mobile-web-app-capable" content="no" />
                     <meta name="mobile-web-app-capable" content="no" />
+                    {/* Analytics */}
+                    {/* We only want to add the scripts if in production */}
+                    {process.env.NODE_ENV === "production" && (
+                        <>
+                            {/* Global Site Tag (gtag.js) - Google Analytics */}
+                            <script
+                                async
+                                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                            />
+                            <script
+                                dangerouslySetInnerHTML={{
+                                    __html: `
+                                        window.dataLayer = window.dataLayer || [];
+                                        function gtag(){dataLayer.push(arguments);}
+                                        gtag('js', new Date());
+
+                                        gtag('config', '${GA_TRACKING_ID}', {
+                                        page_path: window.location.pathname,
+                                        });
+                                    `,
+                                }}
+                            />
+                        </>
+                    )}
                 </Head>
                 <body>
                     <Main />
