@@ -11,7 +11,6 @@ import Contact from "../contents/index/Contact";
 
 //Context
 import { ViewportContextProvider } from "../context/ViewportContext";
-//TODO: Cambiar el APP_URL por el VERCEL_URL
 export default function Index() {
     return (
         <>
@@ -37,7 +36,7 @@ export default function Index() {
                 />
                 <meta
                     property="og:image"
-                    content={`${process.env.APP_URL}/assets/cards/davidarias_card_web.png`}
+                    content={`${process.env.VERCEL_URL}/assets/cards/davidarias_card_web.png`}
                 />
                 <meta name="twitter:title" content="David Arias - Creative Coder" />
                 <meta
@@ -49,7 +48,7 @@ export default function Index() {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
                     name="twitter:image:src"
-                    content={`${process.env.APP_URL}/assets/cards/davidarias_card_web.jpg`}
+                    content={`${process.env.VERCEL_URL}/assets/cards/davidarias_card_web.jpg`}
                 />
                 <meta name="robots" content="INDEX,FOLLOW,ARCHIVE" />
             </Head>
