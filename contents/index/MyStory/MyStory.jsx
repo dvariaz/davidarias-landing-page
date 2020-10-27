@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 
 import styles from "./MyStory.module.scss";
@@ -9,10 +9,10 @@ import PulseLoader from "react-spinners/PulseLoader";
 import StoryBackground from "./components/StoryBackground/StoryBackground";
 
 //TODO: Revisar los handle y utilizar useCallback
-const MyStory = ({ id }) => {
+const MyStory = ({ id, t }) => {
     const [index, setIndex] = useState(0);
 
-    const { isLoading, error, data } = useQuery(
+    const { isLoading, error, data, refetch } = useQuery(
         "storiesData",
         () => fetch("/api/stories").then((res) => res.json()),
         { retry: false, refetchOnWindowFocus: false }
@@ -22,14 +22,18 @@ const MyStory = ({ id }) => {
         setIndex(pageIndex);
     };
 
+    useEffect(() => {
+        refetch();
+    }, [t]);
+
     if (error) {
         return (
             <section id={id} className={styles.body}>
                 <Divider top />
                 <div className={styles.content}>
-                    <h1 className={styles.title}>Sobre mi</h1>
+                    <h1 className={styles.title}>{t("title")}</h1>
                     <div className={styles.description}>
-                        <p>{"Ha ocurrido un error cargando las historias, vuelve más tarde"}</p>
+                        <p>{t("error-loading")}</p>
                     </div>
                 </div>
                 <Divider />
@@ -41,7 +45,7 @@ const MyStory = ({ id }) => {
         <section id={id} className={styles.body}>
             <Divider top />
             <div className={styles.content}>
-                <h1 className={styles.title}>Mi Historia</h1>
+                <h1 className={styles.title}>{t("title")}</h1>
                 {isLoading ? (
                     <div className={styles.loadingContent}>
                         <PulseLoader

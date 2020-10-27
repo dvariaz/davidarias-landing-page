@@ -25,14 +25,14 @@ const Navbar = ({ sections }) => {
                         </a>
                     ))}
                 </ul>
-                <a href="https://github.com/dvariaz" target="_blank" className={styles.social}>
+                {/* <a href="https://github.com/dvariaz" target="_blank" className={styles.social}>
                     <img
                         src={"/assets/icons/github_icon.svg"}
                         className={styles.logo_image}
                         alt="Github"
                     />
                     <span>dvariaz</span>
-                </a>
+                </a> */}
             </div>
         </nav>
     );
@@ -42,6 +42,4 @@ Navbar.propTypes = {
     sections: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, name: PropTypes.string })),
 };
 
-export default React.memo(Navbar, (prevProps, nextProps) =>
-    shallowEqualArrays(prevProps, nextProps)
-);
+export default Navbar;

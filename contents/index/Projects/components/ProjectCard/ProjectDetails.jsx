@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { withTranslation } from "../../../../../i18n";
 
 import styles from "./ProjectCard.module.scss";
 
@@ -21,6 +22,7 @@ const ProjectDetails = ({
     url,
     behance,
     onClick,
+    t,
 }) => {
     const descriptionVariants = {
         visible: {
@@ -81,7 +83,7 @@ const ProjectDetails = ({
                         <div className={styles.bottomInfo}>
                             <Chip indicatorColor="green">
                                 <div className={styles.status}>
-                                    <span>{translateStatus(status)}</span>
+                                    <span>{t(translateStatus(status))}</span>
                                     <StatusIndicator status={status} />
                                 </div>
                             </Chip>
@@ -117,12 +119,12 @@ const ProjectDetails = ({
                                     target="_blank"
                                     prefix="/assets/icons/behance_icon.svg"
                                 >
-                                    Ver en Behance
+                                    {t("behance-button")}
                                 </Button>
                             )}
                             {url && (
                                 <Button type="light" href={url} target="_blank">
-                                    Ir al proyecto
+                                    {t("project-button")}
                                 </Button>
                             )}
                         </div>
@@ -133,4 +135,4 @@ const ProjectDetails = ({
     );
 };
 
-export default ProjectDetails;
+export default withTranslation("projects")(ProjectDetails);

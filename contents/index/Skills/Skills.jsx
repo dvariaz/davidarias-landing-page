@@ -4,12 +4,11 @@ import styles from "./Skills.module.scss";
 
 //Components
 import Card from "../../../components/Card";
-import Divider from "../../../components/Divider";
 
 //Context
 import { ViewportContext } from "../../../context/ViewportContext";
 
-const Skills = () => {
+const Skills = ({ t }) => {
     const ref = useRef();
     const { centerViewport } = useContext(ViewportContext);
 
@@ -32,11 +31,11 @@ const Skills = () => {
                                 medium: "/assets/photos/square_photo_medium.jpg",
                             }}
                             items={[
-                                { name: "Inglés", value: "B1" },
-                                { name: "Observación", value: "85%" },
-                                { name: "Comunicación", value: "60%" },
-                                { name: "Creatividad", value: "85%" },
-                                { name: "Liderazgo", value: "60%" },
+                                { name: t("personal.english"), value: "B1" },
+                                { name: t("personal.observation"), value: "85%" },
+                                { name: t("personal.communication"), value: "60%" },
+                                { name: t("personal.creativity"), value: "85%" },
+                                { name: t("personal.leadership"), value: "60%" },
                             ]}
                         />
                     </div>

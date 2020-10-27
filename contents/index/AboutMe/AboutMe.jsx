@@ -5,28 +5,25 @@ import styles from "./AboutMe.module.scss";
 import Divider from "../../../components/Divider";
 import Button from "../../../components/Button";
 
-const AboutMe = () => {
+const AboutMe = ({ t }) => {
     return (
         <section className={styles.body}>
             <Divider top />
             <div className={styles.content}>
-                <h3>Hola! Soy David Arias</h3>
+                <h3>{t("greeting")}</h3>
                 <img src="/assets/logos/davidarias_logo.svg" className={styles.logo} />
                 <div className={styles.description}>
+                    <p>{t("description")}</p>
                     <p>
-                        Front-end Developer y UI Designer, apasionado por el arte, el diseño y la
-                        forma en que se complementa con el fascinante mundo la tecnología.{" "}
-                    </p>
-                    <p>
-                        Actualmente Fullstack Designer en{" "}
+                        {t("current-job")}
                         <a href="https://www.woldev.co" target="_blank">
                             Woldev.co
                         </a>
                     </p>
                     <p>React Lover ⚛️</p>
                 </div>
-                <Button type="solid" href="/docs/cv-davidarias-es.pdf" target="_blank">
-                    Mira mi CV
+                <Button type="solid" href={t("cv-link")} target="_blank">
+                    {t("cv-link-button")}
                 </Button>
             </div>
             <div className={styles.background}>

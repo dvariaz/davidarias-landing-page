@@ -11,7 +11,7 @@ import Contact from "../contents/index/Contact";
 
 //Context
 import { ViewportContextProvider } from "../context/ViewportContext";
-
+//TODO: Cambiar el APP_URL por el VERCEL_URL
 export default function Index() {
     return (
         <>
@@ -21,7 +21,6 @@ export default function Index() {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0, user-scalable=no"
                 />
-                <meta name="language" content="es" />
                 <meta
                     name="description"
                     content="Desarrollador Front-end 👨‍💻 y UI Designer 👨‍🎨. Construyo experiencias de alta calidad y atractivas para tus usuarios. ¿Quieres darle un look fantástico a tus ideas? Entra aquí"
@@ -66,3 +65,7 @@ export default function Index() {
         </>
     );
 }
+
+Index.getInitialProps = async () => ({
+    namespacesRequired: [],
+});

@@ -1,12 +1,13 @@
+//translateStatus retorna el nombre del estado para su posterior traduccion con i18n
 export const translateStatus = (string) => {
     switch (string) {
         case "PRODUCTION":
-            return "En producción";
+            return "status.production";
         case "DEVELOPMENT":
-            return "En desarrollo";
+            return "status.development";
         case "CONCEPT":
-            return "En concepto";
+            return "status.concept";
         default:
-            return "Error de traducción";
+            return "status.error";
     }
 };

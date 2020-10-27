@@ -14,7 +14,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 //Context
 import { ViewportContext } from "../../../context/ViewportContext";
 
-const Studies = ({ id }) => {
+const Studies = ({ id, t }) => {
     const ref = useRef();
 
     const [selectedInstitute, setSelectedInstitute] = useState(null);
@@ -26,6 +26,24 @@ const Studies = ({ id }) => {
         () => fetch("/api/studies").then((res) => res.json()),
         { retry: false, refetchOnWindowFocus: false }
     );
+
+    const formatDuration = (duration) => {
+        let durationString = "";
+
+        if (duration.semesters) {
+            durationString += t("duration.semester", { count: duration.semesters }) + " ";
+        }
+
+        if (duration.hours) {
+            durationString += t("duration.hour", { count: duration.hours }) + " ";
+        }
+
+        if (duration.minutes) {
+            durationString += t("duration.minute", { count: duration.minutes }) + " ";
+        }
+
+        return durationString.trim();
+    };
 
     const renderCourses = () => {
         let courses = [];
@@ -70,7 +88,7 @@ const Studies = ({ id }) => {
                     subtitle={course.name}
                     icon={course.icon}
                     date={course.date}
-                    duration={course.duration}
+                    duration={formatDuration(course.duration)}
                 />
             </motion.div>
         ));
@@ -103,12 +121,8 @@ const Studies = ({ id }) => {
             <Divider top />
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>Estudios</h1>
-                    <p className={styles.description}>
-                        Estoy constantemente aprendiendo cosas nuevas por medio de libros y
-                        plataformas de aprendizaje online, creo que es una forma muy flexible de
-                        complementar las bases que adquirí en mi vida universitaria.
-                    </p>
+                    <h1 className={styles.title}>{t("title")}</h1>
+                    <p className={styles.description}>{t("description")}</p>
                     <div className={styles.platformSelector}>
                         {isLoading ? (
                             <div className={styles.platformsLoading}>
@@ -151,7 +165,7 @@ const Studies = ({ id }) => {
                         <div className={styles.error}>
                             <div className={styles.message}>
                                 <h2>Oops!</h2>
-                                <p>Hubo un problema al cargar mis estudios, pero confía en mi 😉</p>
+                                <p>{t("error-message")}</p>
                             </div>
                         </div>
                     )}

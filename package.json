@@ -12,6 +12,7 @@
     "@react-hook/media-query": "^1.1.1",
     "framer-motion": "^2.9.1",
     "next": "^9.5.5",
+    "next-i18next": "^6.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-indiana-drag-scroll": "^1.7.0",

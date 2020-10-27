@@ -1,41 +1,30 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import styles from "./Home.module.scss";
 
+//Components
 import Navbar from "../../../components/Navbar";
 import Portrait from "./components/Portrait";
 import Shape from "./components/Shape";
+import LanguageToggler from "../../../components/LanguageToggler";
 
-const Home = ({ id }) => {
+//TODO: Probar con useTranslation
+//TODO: Al ingresar con una url, el navegador no viaja hasta el id
+const Home = ({ id, t }) => {
     const ref = useRef();
-    const [indexTitle, setIndexTitle] = useState(0);
-    const titles = [
-        ["Creative", "Coder"],
-        ["Front-end", "Developer"],
-        ["UI", "Designer"],
-        ["Motion", "Artist"],
-    ];
 
     return (
         <section id={id} className={styles.body} ref={ref}>
             <Navbar
                 sections={[
-                    { id: "index", name: "Inicio" },
-                    { id: "about-me", name: "Quien soy" },
-                    { id: "projects", name: "Mis proyectos" },
-                    { id: "education", name: "Educación" },
-                    { id: "contact", name: "Contacto" },
+                    { id: "index", name: t("start") },
+                    { id: "projects", name: t("my-projects") },
+                    { id: "about-me", name: t("about-me") },
+                    { id: "education", name: t("education") },
+                    { id: "contact", name: t("contact") },
                 ]}
             />
-            <h1
-                onAnimationIteration={() =>
-                    setIndexTitle((indexTitle) => (indexTitle + 1) % titles.length)
-                }
-                className={styles.titleUp}
-            >
-                {titles[indexTitle][0]}
-            </h1>
+            <LanguageToggler />
             <Portrait sectionRef={ref} />
-            <h1 className={styles.titleDown}>{titles[indexTitle][1]}</h1>
             <Shape color="#b70128" />
         </section>
     );

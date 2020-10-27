@@ -1,13 +1,18 @@
+import App from "next/app";
 import Router from "next/router";
 import * as gtag from "../lib/gtag";
 import { QueryCache, ReactQueryCacheProvider } from "react-query";
+import { appWithTranslation } from "../i18n";
 
 import "../styles/global.scss";
 import "../styles/settings.scss";
 
 const queryCache = new QueryCache();
 
-Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
+Router.events.on(
+    "routeChangeComplete",
+    (url) => typeof window === "undefined" && gtag.pageview(url)
+);
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -17,4 +22,4 @@ function MyApp({ Component, pageProps }) {
     );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
