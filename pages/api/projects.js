@@ -22,7 +22,7 @@ const projects = {
             date: "2020",
             status: "PRODUCTION",
             description: [
-                "The company needed a presence in search engines and to get new clients, so I was in charge of making a very attractive cover letter: a landing page.",
+                "The company needed presence in search engines and getting new clients, so I was in charge of making a very attractive cover letter: a landing page.",
                 "My job consisted of designing all the experience, assets, animations and programming it entirely under the latest React technologies.",
             ],
             thumbnail: {
