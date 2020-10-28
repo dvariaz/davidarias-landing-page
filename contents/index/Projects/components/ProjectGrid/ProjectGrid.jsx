@@ -18,7 +18,6 @@ import { ProjectCard, ProjectCardSkeleton } from "../ProjectCard";
 import { lockScroll, unlockScroll } from "../../../../../utils/dom.js";
 
 //TODO: Revisar los handle y utilizar useCallback
-//TODO: Hacer carga progresiva de imágenes, es decir, solo cargar las miniaturas y cuando se amplíe se cargue en alta definición
 
 export const ProjectGrid = ({ rootRef, projects }) => {
     const [isDragging, setIsDragging] = useState(false);

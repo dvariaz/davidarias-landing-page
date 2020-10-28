@@ -7,7 +7,6 @@ import Portrait from "./components/Portrait";
 import Shape from "./components/Shape";
 import LanguageToggler from "../../../components/LanguageToggler";
 
-//TODO: Probar con useTranslation
 //TODO: Al ingresar con una url, el navegador no viaja hasta el id
 const Home = ({ id, t }) => {
     const ref = useRef();

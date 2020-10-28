@@ -11,6 +11,8 @@ import Contact from "../contents/index/Contact";
 
 //Context
 import { ViewportContextProvider } from "../context/ViewportContext";
+
+//TODO: Mejorar las cards de portada para twiter y og
 export default function Index() {
     return (
         <>
@@ -36,7 +38,7 @@ export default function Index() {
                 />
                 <meta
                     property="og:image"
-                    content={`${process.env.VERCEL_URL}/assets/cards/davidarias_card_web.png`}
+                    content="https://luisdavidarias.com/assets/cards/davidarias_card_web.jpg"
                 />
                 <meta name="twitter:title" content="David Arias - Creative Coder" />
                 <meta
@@ -48,7 +50,7 @@ export default function Index() {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
                     name="twitter:image:src"
-                    content={`${process.env.VERCEL_URL}/assets/cards/davidarias_card_web.jpg`}
+                    content="https://luisdavidarias.com/assets/cards/davidarias_card_web.jpg"
                 />
                 <meta name="robots" content="INDEX,FOLLOW,ARCHIVE" />
             </Head>
