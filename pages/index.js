@@ -40,16 +40,16 @@ export default function Index() {
                     property="og:image"
                     content="https://luisdavidarias.com/assets/cards/davidarias_card_web.jpg"
                 />
+                <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="David Arias - Creative Coder" />
                 <meta
-                    name="twitter:card"
+                    name="twitter:description"
                     content="Desarrollador Front-end 👨‍💻 y UI Designer 👨‍🎨. Construyo experiencias de alta calidad y atractivas para tus usuarios."
                 />
                 <meta name="twitter:site" content="@dvariaz" />
                 <meta name="twitter:creator" content="@dvariaz" />
-                <meta name="twitter:card" content="summary_large_image" />
                 <meta
-                    name="twitter:image:src"
+                    name="twitter:image"
                     content="https://luisdavidarias.com/assets/cards/davidarias_card_web.jpg"
                 />
                 <meta name="robots" content="INDEX,FOLLOW,ARCHIVE" />
