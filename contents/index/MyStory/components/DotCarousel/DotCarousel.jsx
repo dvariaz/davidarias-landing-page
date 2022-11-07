@@ -9,6 +9,9 @@ const DotCarousel = ({ items, onPageChange }) => {
     const [activePage, setActivePage] = useState(0);
     const [isSkipping, setIsSkipping] = useState(false);
 
+    const isInitialPage = activePage === 0;
+    const isLastPage = activePage === items.length - 1;
+
     const isCurrent = (id) => {
         return activePage === id;
     };
@@ -20,12 +23,14 @@ const DotCarousel = ({ items, onPageChange }) => {
             if (page === activePage + 1 || page === activePage - 1) {
                 //Si está incrementando/decrementando en 1
                 setActivePage(page);
-                carouselRef.current.scrollLeft = page * carouselRef.current.offsetWidth;
+                carouselRef.current.scrollLeft =
+                    page * carouselRef.current.offsetWidth;
                 onPageChange(page);
             } else {
                 //Si está haciendo un salto
                 setIsSkipping(true);
-                carouselRef.current.scrollLeft = page * carouselRef.current.offsetWidth;
+                carouselRef.current.scrollLeft =
+                    page * carouselRef.current.offsetWidth;
                 onPageChange(page);
                 //TODO: Convertirlo en una promesa que verifique cuando se llegó al destino
                 setTimeout(() => {
@@ -36,18 +41,25 @@ const DotCarousel = ({ items, onPageChange }) => {
         }
     };
 
-    const handlePageVisibility = (pageIndex) => {
-        if (!isSkipping) {
-            setActivePage(pageIndex);
-            onPageChange(pageIndex);
-        }
+    const handleSwipe = (direction) => {
+        if (direction === "NO_SWIPE" || isSkipping) return;
+        if (
+            (direction === "LEFT_SWIPE" && isLastPage) ||
+            (direction === "RIGHT_SWIPE" && isInitialPage)
+        )
+            return;
+
+        const nextPage =
+            direction === "LEFT_SWIPE" ? activePage + 1 : activePage - 1;
+        setActivePage(nextPage);
+        onPageChange(nextPage);
     };
 
     return (
         <>
             <div className={styles.track} ref={carouselRef}>
                 {items?.map((item, index) => (
-                    <Page key={item.id} onVisible={() => handlePageVisibility(index)}>
+                    <Page key={item.id} onSwipe={handleSwipe}>
                         {item.description.map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
                         ))}

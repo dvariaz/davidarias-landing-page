@@ -1,22 +1,49 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 import styles from "./DotCarousel.module.scss";
 
-import useOnScreen from "../../../../../hooks/useOnScreen.js";
-
-const Page = ({ onVisible, children }) => {
+const Page = ({ onSwipe, children }) => {
     const ref = useRef();
-    const isVisible = useOnScreen(ref, "10px", 0.9);
 
-    useEffect(() => {
-        //Si la página pasó a ser visible, y no es por un salto de página...
-        if (isVisible) {
-            onVisible();
-        }
-    }, [isVisible]);
+    const handleTouchStart = (e) => {
+        if (ref.swipeCheckInterval) clearInterval(ref.swipeCheckInterval);
+
+        const track = e.target.parentElement;
+        const [targetTouch] = e.targetTouches;
+
+        ref.initialTouchPosition = targetTouch.clientX;
+        ref.initialTrackPosition = track.scrollLeft;
+    };
+
+    const handleTouchEnd = (e) => {
+        const track = e.target.parentElement;
+        const finalTouchPosition = e.changedTouches[0].clientX;
+        const swipeDiff = finalTouchPosition - ref.initialTouchPosition;
+
+        ref.swipeCheckInterval = setTimeout(() => {
+            let swipeDirection;
+
+            if (track.scrollLeft === ref.initialTrackPosition) {
+                swipeDirection = "NO_SWIPE";
+            } else {
+                if (swipeDiff > 0) {
+                    swipeDirection = "RIGHT_SWIPE";
+                } else {
+                    swipeDirection = "LEFT_SWIPE";
+                }
+            }
+
+            onSwipe(swipeDirection);
+        }, 500);
+    };
 
     return (
-        <div className={styles.page} ref={ref}>
+        <div
+            className={styles.page}
+            ref={ref}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+        >
             {children}
         </div>
     );

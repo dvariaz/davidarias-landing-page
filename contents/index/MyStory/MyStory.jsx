@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { useQuery } from "react-query";
+import { useTranslation } from "next-i18next";
 
 import styles from "./MyStory.module.scss";
 
@@ -9,12 +11,14 @@ import PulseLoader from "react-spinners/PulseLoader";
 import StoryBackground from "./components/StoryBackground/StoryBackground";
 
 //TODO: Revisar los handle y utilizar useCallback
-const MyStory = ({ id, t }) => {
+const MyStory = ({ id }) => {
+    const { locale } = useRouter();
+    const { t } = useTranslation("my-story");
     const [index, setIndex] = useState(0);
 
     const { isLoading, error, data, refetch } = useQuery(
         "storiesData",
-        () => fetch("/api/stories").then((res) => res.json()),
+        () => fetch(`/api/stories?lang=${locale}`).then((res) => res.json()),
         { retry: false, refetchOnWindowFocus: false }
     );
 
@@ -56,7 +60,10 @@ const MyStory = ({ id, t }) => {
                     </div>
                 ) : (
                     <div className={styles.description}>
-                        <DotCarousel items={data?.stories} onPageChange={handlePageChange} />
+                        <DotCarousel
+                            items={data?.stories}
+                            onPageChange={handlePageChange}
+                        />
                     </div>
                 )}
             </div>
