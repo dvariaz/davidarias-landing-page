@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 //Views
 import Home from "../contents/index/Home";
@@ -30,7 +31,10 @@ export default function Index() {
                     name="keywords"
                     content="Desarrollo Front-end,Desarrollo Frontend,Desarrollador frontend,Desarrollador front-end,Desarrollador React,Desarrollador React.js,React.js,Frontend,Front-end,Diseño web,Diseño de sitios web,Diseño de paginas web,UI,UX,Motion Graphics,Animacion,Colombia,Desarrollador Colombia,Desarrollo experiencias interactivas"
                 />
-                <meta property="og:title" content="David Arias - Creative Coder" />
+                <meta
+                    property="og:title"
+                    content="David Arias - Creative Coder"
+                />
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:site_name"
@@ -41,7 +45,10 @@ export default function Index() {
                     content="https://luisdavidarias.com/assets/cards/davidarias_card_web.jpg"
                 />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="David Arias - Creative Coder" />
+                <meta
+                    name="twitter:title"
+                    content="David Arias - Creative Coder"
+                />
                 <meta
                     name="twitter:description"
                     content="Desarrollador Front-end 👨‍💻 y UI Designer 👨‍🎨. Construyo experiencias de alta calidad y atractivas para tus usuarios."
@@ -67,6 +74,10 @@ export default function Index() {
     );
 }
 
-Index.getInitialProps = async () => ({
-    namespacesRequired: [],
-});
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale)),
+        },
+    };
+}

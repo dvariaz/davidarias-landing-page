@@ -2,7 +2,7 @@ import App from "next/app";
 import Router from "next/router";
 import * as gtag from "../lib/gtag";
 import { QueryCache, ReactQueryCacheProvider } from "react-query";
-import { appWithTranslation } from "../i18n";
+import { appWithTranslation } from "next-i18next";
 
 import "../styles/global.scss";
 import "../styles/settings.scss";
