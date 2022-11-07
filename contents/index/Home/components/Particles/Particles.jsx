@@ -1,4 +1,4 @@
-import { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import styles from "./Particles.module.scss";
 
 import Particle from "./Particle";

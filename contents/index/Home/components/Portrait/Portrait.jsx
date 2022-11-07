@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./Portrait.module.scss";
@@ -17,7 +17,9 @@ const Portrait = ({ sectionRef }) => {
         <div>
             <h1
                 onAnimationIteration={() =>
-                    setIndexTitle((indexTitle) => (indexTitle + 1) % titles.length)
+                    setIndexTitle(
+                        (indexTitle) => (indexTitle + 1) % titles.length
+                    )
                 }
                 className={styles.titleUp}
             >

@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
@@ -135,8 +136,17 @@ const Shape = ({ color }) => {
                     </motion.symbol>
                 </defs>
 
-                <use href="#shape" fill="rgba(255,255,255,0.02)" transform="scale(1.4)" />
-                <use href="#shape" fill={color} stroke={color} transform="scale(0.8)" />
+                <use
+                    href="#shape"
+                    fill="rgba(255,255,255,0.02)"
+                    transform="scale(1.4)"
+                />
+                <use
+                    href="#shape"
+                    fill={color}
+                    stroke={color}
+                    transform="scale(0.8)"
+                />
             </svg>
         </div>
     );

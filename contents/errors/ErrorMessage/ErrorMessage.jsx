@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import styles from "./ErrorMessage.module.scss";
 
 import Button from "../../../components/Button";
 
-const Error404 = ({ statusCode, t }) => {
+const Error404 = ({ statusCode }) => {
+    const { t } = useTranslation("404");
+
     return (
         <div className={styles.body}>
             <div className={styles.container}>

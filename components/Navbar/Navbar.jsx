@@ -8,7 +8,7 @@ const Navbar = ({ sections }) => {
     return (
         <nav className={styles.bar}>
             <div className={styles.content}>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                     <a className={styles.brand}>
                         <img
                             src="/assets/logos/davidarias_logo.svg"
@@ -20,7 +20,11 @@ const Navbar = ({ sections }) => {
                 </Link>
                 <ul className={styles.sections}>
                     {sections.map((section) => (
-                        <a href={`#${section.id}`} key={section.id} className={styles.link}>
+                        <a
+                            href={`#${section.id}`}
+                            key={section.id}
+                            className={styles.link}
+                        >
                             {section.name}
                         </a>
                     ))}
@@ -39,7 +43,9 @@ const Navbar = ({ sections }) => {
 };
 
 Navbar.propTypes = {
-    sections: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string, name: PropTypes.string })),
+    sections: PropTypes.arrayOf(
+        PropTypes.shape({ id: PropTypes.string, name: PropTypes.string })
+    ),
 };
 
 export default Navbar;

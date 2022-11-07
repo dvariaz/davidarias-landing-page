@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "next-i18next";
 import styles from "./Contact.module.scss";
 
 import Button from "../../../components/Button";
 
-const Contact = ({ id, t }) => {
+const Contact = ({ id }) => {
+    const { t } = useTranslation("contact");
+
     return (
         <section id={id} className={styles.body}>
             <div className={styles.form}>
@@ -15,7 +18,10 @@ const Contact = ({ id, t }) => {
             <div className={styles.social}>
                 {t("social")}
                 <div className={styles.socialNetworks}>
-                    <a href="https://www.linkedin.com/in/dvariaz/" target="_blank">
+                    <a
+                        href="https://www.linkedin.com/in/dvariaz/"
+                        target="_blank"
+                    >
                         <img
                             src={"/assets/icons/linkedin_icon.svg"}
                             className={styles.icon}

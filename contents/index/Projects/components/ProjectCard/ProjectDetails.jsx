@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { withTranslation } from "../../../../../i18n";
+import { useTranslation } from "next-i18next";
 
 import styles from "./ProjectCard.module.scss";
 
@@ -22,8 +22,9 @@ const ProjectDetails = ({
     url,
     behance,
     onClick,
-    t,
 }) => {
+    const { t } = useTranslation("projects");
+
     const descriptionVariants = {
         visible: {
             opacity: 1,
@@ -88,8 +89,13 @@ const ProjectDetails = ({
                                 </div>
                             </Chip>
                         </div>
-                        <motion.picture layoutId={`project-card-${id}-thumbnail`}>
-                            <source srcSet={background} media="(min-width: 1600px)" />
+                        <motion.picture
+                            layoutId={`project-card-${id}-thumbnail`}
+                        >
+                            <source
+                                srcSet={background}
+                                media="(min-width: 1600px)"
+                            />
                             <img src={thumbnail.src_2x} draggable="false" />
                         </motion.picture>
                     </motion.div>
@@ -135,4 +141,4 @@ const ProjectDetails = ({
     );
 };
 
-export default withTranslation("projects")(ProjectDetails);
+export default ProjectDetails;

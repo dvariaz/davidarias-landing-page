@@ -128,7 +128,7 @@ const stories = {
 };
 
 export default (req, res) => {
-    const language = req.cookies["next-i18next"];
+    const language = req.query.lang;
 
     try {
         res.statusCode = 200;

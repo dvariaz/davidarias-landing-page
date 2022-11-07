@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useTranslation } from "next-i18next";
 import styles from "./Home.module.scss";
 
 //Components
@@ -8,8 +9,9 @@ import Shape from "./components/Shape";
 import LanguageToggler from "../../../components/LanguageToggler";
 
 //TODO: Al ingresar con una url, el navegador no viaja hasta el id
-const Home = ({ id, t }) => {
+const Home = ({ id }) => {
     const ref = useRef();
+    const { t } = useTranslation("home");
 
     return (
         <section id={id} className={styles.body} ref={ref}>
