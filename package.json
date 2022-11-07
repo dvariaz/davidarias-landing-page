@@ -1,29 +1,32 @@
 {
-  "name": "davidarias-landing-page",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@emotion/core": "^10.0.35",
-    "@react-hook/media-query": "^1.1.1",
-    "framer-motion": "^2.9.1",
-    "next": "^13.0.2",
-    "next-i18next": "^12.1.0",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-indiana-drag-scroll": "^1.7.0",
-    "react-query": "^2.23.1",
-    "react-spinners": "^0.9.0",
-    "sass": "^1.56.0",
-    "shallow-equal": "^1.2.1",
-    "uuid": "^8.3.1"
-  },
-  "devDependencies": {
-    "node-sass": "^7.0.3"
-  }
+    "name": "davidarias-landing-page",
+    "version": "0.1.0",
+    "private": true,
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "@emotion/core": "^10.0.35",
+        "@react-hook/media-query": "^1.1.1",
+        "framer-motion": "^2.9.1",
+        "next": "^13.0.2",
+        "next-i18next": "^12.1.0",
+        "prop-types": "^15.8.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-indiana-drag-scroll": "^1.7.0",
+        "react-query": "^2.23.1",
+        "react-spinners": "^0.9.0",
+        "sass": "^1.56.0",
+        "shallow-equal": "^1.2.1",
+        "uuid": "^8.3.1"
+    },
+    "devDependencies": {
+        "node-sass": "^7.0.3"
+    }
 }
