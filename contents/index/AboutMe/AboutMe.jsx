@@ -22,9 +22,6 @@ const AboutMe = () => {
                     <p>{t("description")}</p>
                     <p>
                         {t("current-job")}
-                        <a href="https://www.lahaus.com" target="_blank">
-                            La Haus
-                        </a>
                     </p>
                     <p>React Lover ⚛️</p>
                 </div>
