@@ -1,0 +1,24 @@
+.project-card__skeleton {
+    background: var(--overlay-item-background);
+}
+
+.project-card__label {
+    font-size: 0.9em;
+    color: white;
+
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+
+    padding: 0.5em 1em;
+    border-radius: 1.5em;
+
+    background: #03050c;
+}
+
+.project-card__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}

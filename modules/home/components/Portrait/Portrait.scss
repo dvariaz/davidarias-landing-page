@@ -1,0 +1,33 @@
+.portrait__title--up {
+    --start-position: 0;
+    --final-position: -1em;
+
+    animation: displacement 5s infinite ease;
+    text-align: start;
+    min-width: 150px;
+}
+
+.portrait__title--down {
+    --start-position: 0;
+    --final-position: 1em;
+
+    animation: displacement 5s infinite ease;
+    text-align: end;
+}
+
+@keyframes displacement {
+    0% {
+        opacity: 0;
+        transform: translateX(var(--start-position));
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(var(--final-position));
+        opacity: 0;
+    }
+}

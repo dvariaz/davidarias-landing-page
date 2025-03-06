@@ -1,0 +1,9 @@
+.skills__content {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 5vw;
+}
+
+.skills__column {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
