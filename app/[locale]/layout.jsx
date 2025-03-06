@@ -4,7 +4,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale, getMessages } from 'next-intl/server';
 
 import { routing } from '@/i18n/routing';
-import Providers from '@/app/[locale]/providers';
 import { goboldHollowFont, goboldItalicFont, poppinsFont } from '@/config/fonts';
 
 import "@/config/styles/libraries.css";
@@ -29,14 +28,12 @@ export default async function LocaleLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <Providers>
-      <NextIntlClientProvider messages={messages}>
-        <html lang={locale} className={clsx(goboldItalicFont.variable, goboldHollowFont.variable, poppinsFont.variable)}>
-          <body>
-            {children}
-          </body>
-        </html>
-      </NextIntlClientProvider>
-    </Providers>
+    <NextIntlClientProvider messages={messages}>
+      <html lang={locale} className={clsx(goboldItalicFont.variable, goboldHollowFont.variable, poppinsFont.variable)}>
+        <body>
+          {children}
+        </body>
+      </html>
+    </NextIntlClientProvider>
   );
 }
