@@ -6,7 +6,7 @@ import StoriesViewer from "@/modules/my-story/components/StoriesViewer";
 import "./MyStorySection.scss";
 
 const getStories = async (locale) => {
-    const response = await fetch(`${process.env.VERCEL_URL}/api/stories?locale=${locale}`);
+    const response = await fetch(`https://${process.env.VERCEL_URL}/api/stories?locale=${locale}`);
     const stories = await response.json();
 
     return stories;

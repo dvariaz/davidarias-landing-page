@@ -6,7 +6,7 @@ import "./ProjectsSection.scss";
 import { ProjectGrid } from "@/modules/projects/components/ProjectGrid";
 
 const getProjects = async (locale) => {
-    const response = await fetch(`${process.env.VERCEL_URL}/api/projects?locale=${locale}`);
+    const response = await fetch(`https://${process.env.VERCEL_URL}/api/projects?locale=${locale}`);
     const projects = await response.json();
 
     return projects;
