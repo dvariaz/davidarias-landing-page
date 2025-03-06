@@ -1,5 +1,3 @@
-import React from 'react'
-
 //Views
 import HomeSection from "@/modules/home/containers/HomeSection";
 import AboutMeSection from "@/modules/about-me/containers/AboutMeSection";
@@ -26,13 +24,7 @@ export const metadata = {
   robots: 'INDEX,FOLLOW,ARCHIVE'
 }
 
-const IndexPage = async props => {
-  const params = await props.params;
-
-  const {
-    lng
-  } = params;
-
+const IndexPage = async () => {
   return (
     <>
       <HomeSection id="index" />

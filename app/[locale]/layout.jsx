@@ -23,8 +23,6 @@ export default async function LocaleLayout({ children, params }) {
 
   if (!routing.locales.includes(locale)) notFound();
 
-  setRequestLocale(locale);
-
   const messages = await getMessages();
 
   return (
