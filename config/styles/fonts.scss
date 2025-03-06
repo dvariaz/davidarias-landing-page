@@ -1,0 +1,37 @@
+.navigation-text {
+    color: white;
+    font-family: var(--font-poppins);
+    letter-spacing: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.main-text {
+    color: white;
+    font-family: var(--font-gobold-italic);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.light-text {
+    color: white;
+    font-family: var(--font-poppins);
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.description-text {
+    color: white;
+    font-family: var(--font-poppins);
+    font-weight: 300;
+}
+
+.outline-text {
+    font-family: var(--font-gobold-hollow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
