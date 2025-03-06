@@ -2,7 +2,7 @@ import Divider from "@/modules/shared/components/Divider";
 import StudiesViewer from "@/modules/studies/components/StudiesViewer";
 
 const getStudies = async () => {
-    const response = await fetch(`https://${process.env.VERCEL_URL}/api/studies`);
+    const response = await fetch(`${process.env.APP_BASE_URL}/api/studies`);
     const studies = await response.json();
 
     return studies;
