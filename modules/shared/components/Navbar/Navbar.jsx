@@ -8,15 +8,13 @@ const Navbar = ({ sections, className }) => {
     return (
         <nav className={clsx("flex justify-center", className)}>
             <div className="relative w-full">
-                <Link href="/" legacyBehavior>
-                    <a className="main-text text-[1.2rem] absolute left-0 flex items-center w-auto h-18">
-                        <img
-                            src="/assets/logos/davidarias_logo.svg"
-                            alt="Logo David Arias"
-                            className="h-12 object-contain px-4 py-2"
-                        />
-                        <span className="block whitespace-nowrap">David Arias</span>
-                    </a>
+                <Link href="/" className="main-text text-[1.2rem] absolute left-0 flex items-center w-auto h-18">
+                    <img
+                        src="/assets/logos/davidarias_logo.svg"
+                        alt="Logo David Arias"
+                        className="h-12 object-contain px-4 py-2"
+                    />
+                    <span className="block whitespace-nowrap">David Arias</span>
                 </Link>
 
                 <ul className="hidden lg:flex items-center justify-center w-full">
